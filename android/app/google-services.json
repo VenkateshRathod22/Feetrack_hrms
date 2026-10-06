@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1036824821230",
+    "project_id": "feetrack-partner-employee",
+    "storage_bucket": "feetrack-partner-employee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036824821230:android:9b4007b696d5a9ef9922ff",
+        "android_client_info": {
+          "package_name": "com.example.feetrack_partner_employess"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtMI-J6UnEjvkrUfBwje9rnZhmJihuI7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
