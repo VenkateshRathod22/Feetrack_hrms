@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # macOS
 .DS_Store
@@ -15,6 +16,15 @@ build/
 # IDE
 .idea/
 .vscode/
+=======
+# Flutter / Dart
+.dart_tool/
+build/
+.pub-cache/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+>>>>>>> 8e5edd26b7b08cbdebefe7ef72786388041d6526
 
 # Android
 android/.gradle/
@@ -23,4 +33,17 @@ android/local.properties
 # iOS
 ios/Pods/
 ios/.symlinks/
+<<<<<<< HEAD
 ios/Flutter/ephemeral/
+=======
+
+# IDE
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Generated
+coverage/
+>>>>>>> 8e5edd26b7b08cbdebefe7ef72786388041d6526
