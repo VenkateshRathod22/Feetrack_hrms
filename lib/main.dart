@@ -8,6 +8,7 @@ import 'package:vlr/firebase_options.dart';
 import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/theme.dart';
 import 'package:toastification/toastification.dart';
+import 'package:vlr/views/screens/settings/theme_settings_screen/widget/app_theme_preference.dart';
 import 'package:vlr/views/screens/splash_screen/splash_screen.dart';
 import 'services/init.dart';
 
@@ -18,7 +19,10 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await FCMService.initialize();
-  runApp(const MyApp());
+
+  final initialThemeMode = await AppThemePreference.load();
+
+  runApp(MyApp(initialThemeMode: initialThemeMode));
 }
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -26,7 +30,9 @@ final GlobalKey<ScaffoldMessengerState> snackBarKey =
     GlobalKey<ScaffoldMessengerState>();
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final ThemeMode initialThemeMode;
+
+  const MyApp({Key? key, required this.initialThemeMode}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -65,18 +71,14 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           return GetMaterialApp(
             title: AppConstants.appName,
             navigatorKey: navigatorKey,
-            themeMode: ThemeMode.light,
             theme: CustomTheme.light,
+            darkTheme: CustomTheme.dark,
+            themeMode: widget.initialThemeMode,
             debugShowCheckedModeBanner: false,
             home: child,
           );
         },
         child: const SplashScreen(),
-        // child: const AttendancePunchOutScreen(),q
-        // child: const ApplyLeave(),
-        // child: const LeadCreateScreen(),
-        // child: const AccountScreen(),
-        // child: const HomeScreen(),
       ),
     );
   }

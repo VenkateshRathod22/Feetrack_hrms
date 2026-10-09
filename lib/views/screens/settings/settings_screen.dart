@@ -5,12 +5,12 @@ import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:vlr/controllers/auth_controller.dart';
 import 'package:vlr/controllers/payslip_config_controller.dart';
 import 'package:vlr/services/constants.dart';
-import 'package:vlr/services/theme.dart';
 import 'package:vlr/views/screens/settings/attendence_check_list_point_screen.dart';
 import 'package:vlr/views/screens/settings/get_commision_level_screen.dart';
 import 'package:vlr/views/screens/settings/get_payslip_config_screen.dart';
 import 'package:vlr/views/screens/settings/holydays_screen.dart';
 import 'package:vlr/views/screens/settings/pipline_config_screen.dart';
+import 'package:vlr/views/screens/settings/theme_settings_screen/theme_settings_screen.dart';
 
 import '../task/task_status_screen.dart';
 import 'expence_category_screen.dart';
@@ -125,6 +125,20 @@ class SettingsScreen extends StatelessWidget {
                       showToast(message: res.message);
                     }
                   });
+                },
+              ),
+              _buildSettingsTile(
+                context: context,
+                icon: Icons.color_lens_outlined,
+                title: "App theme",
+                subtitle: "Light",
+                onTap: () {
+
+                 
+                      navigate(
+                          context: context,
+                          page: const ThemeSettingsScreen());
+
                 },
               ),
           ],

@@ -5,7 +5,7 @@ import 'package:vlr/controllers/auth_controller.dart';
 import 'package:vlr/controllers/notice_controller.dart';
 import 'package:vlr/controllers/dashboard_controller.dart';
 import 'package:vlr/services/constants.dart';
-import 'package:vlr/services/theme.dart';
+import 'package:vlr/views/screens/account_screen/widget/puch_time_in_out_section/daily_attendance_section.dart';
 import 'package:vlr/views/screens/dashboard/home_screen/widget/notice_board_section/notice_board_section.dart';
 import 'package:vlr/views/screens/dashboard/home_screen/widget/notification_section/notification_section.dart';
 import 'package:vlr/views/screens/dashboard/home_screen/widget/quick_action_section/quick_action_section.dart';
@@ -76,7 +76,12 @@ class _HomeScreenState extends State<HomeScreen> {
               physics: const AlwaysScrollableScrollPhysics(),
               child: Column(
                 children: [
-                   UserInfoTopHome(),
+                  const UserInfoTopHome(),
+                  sizedBoxHeight(height: 16.h),
+                const   Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: AppConstants.horizontalPadding),
+                    child:  DailyAttendanceSection(),
+                  ),
                   sizedBoxHeight(height: 16.h),
                   const TopAchieversSection(),
                   const RecentTasksSection(),
@@ -92,9 +97,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: "Recruitment & Compliance",
                     actions: managementActions2(context: context),
                   ),
-                  ThisMonthTargetSection(),
+                  const ThisMonthTargetSection(),
                   sizedBoxHeight(height: 16.h),
-                   NotificationSection(),
+                  const NotificationSection(),
                   sizedBoxHeight(height: 40.h),
                 ],
               ),

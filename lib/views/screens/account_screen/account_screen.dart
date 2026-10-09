@@ -6,11 +6,9 @@ import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
 import 'package:vlr/views/screens/account_screen/widget/account_option_section/account_option_section.dart';
-import 'package:vlr/views/screens/account_screen/widget/puch_time_in_out_section/daily_attendance_section.dart';
 import 'package:vlr/views/screens/account_screen/widget/reporting_manager_widget.dart';
 import 'package:vlr/views/screens/account_screen/widget/row_logout_account_delete_section/row_logout_account_delete_section.dart';
 import 'package:vlr/views/screens/attendance/attendance_punch_in_out_successful_screen/attendance_punch_in_out_success_screen.dart';
-import 'package:vlr/views/screens/dashboard/home_screen/widget/use_info_top_home_section.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -53,7 +51,7 @@ class _AccountScreenState extends State<AccountScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              navigate(context: context, page: AttendancePunchInOutSuccessScreen());
+              navigate(context: context, page: const AttendancePunchInOutSuccessScreen());
             },
             icon: Icon(
               Icons.notifications_none_outlined,
@@ -71,7 +69,7 @@ class _AccountScreenState extends State<AccountScreen> {
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Column(
                 children: [
-                  const DailyAttendanceSection(),
+                  // const DailyAttendanceSection(),
                   sizedBoxHeight(height: 16.h),
                   const ReportingManagerWidget(),
                   sizedBoxHeight(height: 24.h),

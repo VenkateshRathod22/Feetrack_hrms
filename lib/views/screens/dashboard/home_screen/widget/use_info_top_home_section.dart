@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
@@ -93,7 +92,7 @@ class UserInfoTopHome extends StatelessWidget {
                                     .bodySmall
                                     ?.copyWith(
                                       fontSize: 12.sp,
-                                      color: white.withOpacity(0.8),
+                                      color: white.withValues(alpha:  0.8),
                                     ),
                               ),
                             ],
@@ -128,7 +127,7 @@ class UserInfoTopHome extends StatelessWidget {
                       padding:
                           EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
                       decoration: BoxDecoration(
-                        color: white.withOpacity(0.15),
+                        color: white.withValues(alpha:0.15),
                         borderRadius: BorderRadius.circular(20.r),
                       ),
                       child: CustomText(
@@ -165,7 +164,7 @@ class UserInfoTopHome extends StatelessWidget {
                                   .bodySmall
                                   ?.copyWith(
                                     fontSize: 10.sp,
-                                    color: white.withOpacity(0.9),
+                                    color: white.withValues(alpha:0.9),
                                   ),
                             ),
                           ],
@@ -174,92 +173,97 @@ class UserInfoTopHome extends StatelessWidget {
                     )
                   ],
                 ),
-                sizedBoxHeight(height: 20.h),
+
                 if (dashData?.myAttendanceToday != null)
                   Container(
                     margin: EdgeInsets.only(bottom: 20.h),
                     padding:
                         EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                     decoration: BoxDecoration(
-                      color: white.withOpacity(0.1),
+                      color: white.withValues(alpha:0.1),
                       borderRadius: BorderRadius.circular(15.r),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Column(
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                                        sizedBoxHeight(height: 20.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            CustomText(
-                              "Today's Attendance",
-                              style: Helper(context)
-                                  .textTheme
-                                  .bodySmall
-                                  ?.copyWith(
-                                    color: white.withOpacity(0.8),
-                                    fontSize: 10.sp,
-                                  ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                CustomText(
+                                  "Today's Attendance",
+                                  style: Helper(context)
+                                      .textTheme
+                                      .bodySmall
+                                      ?.copyWith(
+                                        color: white.withValues(alpha:0.8),
+                                        fontSize: 10.sp,
+                                      ),
+                                ),
+                                sizedBoxHeight(height: 4.h),
+                                CustomText(
+                                  capitalize(
+                                      dashData?.myAttendanceToday?.status ??
+                                          "N/A"),
+                                  style: Helper(context)
+                                      .textTheme
+                                      .titleSmall
+                                      ?.copyWith(
+                                        color: white,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ],
                             ),
-                            sizedBoxHeight(height: 4.h),
-                            CustomText(
-                              capitalize(
-                                  dashData?.myAttendanceToday?.status ??
-                                      "N/A"),
-                              style: Helper(context)
-                                  .textTheme
-                                  .titleSmall
-                                  ?.copyWith(
-                                    color: white,
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
+                            Row(
+                              children: [
+                                _buildAttendanceTime(
+                                    context,
+                                    "Check In",
+                                    dashData?.myAttendanceToday?.checkIn ?? "--:--",
+                                    Icons.login),
+                                sizedBoxWidth(width: 20.w),
+                                _buildAttendanceTime(
+                                    context,
+                                    "Check Out",
+                                    dashData?.myAttendanceToday?.checkOut ??
+                                        "--:--",
+                                    Icons.logout),
+                              ],
+                            )
                           ],
                         ),
-                        Row(
-                          children: [
-                            _buildAttendanceTime(
-                                context,
-                                "Check In",
-                                dashData?.myAttendanceToday?.checkIn ?? "--:--",
-                                Icons.login),
-                            sizedBoxWidth(width: 20.w),
-                            _buildAttendanceTime(
-                                context,
-                                "Check Out",
-                                dashData?.myAttendanceToday?.checkOut ??
-                                    "--:--",
-                                Icons.logout),
-                          ],
-                        )
                       ],
                     ),
                   ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    _buildStatItem(
-                        context,
-                        "${dashData?.myAttendanceThisMonth ?? 0}",
-                        "Attendance",
-                        Icons.calendar_month),
-                    _buildStatItem(
-                        context,
-                        "${dashData?.myPendingLeaves ?? 0}",
-                        "Leaves",
-                        Icons.exit_to_app),
-                    _buildStatItem(
-                        context,
-                        "${dashData?.totalLeads ?? 0}",
-                        "Leads",
-                        Icons.leaderboard),
-                    _buildStatItem(
-                        context,
-                        "${dashData?.myPendingTasks ?? 0}",
-                        "Tasks",
-                        Icons.task_alt),
-                  ],
-                )
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //   children: [
+                //     _buildStatItem(
+                //         context,
+                //         "${dashData?.myAttendanceThisMonth ?? 0}",
+                //         "Attendance",
+                //         Icons.calendar_month),
+                //     _buildStatItem(
+                //         context,
+                //         "${dashData?.myPendingLeaves ?? 0}",
+                //         "Leaves",
+                //         Icons.exit_to_app),
+                //     _buildStatItem(
+                //         context,
+                //         "${dashData?.totalLeads ?? 0}",
+                //         "Leads",
+                //         Icons.leaderboard),
+                //     _buildStatItem(
+                //         context,
+                //         "${dashData?.myPendingTasks ?? 0}",
+                //         "Tasks",
+                //         Icons.task_alt),
+                //   ],
+                // )
               ],
             ),
           ),
@@ -275,12 +279,12 @@ class UserInfoTopHome extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(icon, color: white.withOpacity(0.7), size: 12.sp),
+            Icon(icon, color: white.withValues(alpha:0.7), size: 12.sp),
             sizedBoxWidth(width: 4.w),
             CustomText(
               label,
               style: Helper(context).textTheme.bodySmall?.copyWith(
-                    color: white.withOpacity(0.7),
+                    color: white.withValues(alpha:0.7),
                     fontSize: 9.sp,
                   ),
             ),
@@ -302,7 +306,7 @@ class UserInfoTopHome extends StatelessWidget {
       BuildContext context, String value, String label, IconData icon) {
     return Column(
       children: [
-        Icon(icon, color: white.withOpacity(0.9), size: 20.sp),
+        Icon(icon, color: white.withValues(alpha:0.9), size: 20.sp),
         sizedBoxHeight(height: 4.h),
         CustomText(
           value,
@@ -315,7 +319,7 @@ class UserInfoTopHome extends StatelessWidget {
         CustomText(
           label,
           style: Helper(context).textTheme.bodySmall?.copyWith(
-                color: white.withOpacity(0.8),
+                color: white.withValues(alpha:0.8),
                 fontSize: 10.sp,
               ),
         ),

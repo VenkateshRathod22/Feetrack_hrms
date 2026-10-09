@@ -231,68 +231,235 @@ class CustomTheme {
       ),
     ),
   );
-  static ThemeData dark = ThemeData(
-    brightness: Brightness.dark,
-    useMaterial3: true,
-    scaffoldBackgroundColor: backgroundDark,
-    hintColor: Colors.grey[700],
-    primarySwatch: colorCustom,
-    canvasColor: secondaryColor,
-    primaryColorLight: secondaryColor,
-    splashColor: secondaryColor,
-    shadowColor: Colors.black45,
-    cardColor: Colors.grey[800],
-    primaryColor: primaryColor,
-    dividerColor: Colors.grey[200],
-    primaryColorDark: Colors.white,
-    colorScheme: ColorScheme(
-      brightness: Brightness.dark,
-      primary: primaryColor,
-      onPrimary: Colors.white,
-      secondary: secondaryColor,
-      onSecondary: Colors.black,
-      error: const Color(0xFFCF6679),
-      onError: const Color(0xFFCF6679),
-      background: backgroundDark,
-      onBackground: Colors.white,
-      surface: backgroundDark,
-      onSurface: Colors.white,
+ static ThemeData dark = ThemeData(
+  fontFamily: "Montserrat",
+  brightness: Brightness.dark,
+  useMaterial3: true,
+
+  // Background Colors
+  scaffoldBackgroundColor: const Color(0xFF0E1420),
+  canvasColor: const Color(0xFF171F2D),
+  cardColor: const Color(0xFF1B2637),
+
+  // Primary and Accent Colors
+  primaryColor: const Color(0xFF8AB4FF),
+  primaryColorLight: const Color(0xFF5EEAD4),
+  primaryColorDark: const Color(0xFFF1F5F9),
+
+  splashColor: const Color(0x225EEAD4),
+  shadowColor: Colors.black.withValues(alpha: 0.25),
+  dividerColor: const Color(0xFF303B4D),
+  hintColor: const Color(0xFF8B97AB),
+
+  // Material 3 Color Scheme
+  colorScheme: const ColorScheme.dark(
+    primary: Color(0xFF8AB4FF),
+    onPrimary: Color(0xFF102544),
+
+    secondary: Color(0xFF5EEAD4),
+    onSecondary: Color(0xFF063B35),
+
+    error: Color(0xFFFFB4AB),
+    onError: Color(0xFF690005),
+
+    surface: Color(0xFF171F2D),
+    onSurface: Color(0xFFE8EDF5),
+  ),
+
+  // App Bar
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Color(0xFF0E1420),
+    foregroundColor: Color(0xFFE8EDF5),
+    elevation: 0,
+    centerTitle: false,
+    surfaceTintColor: Colors.transparent,
+    actionsIconTheme: IconThemeData(
+      color: Color(0xFFE8EDF5),
     ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: primaryColor,
-      actionsIconTheme: IconThemeData(
-        color: backgroundLight,
-      ),
-      iconTheme: IconThemeData(
-        color: backgroundLight,
-      ),
-      systemOverlayStyle: const SystemUiOverlayStyle(
-        // Status bar color
-        statusBarColor: primaryColor,
-        // Status bar brightness (optional)
-        statusBarIconBrightness: Brightness.light,
-        statusBarBrightness: Brightness.light,
+    iconTheme: IconThemeData(
+      color: Color(0xFFE8EDF5),
+    ),
+    systemOverlayStyle: SystemUiOverlayStyle(
+      statusBarColor: Color(0xFF0E1420),
+      statusBarIconBrightness: Brightness.light,
+      statusBarBrightness: Brightness.dark,
+    ),
+  ),
+
+  // General Icons
+  iconTheme: const IconThemeData(
+    color: Color(0xFFB8C5D9),
+  ),
+
+  // Dividers
+  dividerTheme: const DividerThemeData(
+    color: Color(0xFF303B4D),
+    thickness: 1,
+    space: 1,
+  ),
+
+  // Input Fields
+  inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: const Color(0xFF1B2637),
+    hintStyle: GoogleFonts.manrope(
+      color: const Color(0xFF8B97AB),
+      fontSize: 13,
+    ),
+    labelStyle: GoogleFonts.manrope(
+      color: const Color(0xFFB8C5D9),
+    ),
+    contentPadding: const EdgeInsets.symmetric(
+      horizontal: 16,
+      vertical: 14,
+    ),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: const BorderSide(
+        color: Color(0xFF354257),
       ),
     ),
-    typography: Typography.material2021(),
-    textTheme: TextTheme(
-      labelLarge: GoogleFonts.openSans(
-        fontWeight: FontWeight.w400,
-        color: textSecondary,
-        fontSize: 14.0,
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: const BorderSide(
+        color: Color(0xFF354257),
       ),
-      headlineLarge: GoogleFonts.openSans(),
-      headlineMedium: GoogleFonts.openSans(),
-      headlineSmall: GoogleFonts.openSans(),
-      displayLarge: GoogleFonts.openSans(),
-      displayMedium: GoogleFonts.openSans(),
-      displaySmall: GoogleFonts.openSans(),
-      titleLarge: GoogleFonts.openSans(),
-      titleMedium: GoogleFonts.openSans(),
-      titleSmall: GoogleFonts.openSans(),
-      bodyLarge: GoogleFonts.openSans(),
-      bodyMedium: GoogleFonts.openSans(),
-      bodySmall: GoogleFonts.openSans(),
     ),
-  );
-}
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: const BorderSide(
+        color: Color(0xFF8AB4FF),
+        width: 1.5,
+      ),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: const BorderSide(
+        color: Color(0xFFFFB4AB),
+      ),
+    ),
+  ),
+
+  // Elevated Buttons
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: const Color(0xFF8AB4FF),
+      foregroundColor: const Color(0xFF102544),
+      disabledBackgroundColor: const Color(0xFF293448),
+      disabledForegroundColor: const Color(0xFF8490A4),
+      elevation: 0,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 14,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      textStyle: GoogleFonts.montserrat(
+        fontWeight: FontWeight.w700,
+      ),
+    ),
+  ),
+
+  // Outlined Buttons
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      foregroundColor: const Color(0xFF8AB4FF),
+      side: const BorderSide(
+        color: Color(0xFF526B91),
+      ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 14,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+    ),
+  ),
+
+  // Bottom Navigation
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: Color(0xFF171F2D),
+    selectedItemColor: Color(0xFF8AB4FF),
+    unselectedItemColor: Color(0xFF8B97AB),
+    type: BottomNavigationBarType.fixed,
+    elevation: 0,
+  ),
+
+  // Material Typography
+  typography: Typography.material2021(),
+
+  textTheme: TextTheme(
+    // Buttons and Labels
+    labelLarge: GoogleFonts.openSans(
+      fontWeight: FontWeight.w700,
+      color: const Color(0xFFE8EDF5),
+      fontSize: 14,
+    ),
+    labelMedium: GoogleFonts.openSans(
+      fontWeight: FontWeight.w600,
+      color: const Color(0xFFD0D9E8),
+    ),
+    labelSmall: GoogleFonts.openSans(
+      fontWeight: FontWeight.w500,
+      color: const Color(0xFFA8B4C8),
+    ),
+
+    // Main Headings
+    headlineLarge: GoogleFonts.montserrat(
+      fontWeight: FontWeight.w800,
+      color: const Color(0xFFF8FAFC),
+    ),
+    headlineMedium: GoogleFonts.montserrat(
+      fontWeight: FontWeight.w700,
+      color: const Color(0xFFF1F5F9),
+    ),
+    headlineSmall: GoogleFonts.montserrat(
+      fontWeight: FontWeight.w600,
+      color: const Color(0xFFE8EDF5),
+    ),
+
+    // Display Text
+    displayLarge: GoogleFonts.montserrat(
+      fontWeight: FontWeight.w900,
+      color: const Color(0xFFF8FAFC),
+    ),
+    displayMedium: GoogleFonts.montserrat(
+      fontWeight: FontWeight.w700,
+      color: const Color(0xFFF1F5F9),
+    ),
+    displaySmall: GoogleFonts.montserrat(
+      fontWeight: FontWeight.w600,
+      color: const Color(0xFFE8EDF5),
+    ),
+
+    // App Bar and Section Titles
+    titleLarge: GoogleFonts.montserrat(
+      fontWeight: FontWeight.w800,
+      color: const Color(0xFFF1F5F9),
+    ),
+    titleMedium: GoogleFonts.montserrat(
+      fontWeight: FontWeight.w700,
+      color: const Color(0xFFE8EDF5),
+    ),
+    titleSmall: GoogleFonts.montserrat(
+      fontWeight: FontWeight.w600,
+      color: const Color(0xFFD0D9E8),
+    ),
+
+    // Main Content
+    bodyLarge: GoogleFonts.manrope(
+      fontWeight: FontWeight.w600,
+      color: const Color(0xFFE8EDF5),
+    ),
+    bodyMedium: GoogleFonts.manrope(
+      fontWeight: FontWeight.w500,
+      color: const Color(0xFFD0D9E8),
+    ),
+    bodySmall: GoogleFonts.manrope(
+      fontWeight: FontWeight.w400,
+      color: const Color(0xFFA8B4C8),
+    ),
+  ),
+); }
