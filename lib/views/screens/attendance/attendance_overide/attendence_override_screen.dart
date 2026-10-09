@@ -28,7 +28,7 @@ class _AttendenceOverrideScreenState extends State<AttendenceOverrideScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Attendance Overrides",

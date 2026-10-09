@@ -27,7 +27,7 @@ class _AttendenceCalenderScreenState extends State<AttendenceCalenderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       body: GetBuilder<AttendanceController>(builder: (controller) {
         return Column(
           children: [

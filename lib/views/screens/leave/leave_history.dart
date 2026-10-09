@@ -27,7 +27,7 @@ class _LeaveHistoryScreenState extends State<LeaveHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         elevation: 2,
         centerTitle: true,

@@ -47,7 +47,7 @@ class _CustomervisitsscreenState extends State<Customervisitsscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Customer Visits",

@@ -65,7 +65,7 @@ class _AddProbotaionScreenState extends State<AddProbotaionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(widget.probationModel != null ? "Edit Probation" : "Add Probation", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
         centerTitle: true,

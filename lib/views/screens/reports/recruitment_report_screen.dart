@@ -45,7 +45,7 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText("Recruitment Report", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
         centerTitle: true,

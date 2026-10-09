@@ -77,7 +77,7 @@ class _AddTrainingProgramScreenState extends State<AddTrainingProgramScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(widget.program != null ? "Edit Training Program" : "Add Training Program", 
           style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),

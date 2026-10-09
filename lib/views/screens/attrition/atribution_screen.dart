@@ -102,7 +102,7 @@ class _AttritionScreenState extends State<AttritionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Attrition Management",

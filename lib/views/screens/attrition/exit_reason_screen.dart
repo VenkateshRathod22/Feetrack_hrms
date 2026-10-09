@@ -26,7 +26,7 @@ class _ExitReasonScreenState extends State<ExitReasonScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText("Exit Reasons", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
         centerTitle: true,
@@ -133,7 +133,7 @@ class _ExitReasonScreenState extends State<ExitReasonScreen> {
                 ),
                 sizedBoxHeight(height: 16),
                 SwitchListTile(
-                  title: Text("Is Active"),
+                  title: const Text("Is Active"),
                   value: isActive,
                   onChanged: (val) => setDialogState(() => isActive = val),
                   activeColor: primaryColor,
@@ -143,7 +143,7 @@ class _ExitReasonScreenState extends State<ExitReasonScreen> {
             ),
           ),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
+            TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
             TextButton(
               onPressed: () {
                 if (nameController.text.isEmpty) {
@@ -198,10 +198,10 @@ class _ExitReasonScreenState extends State<ExitReasonScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text("Delete Reason?"),
+        title: const Text("Delete Reason?"),
         content: Text("Are you sure you want to delete '${reason.name}'?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -209,7 +209,7 @@ class _ExitReasonScreenState extends State<ExitReasonScreen> {
                 showToast(message: res.message, toastType: res.isSuccess ? ToastType.success : ToastType.error);
               });
             },
-            child: Text("Delete", style: TextStyle(color: Colors.red)),
+            child: const Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

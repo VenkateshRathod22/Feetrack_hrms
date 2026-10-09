@@ -48,7 +48,7 @@ class _TeamExpencesScreenState extends State<TeamExpencesScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         elevation: 2,
         centerTitle: true,

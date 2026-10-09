@@ -45,7 +45,7 @@ class _OrderReportScreenState extends State<OrderReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Order Report",

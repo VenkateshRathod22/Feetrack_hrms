@@ -45,7 +45,7 @@ class _PipReportScreenState extends State<PipReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText("PIP Report", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
         centerTitle: true,

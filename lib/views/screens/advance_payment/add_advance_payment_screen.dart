@@ -32,7 +32,7 @@ class _AddAdvancePaymentScreenState extends State<AddAdvancePaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Request Advance",

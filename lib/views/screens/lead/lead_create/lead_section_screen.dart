@@ -6,7 +6,6 @@ import 'package:vlr/services/theme.dart';
 import 'package:vlr/views/screens/lead/lead_create/CustomerVisitsScreen.dart';
 import 'package:vlr/views/screens/lead/lead_create/OrdersPipelineScreen.dart';
 import 'package:vlr/views/screens/lead/lead_create/RecoveryHistoryScreen.dart';
-import 'package:vlr/views/screens/lead/lead_create/lead_create_screen.dart';
 import 'package:vlr/views/screens/lead/lead_create/lead_recovery_amount_screen.dart';
 import 'package:vlr/views/screens/lead/lead_create/lead_tabar_screen.dart';
 
@@ -16,7 +15,6 @@ class LeadSectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
       appBar: AppBar(
         title: CustomText(
           "Lead Management",

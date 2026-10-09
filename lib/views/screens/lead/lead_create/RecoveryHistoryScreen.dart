@@ -29,7 +29,7 @@ class _RecoveryhistoryscreenState extends State<Recoveryhistoryscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         backgroundColor: white,
         elevation: 0,

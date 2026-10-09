@@ -93,7 +93,7 @@ class _AddResignationScreenState extends State<AddResignationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(widget.exitModel != null ? "Edit Exit Record" : "Record Resignation / Exit", 
           style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),

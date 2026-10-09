@@ -71,7 +71,7 @@ class _LeadsScreenState extends State<LeadsScreen> {
     }
 
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         elevation: 2,
         centerTitle: true,

@@ -74,7 +74,7 @@ class _RecruitmentScreenState extends State<RecruitmentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: widget.hideAppBar
           ? null
           : AppBar(

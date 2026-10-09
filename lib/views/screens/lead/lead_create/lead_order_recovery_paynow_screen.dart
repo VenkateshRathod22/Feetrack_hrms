@@ -38,7 +38,7 @@ class _LeadOrderRecoveryPaynowScreenState extends State<LeadOrderRecoveryPaynowS
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Collect Payment",

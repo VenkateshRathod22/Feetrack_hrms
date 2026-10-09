@@ -43,7 +43,7 @@ class _SalaryReportScreenState extends State<SalaryReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Salary Management Report",

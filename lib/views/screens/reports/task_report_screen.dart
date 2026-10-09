@@ -45,7 +45,7 @@ class _TaskReportScreenState extends State<TaskReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Task Report",

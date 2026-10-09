@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
@@ -131,7 +132,7 @@ class SettingsScreen extends StatelessWidget {
                 context: context,
                 icon: Icons.color_lens_outlined,
                 title: "App theme",
-                subtitle: "Light",
+                subtitle:  Get.isDarkMode ? "Dark" : "Light",
                 onTap: () {
 
                  
@@ -169,7 +170,7 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         subtitle: Text(subtitle),
-        trailing: Icon(Icons.arrow_forward_ios, size: 18),
+        trailing: const Icon(Icons.arrow_forward_ios, size: 18),
         onTap: onTap,
       ),
     );

@@ -63,7 +63,7 @@ class _AddGrievanceDisciplinedScreenState extends State<AddGrievanceDisciplinedS
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(widget.grievance != null ? "Edit Grievance" : "Report Incident", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
         centerTitle: true,

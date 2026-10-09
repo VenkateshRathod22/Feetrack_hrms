@@ -115,7 +115,7 @@ class _LeadCreateOrderScreenState extends State<LeadCreateOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: Row(
           children: [

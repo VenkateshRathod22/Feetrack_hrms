@@ -27,7 +27,7 @@ class _CompanyDocumentsScreenState extends State<CompanyDocumentsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Company Documents",

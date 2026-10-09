@@ -99,7 +99,7 @@ class _TrainingProgramsListScreenState extends State<TrainingProgramsListScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText("Training Dashboard", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
         centerTitle: true,

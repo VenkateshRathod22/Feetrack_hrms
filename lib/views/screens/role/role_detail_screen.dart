@@ -20,7 +20,7 @@ class RoleDetailScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       body: GetBuilder<RoleController>(builder: (controller) {
         if (controller.isLoading && controller.roleDetails == null) {
           return const Center(child: CircularProgressIndicator());

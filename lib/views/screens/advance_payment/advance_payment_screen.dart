@@ -26,7 +26,7 @@ class _AdvancePaymentScreenState extends State<AdvancePaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Advance Payments",

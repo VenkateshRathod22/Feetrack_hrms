@@ -44,7 +44,7 @@ class _LeaveReportScreenState extends State<LeaveReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Leave Report",

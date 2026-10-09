@@ -81,7 +81,7 @@ class _JobListScreenState extends State<JobListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         backgroundColor: white,
         elevation: 0.5,

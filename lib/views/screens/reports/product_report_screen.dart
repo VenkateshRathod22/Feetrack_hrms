@@ -43,7 +43,7 @@ class _ProductReportScreenState extends State<ProductReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Product Report",

@@ -106,7 +106,7 @@ class _AddRequirementScreenState extends State<AddRequirementScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(widget.recruitmentModel != null ? "Edit Recruitment" : "Add Candidate / Job Vacancy", 
           style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),

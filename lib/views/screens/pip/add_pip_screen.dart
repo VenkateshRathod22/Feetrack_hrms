@@ -72,7 +72,7 @@ class _AddPipScreenState extends State<AddPipScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(widget.pipModel != null ? "Edit PIP Plan" : "New PIP Plan", 
           style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),

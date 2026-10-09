@@ -28,7 +28,7 @@ class _ExpenceHistoryScreenState extends State<ExpenceHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         elevation: 2,
         centerTitle: true,

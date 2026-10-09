@@ -74,7 +74,7 @@ class _RecordExitScreenState extends State<RecordExitScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(widget.attritionModel != null ? "Edit Exit Record" : "Record Employee Exit", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
         centerTitle: true,

@@ -70,7 +70,7 @@ class _TaskScreenState extends State<TaskScreen> {
     }
 
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         elevation: 2,
         centerTitle: true,

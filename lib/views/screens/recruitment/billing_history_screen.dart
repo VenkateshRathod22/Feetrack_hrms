@@ -76,7 +76,7 @@ class _BillingHistoryScreenState extends State<BillingHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: widget.hideAppBar
           ? null
           : AppBar(

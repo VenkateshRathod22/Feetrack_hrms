@@ -96,7 +96,7 @@ class _AddDocumentScreenState extends State<AddDocumentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(widget.document != null ? "Edit Document" : "Upload Document", 
           style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),

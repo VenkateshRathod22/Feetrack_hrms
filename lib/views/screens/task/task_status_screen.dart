@@ -27,7 +27,7 @@ class _TaskStatusScreenState extends State<TaskStatusScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Task Statuses",

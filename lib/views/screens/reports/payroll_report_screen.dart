@@ -41,7 +41,7 @@ class _PayrollReportScreenState extends State<PayrollReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Payroll Report",

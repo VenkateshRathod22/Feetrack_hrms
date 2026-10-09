@@ -26,7 +26,7 @@ class _MyTargetScreenState extends State<MyTargetScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "My Targets",

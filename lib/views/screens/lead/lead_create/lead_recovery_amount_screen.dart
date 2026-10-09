@@ -28,7 +28,7 @@ class _LeadRecoveryAmountScreenState extends State<LeadRecoveryAmountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Lead Order Recovery",

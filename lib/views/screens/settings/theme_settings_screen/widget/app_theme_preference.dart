@@ -18,7 +18,7 @@ class AppThemePreference {
         return ThemeMode.system;
 
       default:
-        return ThemeMode.system;
+        return ThemeMode.dark;
     }
   }
 

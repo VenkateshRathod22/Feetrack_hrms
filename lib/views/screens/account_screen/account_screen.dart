@@ -30,7 +30,7 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor:  primaryColor,
         elevation: 0,
         centerTitle: true,
         title: CustomText(

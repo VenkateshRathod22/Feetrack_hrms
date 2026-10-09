@@ -22,7 +22,7 @@ class DailyAttendanceSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<AttendanceController>(builder: (attendanceController) {
       return CustomShimmer(
-        isLoading: attendanceController.isLoading,
+        isLoading: true,
         child: Container(
           padding: EdgeInsets.all(16.w),
           decoration: BoxDecoration(

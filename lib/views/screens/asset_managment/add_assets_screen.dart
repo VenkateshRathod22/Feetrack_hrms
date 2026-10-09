@@ -88,7 +88,7 @@ class _AddAssetsScreenState extends State<AddAssetsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(widget.asset != null ? "Edit Asset" : "Register Asset", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
         centerTitle: true,

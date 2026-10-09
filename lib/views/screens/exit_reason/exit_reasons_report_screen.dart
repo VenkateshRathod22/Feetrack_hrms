@@ -39,7 +39,7 @@ class _ExitReasonsReportScreenState extends State<ExitReasonsReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText("Exit Reasons", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
         centerTitle: true, backgroundColor: white, elevation: 0,

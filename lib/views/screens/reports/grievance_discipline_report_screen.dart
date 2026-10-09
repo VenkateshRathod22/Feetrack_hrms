@@ -45,7 +45,7 @@ class _GrievanceDisciplineReportScreenState extends State<GrievanceDisciplineRep
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText("Grievance & Discipline", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
         centerTitle: true,

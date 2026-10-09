@@ -27,7 +27,7 @@ class _ProcessNotesScreenState extends State<ProcessNotesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Process Notes",

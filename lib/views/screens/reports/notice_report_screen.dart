@@ -41,7 +41,7 @@ class _NoticeReportScreenState extends State<NoticeReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Notice Report",

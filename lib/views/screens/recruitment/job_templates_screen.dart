@@ -71,7 +71,7 @@ class _JobTemplatesScreenState extends State<JobTemplatesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: widget.hideAppBar
           ? null
           : AppBar(

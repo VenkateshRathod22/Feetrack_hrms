@@ -40,7 +40,7 @@ class _CreateCustomerVisitScreenState extends State<CreateCustomerVisitScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           widget.visit != null ? "Update Visit" : "Schedule Visit",

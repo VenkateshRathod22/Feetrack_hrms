@@ -41,7 +41,7 @@ class _RecoveryReportScreenState extends State<RecoveryReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Recovery Report",

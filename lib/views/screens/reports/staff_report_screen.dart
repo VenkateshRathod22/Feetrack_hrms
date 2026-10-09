@@ -39,7 +39,7 @@ class _StaffReportScreenState extends State<StaffReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+
       appBar: AppBar(
         title: CustomText(
           "Staff Report",
