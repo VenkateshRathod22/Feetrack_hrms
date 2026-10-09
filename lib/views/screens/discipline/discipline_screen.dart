@@ -281,10 +281,10 @@ class _DisciplineScreenState extends State<DisciplineScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Record?"),
+        title: Text("Delete Record?"),
         content: Text("Are you sure you want to delete the grievance for ${item.employeeName}?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -296,7 +296,7 @@ class _DisciplineScreenState extends State<DisciplineScreen> {
                 }
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

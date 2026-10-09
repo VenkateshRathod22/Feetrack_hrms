@@ -149,7 +149,7 @@ class _PerformanceScreenState extends State<PerformanceScreen> {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.star_rounded, color: Colors.amber, size: 20),
+                      Icon(Icons.star_rounded, color: Colors.amber, size: 20),
                       sizedBoxWidth(width: 4),
                       CustomText(
                         "4.5", // Dummy rating

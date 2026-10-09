@@ -45,7 +45,7 @@ class _LeaveCategoryScreenState extends State<LeaveCategoryScreen> {
       ),
       body: GetBuilder<LeaveCategoryController>(builder: (leaveCategoryController) {
         if (leaveCategoryController.isLoading && leaveCategoryController.leaveCategoryList.isEmpty) {
-          return const Center(child: CircularProgressIndicator(color: primaryColor));
+          return  Center(child: CircularProgressIndicator(color: primaryColor));
         }
 
         if (leaveCategoryController.leaveCategoryList.isEmpty) {

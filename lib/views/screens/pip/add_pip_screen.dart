@@ -130,7 +130,7 @@ class _AddPipScreenState extends State<AddPipScreen> {
                   readOnly: true,
                   onTap: () => _selectDate(context, startController),
                   isRequired: true,
-                  suffix: const Icon(Icons.calendar_today_outlined, size: 18),
+                  suffix: Icon(Icons.calendar_today_outlined, size: 18),
                 ),
                 sizedBoxHeight(height: 20),
                 AppTextFieldWithHeading(
@@ -140,7 +140,7 @@ class _AddPipScreenState extends State<AddPipScreen> {
                   readOnly: true,
                   onTap: () => _selectDate(context, endController),
                   isRequired: true,
-                  suffix: const Icon(Icons.calendar_today_outlined, size: 18),
+                  suffix: Icon(Icons.calendar_today_outlined, size: 18),
                 ),
                 sizedBoxHeight(height: 20),
                 _buildDropdown(
@@ -171,7 +171,7 @@ class _AddPipScreenState extends State<AddPipScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.check_rounded, color: Colors.white, size: 20),
+                      Icon(Icons.check_rounded, color: Colors.white, size: 20),
                       sizedBoxWidth(width: 8),
                       CustomText(
                         widget.pipModel != null ? "Update PIP Plan" : "Initiate PIP Plan",

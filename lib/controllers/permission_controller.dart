@@ -69,21 +69,21 @@ class PermissionController extends GetxController implements GetxService {
             context: context,
             barrierDismissible: false,
             builder: (_) => AlertDialog(
-              title: const Text("Location Disabled"),
-              content: const Text(
+              title: Text("Location Disabled"),
+              content: Text(
                 "Please enable GPS/Location Services.",
               ),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text("Cancel"),
+                  child: Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () async {
                     Navigator.pop(context);
                     await Geolocator.openLocationSettings();
                   },
-                  child: const Text("Settings"),
+                  child: Text("Settings"),
                 ),
               ],
             ),
@@ -114,21 +114,21 @@ class PermissionController extends GetxController implements GetxService {
           await showDialog(
             context: context,
             builder: (_) => AlertDialog(
-              title: const Text("Permission Required"),
-              content: const Text(
+              title: Text("Permission Required"),
+              content: Text(
                 "Location permission is permanently denied. Please enable it from Settings.",
               ),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text("Cancel"),
+                  child: Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () async {
                     Navigator.pop(context);
                     await openAppSettings();
                   },
-                  child: const Text("Open Settings"),
+                  child: Text("Open Settings"),
                 ),
               ],
             ),

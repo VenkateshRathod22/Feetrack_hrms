@@ -55,7 +55,7 @@ class _ProbationReportScreenState extends State<ProbationReportScreen> {
         actions: [
           IconButton(
             onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.probationExport, search: _getSearchMap()),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -69,7 +69,7 @@ class _ProbationReportScreenState extends State<ProbationReportScreen> {
                   controller: searchController,
                   decoration: InputDecoration(
                       hintText: "Search...",
-                      prefixIcon: const Icon(Icons.search),
+                      prefixIcon: Icon(Icons.search),
                       filled: true,
                       fillColor: white,
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r), borderSide: BorderSide.none),
@@ -106,7 +106,7 @@ class _ProbationReportScreenState extends State<ProbationReportScreen> {
                         icon: Icons.more_time_rounded),
                   ]),
                 if (reportsController.probationReportList.isEmpty)
-                  Padding(padding: EdgeInsets.only(top: 100.h), child: const Text("No data found"))
+                  Padding(padding: EdgeInsets.only(top: 100.h), child: Text("No data found"))
                 else
                   ListView.separated(
                     shrinkWrap: true,

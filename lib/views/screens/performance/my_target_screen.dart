@@ -53,13 +53,13 @@ class _MyTargetScreenState extends State<MyTargetScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("No target data available"),
+                Text("No target data available"),
                 sizedBoxHeight(height: 16),
                 SizedBox(
                   width: 150.w,
                   child: CustomButton(
                     onTap: () => controller.fetchMyTargets(),
-                    child: const Text("Retry"),
+                    child: Text("Retry"),
                   ),
                 )
               ],

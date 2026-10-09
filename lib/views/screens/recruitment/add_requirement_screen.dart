@@ -192,7 +192,7 @@ class _AddRequirementScreenState extends State<AddRequirementScreen> {
                   controller: interviewDateController,
                   readOnly: true,
                   onTap: () => _selectDate(context, interviewDateController),
-                  suffix: const Icon(Icons.calendar_today_outlined, size: 18),
+                  suffix: Icon(Icons.calendar_today_outlined, size: 18),
                 ),
                 sizedBoxHeight(height: 20),
                 _buildDropdown(
@@ -249,7 +249,7 @@ class _AddRequirementScreenState extends State<AddRequirementScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.check_rounded, color: Colors.white, size: 20),
+                      Icon(Icons.check_rounded, color: Colors.white, size: 20),
                       sizedBoxWidth(width: 8),
                       CustomText(
                         "Save Recruitment Record",

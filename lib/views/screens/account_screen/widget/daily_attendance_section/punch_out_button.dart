@@ -82,7 +82,7 @@ class PunchButtonWidget extends StatelessWidget {
                         )),
                     child: Row(
                       children: [
-                        const Icon(
+                         Icon(
                           Icons.info_outline,
                           color: green2,
                         ),

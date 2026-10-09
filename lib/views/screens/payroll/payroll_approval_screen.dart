@@ -29,7 +29,7 @@ class _PayrollApprovalScreenState extends State<PayrollApprovalScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FA),
       appBar: AppBar(
-        title: const Text("Payroll Approval"),
+        title: Text("Payroll Approval"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -44,7 +44,7 @@ class _PayrollApprovalScreenState extends State<PayrollApprovalScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: "Search employee...",
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: white,
                   border: OutlineInputBorder(
@@ -159,7 +159,7 @@ class _PayrollApprovalScreenState extends State<PayrollApprovalScreen> {
                                           minimumSize: Size.zero,
                                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                         ),
-                                        child: const Text("Mark as Paid"),
+                                        child: Text("Mark as Paid"),
                                       ),
                                     ],
                                   ),
@@ -197,12 +197,12 @@ class _PayrollApprovalScreenState extends State<PayrollApprovalScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Approve Payroll"),
+        title: Text("Approve Payroll"),
         content: Text("Are you sure you want to approve and mark the payroll as paid for $name?"),
         actions: [
           TextButton(
             onPressed: () => pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           ElevatedButton(
             onPressed: () {
@@ -215,7 +215,7 @@ class _PayrollApprovalScreenState extends State<PayrollApprovalScreen> {
               });
             },
             style: ElevatedButton.styleFrom(backgroundColor: Colors.green, foregroundColor: white),
-            child: const Text("Approve"),
+            child: Text("Approve"),
           ),
         ],
       ),

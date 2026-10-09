@@ -30,7 +30,7 @@ class _AttendenceCheckListPointScreenState extends State<AttendenceCheckListPoin
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Attendance Checklist"),
+        title: Text("Attendance Checklist"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -52,7 +52,7 @@ class _AttendenceCheckListPointScreenState extends State<AttendenceCheckListPoin
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: "Search questions...",
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: grey.withValues(alpha: 0.1),
                   border: OutlineInputBorder(
@@ -128,7 +128,7 @@ class _AttendenceCheckListPointScreenState extends State<AttendenceCheckListPoin
                                     onPressed: () {
                                       _showDeleteDialog(context, controller, item.id!);
                                     },
-                                    icon: const Icon(Icons.delete, color: Colors.red),
+                                    icon: Icon(Icons.delete, color: Colors.red),
                                   ),
                                 ],
                               ),
@@ -146,12 +146,12 @@ class _AttendenceCheckListPointScreenState extends State<AttendenceCheckListPoin
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Question"),
-        content: const Text("Are you sure you want to delete this checklist question?"),
+        title: Text("Delete Question"),
+        content: Text("Are you sure you want to delete this checklist question?"),
         actions: [
           TextButton(
             onPressed: () => pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {
@@ -160,7 +160,7 @@ class _AttendenceCheckListPointScreenState extends State<AttendenceCheckListPoin
                 pop(context);
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

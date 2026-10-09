@@ -6,7 +6,6 @@ import 'package:vlr/controllers/reports_controller.dart';
 import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
-import 'package:vlr/views/base/shimmer.dart';
 import 'package:vlr/views/screens/reports/widget/report_summary_widget.dart';
 import 'package:vlr/views/screens/reports/widget/report_filter_widget.dart';
 
@@ -63,7 +62,7 @@ class _LeadReportScreenState extends State<LeadReportScreen> {
                 search: _getSearchMap(),
               );
             },
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),

@@ -180,7 +180,7 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(8.r),
                                             ),
-                                            child: const Icon(
+                                            child:  Icon(
                                               Icons.login,
                                               color: green2,
                                             ),
@@ -232,7 +232,7 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(8.r),
                                             ),
-                                            child: const Icon(
+                                            child:  Icon(
                                               Icons.logout,
                                               color: red1,
                                             ),

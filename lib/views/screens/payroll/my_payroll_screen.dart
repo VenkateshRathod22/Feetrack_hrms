@@ -27,7 +27,7 @@ class _MyPayrollScreenState extends State<MyPayrollScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("My Payroll"),
+        title: Text("My Payroll"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,

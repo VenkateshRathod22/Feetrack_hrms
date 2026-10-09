@@ -144,7 +144,7 @@ class _ExpenseCard extends StatelessWidget {
                   onPressed: () {
                     navigate(context: context, page: ApplyExpenceScreen(expense: expense));
                   },
-                  icon: const Icon(Icons.edit, color: Colors.blue, size: 20),
+                  icon: Icon(Icons.edit, color: Colors.blue, size: 20),
                   padding: EdgeInsets.zero,
                   constraints: const BoxConstraints(),
                 ),

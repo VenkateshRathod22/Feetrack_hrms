@@ -187,11 +187,11 @@ class _ApprovalCard extends StatelessWidget {
                   },
                   style: OutlinedButton.styleFrom(
                     foregroundColor: red,
-                    side: const BorderSide(color: red),
+                    side:  BorderSide(color: red),
                     padding: EdgeInsets.symmetric(vertical: 12.h),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
                   ),
-                  child: const Text("Reject"),
+                  child: Text("Reject"),
                 ),
               ),
               sizedBoxWidth(width: 16.w),
@@ -207,7 +207,7 @@ class _ApprovalCard extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 12.h),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
                   ),
-                  child: const Text("Approve"),
+                  child: Text("Approve"),
                 ),
               ),
             ],
@@ -226,7 +226,7 @@ class _ApprovalCard extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {

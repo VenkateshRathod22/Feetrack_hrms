@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vlr/controllers/attendance_controller.dart';
-import 'package:vlr/data/models/attendance/attendance_model.dart';
 import 'package:vlr/services/constants.dart';
-import 'package:vlr/views/base/shimmer.dart';
-import 'package:vlr/views/screens/attendance/attendacn_details/attendance_details_screen.dart';
-import 'package:vlr/views/screens/attendance/attendance_history/widget/attendance_list_section/attendance_widget.dart';
 
 import 'package:vlr/views/base/custom_button.dart';
 import 'package:vlr/views/screens/attendance/attendance_history/widget/attendance_list_section/attendance_history_table.dart';
@@ -27,7 +23,7 @@ class _AttendanceListSectionState extends State<AttendanceListSection> {
     return GetBuilder<AttendanceController>(
       builder: (attendanceController) {
         if (attendanceController.isLoading) {
-          return const Center(
+          return  Center(
             child: CircularProgressIndicator(
               color: primaryColor,
               strokeWidth: 3,

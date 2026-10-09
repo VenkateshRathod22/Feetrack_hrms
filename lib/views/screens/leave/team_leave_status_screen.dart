@@ -8,7 +8,6 @@ import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
 import 'package:vlr/views/base/custom_image.dart';
 
-import 'package:vlr/generated/assets.dart';
 import 'package:vlr/services/date_formatters_and_converters.dart';
 
 class TeamLeaveStatusScreen extends StatefulWidget {
@@ -220,12 +219,12 @@ class _TeamLeaveCard extends StatelessWidget {
                           },
                     style: OutlinedButton.styleFrom(
                       foregroundColor: red,
-                      side: const BorderSide(color: red),
+                      side:  BorderSide(color: red),
                       padding: EdgeInsets.symmetric(vertical: 8.h),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.r)),
                     ),
-                    child: const Text("Reject"),
+                    child: Text("Reject"),
                   ),
                 ),
                 sizedBoxWidth(width: 12.w),
@@ -244,7 +243,7 @@ class _TeamLeaveCard extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.r)),
                     ),
-                    child: const Text("Approve"),
+                    child: Text("Approve"),
                   ),
                 ),
               ],
@@ -265,7 +264,7 @@ class _TeamLeaveCard extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {

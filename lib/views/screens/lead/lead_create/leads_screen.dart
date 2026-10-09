@@ -87,7 +87,7 @@ class _LeadsScreenState extends State<LeadsScreen> {
             onPressed: () {
               navigate(context: context, page: const LeadCreateScreen());
             },
-            icon: const Icon(Icons.add_circle_outline, color: primaryColor),
+            icon:  Icon(Icons.add_circle_outline, color: primaryColor),
           ),
         ],
       ),

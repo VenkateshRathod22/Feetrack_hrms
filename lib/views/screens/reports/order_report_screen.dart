@@ -6,7 +6,6 @@ import 'package:vlr/controllers/reports_controller.dart';
 import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
-import 'package:vlr/views/base/shimmer.dart';
 
 import 'package:vlr/views/screens/reports/widget/report_summary_widget.dart';
 import 'package:vlr/views/screens/reports/widget/report_filter_widget.dart';
@@ -64,7 +63,7 @@ class _OrderReportScreenState extends State<OrderReportScreen> {
                 search: _getSearchMap(),
               );
             },
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -234,7 +233,7 @@ class _OrderReportScreenState extends State<OrderReportScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomText(label, style:  TextStyle(fontSize: 10, color: greyDart2)),
-        CustomText(value, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: primaryColor)),
+        CustomText(value, style:  TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: primaryColor)),
       ],
     );
   }

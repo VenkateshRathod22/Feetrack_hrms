@@ -157,12 +157,12 @@ class ProductWidget extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Product"),
-        content: const Text("Are you sure you want to delete this product?"),
+        title: Text("Delete Product"),
+        content: Text("Are you sure you want to delete this product?"),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {
@@ -176,7 +176,7 @@ class ProductWidget extends StatelessWidget {
                 nav.pop();
               });
             },
-            child: const Text("Delete", style: TextStyle(color: red1)),
+            child:  Text("Delete", style: TextStyle(color: red1)),
           ),
         ],
       ),

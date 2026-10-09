@@ -93,7 +93,7 @@ class _CreateWorkShiftScreenState extends State<CreateWorkShiftScreen> {
                       DropdownButtonFormField<int>(
                         value: controller.selectedBranchId,
                         decoration: _inputDecoration(),
-                        hint: const Text("Select Branch"),
+                        hint: Text("Select Branch"),
                         items: branchController.branchList
                             .map((e) => DropdownMenuItem<int>(
                                   value: e.id,

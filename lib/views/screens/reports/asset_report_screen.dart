@@ -47,7 +47,7 @@ class _AssetReportScreenState extends State<AssetReportScreen> {
         actions: [
           IconButton(
             onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.assetExport, search: _getSearchMap()),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -66,7 +66,7 @@ class _AssetReportScreenState extends State<AssetReportScreen> {
                   ReportSummaryItemModel(label: "Damaged", value: reportsController.assetReportSummary!.damaged.toString(), icon: Icons.report_problem_rounded),
                 ]),
               if (reportsController.assetReportList.isEmpty)
-                Padding(padding: EdgeInsets.only(top: 100.h), child: const Text("No data found"))
+                Padding(padding: EdgeInsets.only(top: 100.h), child: Text("No data found"))
               else
                 ListView.separated(
                   shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
@@ -88,14 +88,14 @@ class _AssetReportScreenState extends State<AssetReportScreen> {
       child: Column(children: [
         TextField(
           controller: searchController,
-          decoration: InputDecoration(hintText: "Search...", prefixIcon: const Icon(Icons.search), contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h), border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r), borderSide: BorderSide(color: greyLight1))),
+          decoration: InputDecoration(hintText: "Search...", prefixIcon: Icon(Icons.search), contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h), border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r), borderSide: BorderSide(color: greyLight1))),
           onChanged: (v) => _fetchReport(),
         ),
         sizedBoxHeight(height: 12),
         Row(children: [
-          Expanded(child: DropdownButtonFormField<String>(value: category, hint: const Text("Category"), items: ['laptop', 'mobile', 'sim', 'id_card', 'other'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e.replaceAll("_", " "))))).toList(), onChanged: (v) { setState(() => category = v); _fetchReport(); })),
+          Expanded(child: DropdownButtonFormField<String>(value: category, hint: Text("Category"), items: ['laptop', 'mobile', 'sim', 'id_card', 'other'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e.replaceAll("_", " "))))).toList(), onChanged: (v) { setState(() => category = v); _fetchReport(); })),
           sizedBoxWidth(width: 8),
-          Expanded(child: DropdownButtonFormField<String>(value: status, hint: const Text("Status"), items: ['available', 'issued', 'damaged', 'lost'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(), onChanged: (v) { setState(() => status = v); _fetchReport(); })),
+          Expanded(child: DropdownButtonFormField<String>(value: status, hint: Text("Status"), items: ['available', 'issued', 'damaged', 'lost'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(), onChanged: (v) { setState(() => status = v); _fetchReport(); })),
         ]),
       ]),
     );

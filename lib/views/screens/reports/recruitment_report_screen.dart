@@ -54,7 +54,7 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
         actions: [
           IconButton(
             onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.recruitmentExport, search: _getSearchMap()),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon: Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -86,7 +86,7 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
                         icon: Icons.local_offer_rounded),
                   ]),
                 if (reportsController.recruitmentReportList.isEmpty)
-                  Padding(padding: EdgeInsets.only(top: 100.h), child: const Text("No data found"))
+                  Padding(padding: EdgeInsets.only(top: 100.h), child: Text("No data found"))
                 else
                   ListView.separated(
                     shrinkWrap: true,
@@ -117,7 +117,7 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
                 child: GetBuilder<DepartmentController>(builder: (dept) {
                   return DropdownButtonFormField<String>(
                     value: departmentId,
-                    hint: const Text("Dept"),
+                    hint: Text("Dept"),
                     items: [const DropdownMenuItem(value: null, child: Text("All Depts")), ...dept.departmentList.map((e) => DropdownMenuItem(value: e.id.toString(), child: Text(e.name ?? "")))],
                     onChanged: (v) { setState(() => departmentId = v); _fetchReport(); },
                   );
@@ -127,7 +127,7 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
               Expanded(
                 child: DropdownButtonFormField<String>(
                   value: interviewStage,
-                  hint: const Text("Stage"),
+                  hint: Text("Stage"),
                   items: ['applied', 'interviewed', 'offered', 'joined', 'rejected'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(),
                   onChanged: (v) { setState(() => interviewStage = v); _fetchReport(); },
                 ),
@@ -143,7 +143,7 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
             child: Container(
               padding: EdgeInsets.all(12.r),
               decoration: BoxDecoration(border: Border.all(color: greyLight1), borderRadius: BorderRadius.circular(8.r)),
-              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [const Icon(Icons.calendar_today, size: 16, color: primaryColor), sizedBoxWidth(width: 8), Text("${DateFormat('dd-MM-yy').format(startDate)} - ${DateFormat('dd-MM-yy').format(endDate)}")]),
+              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [Icon(Icons.calendar_today, size: 16, color: primaryColor), sizedBoxWidth(width: 8), Text("${DateFormat('dd-MM-yy').format(startDate)} - ${DateFormat('dd-MM-yy').format(endDate)}")]),
             ),
           ),
         ],

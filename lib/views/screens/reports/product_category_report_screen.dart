@@ -6,7 +6,6 @@ import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
 import 'package:vlr/views/screens/reports/widget/report_summary_widget.dart';
-import 'package:vlr/views/screens/reports/widget/report_staff_filter_widget.dart';
 
 class ProductCategoryReportScreen extends StatefulWidget {
   const ProductCategoryReportScreen({super.key});
@@ -57,7 +56,7 @@ class _ProductCategoryReportScreenState extends State<ProductCategoryReportScree
                 search: _getSearchMap(),
               );
             },
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -70,7 +69,7 @@ class _ProductCategoryReportScreenState extends State<ProductCategoryReportScree
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: "Search categories...",
-                    prefixIcon: const Icon(Icons.search_rounded),
+                    prefixIcon: Icon(Icons.search_rounded),
                     filled: true,
                     fillColor: white,
                     border: OutlineInputBorder(

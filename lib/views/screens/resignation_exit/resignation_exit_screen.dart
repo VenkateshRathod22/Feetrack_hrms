@@ -294,10 +294,10 @@ class _ResignationExitScreenState extends State<ResignationExitScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Exit Record?"),
+        title: Text("Delete Exit Record?"),
         content: Text("Are you sure you want to delete the exit record for ${exit.employee?.name}?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -309,7 +309,7 @@ class _ResignationExitScreenState extends State<ResignationExitScreen> {
                 }
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

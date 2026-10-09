@@ -30,7 +30,7 @@ class _ExpenceCategoryScreenState extends State<ExpenceCategoryScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Expense Category"),
+        title: Text("Expense Category"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -52,7 +52,7 @@ class _ExpenceCategoryScreenState extends State<ExpenceCategoryScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: "Search expense categories...",
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: grey.withValues(alpha: 0.1),
                   border: OutlineInputBorder(
@@ -154,7 +154,7 @@ class _ExpenceCategoryScreenState extends State<ExpenceCategoryScreen> {
                                         page: AddExpenceCategoryScreen(isEdit: true, categoryId: category.id),
                                       );
                                     },
-                                    icon: const Icon(Icons.edit, color: Colors.blue),
+                                    icon: Icon(Icons.edit, color: Colors.blue),
                                     padding: EdgeInsets.zero,
                                     constraints: const BoxConstraints(),
                                   ),
@@ -163,7 +163,7 @@ class _ExpenceCategoryScreenState extends State<ExpenceCategoryScreen> {
                                     onPressed: () {
                                       _showDeleteDialog(context, controller, category.id!);
                                     },
-                                    icon: const Icon(Icons.delete, color: Colors.red),
+                                    icon: Icon(Icons.delete, color: Colors.red),
                                     padding: EdgeInsets.zero,
                                     constraints: const BoxConstraints(),
                                   ),
@@ -183,12 +183,12 @@ class _ExpenceCategoryScreenState extends State<ExpenceCategoryScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Expense Category"),
-        content: const Text("Are you sure you want to delete this expense category?"),
+        title: Text("Delete Expense Category"),
+        content: Text("Are you sure you want to delete this expense category?"),
         actions: [
           TextButton(
             onPressed: () => pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {
@@ -197,7 +197,7 @@ class _ExpenceCategoryScreenState extends State<ExpenceCategoryScreen> {
                 pop(context);
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

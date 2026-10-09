@@ -28,7 +28,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Permissions"),
+        title: Text("Permissions"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,

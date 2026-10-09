@@ -114,7 +114,7 @@ class _AttritionScreenState extends State<AttritionScreen> {
         actions: [
           IconButton(
             onPressed: () => navigate(context: context, page: const ExitReasonScreen()),
-            icon: const Icon(Icons.list_alt_rounded, color: primaryColor),
+            icon:  Icon(Icons.list_alt_rounded, color: primaryColor),
             tooltip: "Exit Reasons",
           ),
           IconButton(
@@ -122,7 +122,7 @@ class _AttritionScreenState extends State<AttritionScreen> {
               uri: AppConstants.attritionExport,
               search: _getFilterData(),
             ),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -133,7 +133,7 @@ class _AttritionScreenState extends State<AttritionScreen> {
         backgroundColor: primaryColor,
         elevation: 4,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
-        icon: const Icon(Icons.add_rounded, color: Colors.white, size: 24),
+        icon: Icon(Icons.add_rounded, color: Colors.white, size: 24),
         label: CustomText(
           "Record Exit",
           style: TextStyle(color: white, fontWeight: FontWeight.bold, fontSize: 14.sp),
@@ -414,10 +414,10 @@ class _AttritionScreenState extends State<AttritionScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Record?"),
+        title: Text("Delete Record?"),
         content: Text("Are you sure you want to delete the exit record for ${record.employeeName}?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -429,7 +429,7 @@ class _AttritionScreenState extends State<AttritionScreen> {
                 }
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

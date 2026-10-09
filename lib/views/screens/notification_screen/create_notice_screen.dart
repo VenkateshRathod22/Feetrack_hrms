@@ -94,7 +94,7 @@ class _CreateNoticeScreenState extends State<CreateNoticeScreen> {
                         controller: noticeController.startDateController,
                         isRequired: true,
                         readOnly: true,
-                        suffix: const Icon(Icons.calendar_today),
+                        suffix: Icon(Icons.calendar_today),
                         onTap: () async {
                           DateTime? picked = await showDatePicker(
                             context: context,
@@ -116,7 +116,7 @@ class _CreateNoticeScreenState extends State<CreateNoticeScreen> {
                         controller: noticeController.endDateController,
                         isRequired: true,
                         readOnly: true,
-                        suffix: const Icon(Icons.calendar_today),
+                        suffix: Icon(Icons.calendar_today),
                         onTap: () async {
                           DateTime? picked = await showDatePicker(
                             context: context,

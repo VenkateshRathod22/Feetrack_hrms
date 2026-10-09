@@ -49,7 +49,7 @@ class ReportsSectionScreen extends StatelessWidget {
         surfaceTintColor: Colors.transparent,
         leading: Navigator.canPop(context) ? IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
         ) : null,
       ),
       body: GetBuilder<AuthController>(builder: (authController) {

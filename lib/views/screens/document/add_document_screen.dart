@@ -174,7 +174,7 @@ class _AddDocumentScreenState extends State<AddDocumentScreen> {
                   controller: issueDateController,
                   readOnly: true,
                   onTap: () => _selectDate(context, issueDateController),
-                  suffix: const Icon(Icons.calendar_today_outlined, size: 18),
+                  suffix: Icon(Icons.calendar_today_outlined, size: 18),
                 ),
                 sizedBoxHeight(height: 20),
                 AppTextFieldWithHeading(
@@ -183,7 +183,7 @@ class _AddDocumentScreenState extends State<AddDocumentScreen> {
                   controller: expiryDateController,
                   readOnly: true,
                   onTap: () => _selectDate(context, expiryDateController),
-                  suffix: const Icon(Icons.calendar_today_outlined, size: 18),
+                  suffix: Icon(Icons.calendar_today_outlined, size: 18),
                 ),
                 sizedBoxHeight(height: 20),
                 Row(
@@ -219,7 +219,7 @@ class _AddDocumentScreenState extends State<AddDocumentScreen> {
                     ),
                     child: Row(
                       children: [
-                        const Icon(Icons.cloud_upload_outlined, color: primaryColor),
+                         Icon(Icons.cloud_upload_outlined, color: primaryColor),
                         sizedBoxWidth(width: 12),
                         Expanded(
                           child: CustomText(
@@ -248,7 +248,7 @@ class _AddDocumentScreenState extends State<AddDocumentScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.check_rounded, color: Colors.white, size: 20),
+                      Icon(Icons.check_rounded, color: Colors.white, size: 20),
                       sizedBoxWidth(width: 8),
                       CustomText(
                         widget.document != null ? "Update Record" : "Upload Document",

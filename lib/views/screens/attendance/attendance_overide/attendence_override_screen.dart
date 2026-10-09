@@ -41,7 +41,7 @@ class _AttendenceOverrideScreenState extends State<AttendenceOverrideScreen> {
         actions: [
           IconButton(
             onPressed: () => navigate(context: context, page: const AddAttendenceOrverideScreen()),
-            icon: const Icon(Icons.add_circle_outline, color: primaryColor),
+            icon:  Icon(Icons.add_circle_outline, color: primaryColor),
           ),
         ],
       ),

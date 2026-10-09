@@ -297,10 +297,10 @@ class _ProbationtScreenState extends State<ProbationtScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Record?"),
+        title: Text("Delete Record?"),
         content: Text("Are you sure you want to delete the probation record for ${item.employeeName}?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -312,7 +312,7 @@ class _ProbationtScreenState extends State<ProbationtScreen> {
                 }
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

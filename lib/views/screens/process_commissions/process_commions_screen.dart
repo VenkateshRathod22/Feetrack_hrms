@@ -30,7 +30,7 @@ class _ProcessCommionsScreenState extends State<ProcessCommionsScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Process Commissions"),
+        title: Text("Process Commissions"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -40,8 +40,8 @@ class _ProcessCommionsScreenState extends State<ProcessCommionsScreen> {
           navigate(context: context, page: const GenerateProcessCommionsScreen());
         },
         backgroundColor: primaryColor,
-        icon: const Icon(Icons.add, color: Colors.white),
-        label: const Text("Process New", style: TextStyle(color: Colors.white)),
+        icon: Icon(Icons.add, color: Colors.white),
+        label: Text("Process New", style: TextStyle(color: Colors.white)),
       ),
       body: GetBuilder<CommissionController>(builder: (controller) {
         return Column(
@@ -52,7 +52,7 @@ class _ProcessCommionsScreenState extends State<ProcessCommionsScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: "Search history...",
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: grey.withValues(alpha: 0.1),
                   border: OutlineInputBorder(

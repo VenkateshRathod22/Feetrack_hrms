@@ -56,7 +56,7 @@ class _ReportStaffFilterWidgetState extends State<ReportStaffFilterWidget> {
             controller: searchController,
             decoration: InputDecoration(
               hintText: "Name or email...",
-              prefixIcon: const Icon(Icons.search, size: 20),
+              prefixIcon: Icon(Icons.search, size: 20),
               contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r), borderSide: BorderSide(color: greyLight1)),
               enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r), borderSide: BorderSide(color: greyLight1)),
@@ -76,7 +76,7 @@ class _ReportStaffFilterWidgetState extends State<ReportStaffFilterWidget> {
                       return DropdownButtonFormField<String>(
                         isExpanded: true,
                         value: selectedDepartmentId,
-                        hint: const Text("All Departments"),
+                        hint: Text("All Departments"),
                         decoration: _inputDecoration(),
                         items: [
                           const DropdownMenuItem(value: null, child: Text("All Departments")),
@@ -105,7 +105,7 @@ class _ReportStaffFilterWidgetState extends State<ReportStaffFilterWidget> {
                       return DropdownButtonFormField<String>(
                         isExpanded: true,
                         value: selectedRoleId,
-                        hint: const Text("All Roles"),
+                        hint: Text("All Roles"),
                         decoration: _inputDecoration(),
                         items: [
                           const DropdownMenuItem(value: null, child: Text("All Roles")),

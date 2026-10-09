@@ -34,7 +34,7 @@ class _UpdateSalaryStuctureScreenState extends State<UpdateSalaryStuctureScreen>
     return Scaffold(
 
       appBar: AppBar(
-        title: const Text("Update Salary Structure"),
+        title: Text("Update Salary Structure"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,

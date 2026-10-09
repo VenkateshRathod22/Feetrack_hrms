@@ -6,7 +6,6 @@ import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/date_formatters_and_converters.dart';
 import 'package:vlr/services/theme.dart';
-import 'package:vlr/views/base/custom_image.dart';
 import 'package:vlr/views/base/shimmer.dart';
 
 class TopSectionAttendancePunchOutSection extends StatelessWidget {
@@ -32,7 +31,7 @@ class TopSectionAttendancePunchOutSection extends StatelessWidget {
             child: Container(
               height: 80.h,
               width: 80.w,
-              decoration: const BoxDecoration(
+              decoration:  BoxDecoration(
                 color: green2,
                 shape: BoxShape.circle,
               ),
@@ -103,7 +102,7 @@ class TopSectionAttendancePunchOutSection extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
+                       Icon(
                         Icons.calendar_month_outlined,
                         color: green2,
                         size: 20,

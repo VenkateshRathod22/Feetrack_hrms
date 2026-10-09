@@ -67,7 +67,7 @@ class _ReportFilterWidgetState extends State<ReportFilterWidget> {
                       return DropdownButtonFormField<String>(
                         isExpanded: true,
                         value: selectedEmployeeId,
-                        hint: const Text("All Employees"),
+                        hint: Text("All Employees"),
                         decoration: _inputDecoration(),
                         items: [
                           const DropdownMenuItem(value: null, child: Text("All Employees")),
@@ -95,7 +95,7 @@ class _ReportFilterWidgetState extends State<ReportFilterWidget> {
                     DropdownButtonFormField<String>(
                       isExpanded: true,
                       value: selectedStatus,
-                      hint: const Text("All Statuses"),
+                      hint: Text("All Statuses"),
                       decoration: _inputDecoration(),
                       items: [
                         const DropdownMenuItem(value: null, child: Text("All Statuses")),

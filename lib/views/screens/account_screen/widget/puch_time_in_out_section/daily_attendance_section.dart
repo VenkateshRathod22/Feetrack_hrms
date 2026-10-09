@@ -28,7 +28,7 @@ class DailyAttendanceSection extends StatelessWidget {
           decoration: BoxDecoration(
             color: white,
             borderRadius: BorderRadius.circular(12.r),
-            border: const Border(left: BorderSide(width: 4, color: greenDark)),
+            border:  Border(left: BorderSide(width: 4, color: greenDark)),
             boxShadow: [
               BoxShadow(
                 offset: const Offset(0, 1),

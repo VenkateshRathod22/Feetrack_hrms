@@ -27,7 +27,7 @@ class _AdvancePaymentsScreenState extends State<AdvancePaymentsScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FA),
       appBar: AppBar(
-        title: const Text("Advance Payments"),
+        title: Text("Advance Payments"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,

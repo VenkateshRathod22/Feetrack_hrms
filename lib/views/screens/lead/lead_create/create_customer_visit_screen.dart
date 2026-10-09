@@ -51,7 +51,7 @@ class _CreateCustomerVisitScreenState extends State<CreateCustomerVisitScreen> {
         elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back_ios, color: black),
+          icon: Icon(Icons.arrow_back_ios, color: black),
         ),
       ),
       body: GetBuilder<LeadController>(builder: (controller) {

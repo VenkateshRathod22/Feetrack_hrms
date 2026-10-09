@@ -6,7 +6,6 @@ import 'package:vlr/data/models/role_model.dart';
 import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
-import 'package:vlr/views/screens/role/create_role_screen.dart';
 import 'package:vlr/views/screens/role/role_detail_screen.dart';
 
 import '../update_role_screen.dart';
@@ -118,12 +117,12 @@ class RoleWidget extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Role"),
-        content: const Text("Are you sure you want to delete this role?"),
+        title: Text("Delete Role"),
+        content: Text("Are you sure you want to delete this role?"),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {
@@ -137,7 +136,7 @@ class RoleWidget extends StatelessWidget {
                 nav.pop();
               });
             },
-            child: const Text("Delete", style: TextStyle(color: red1)),
+            child:  Text("Delete", style: TextStyle(color: red1)),
           ),
         ],
       ),

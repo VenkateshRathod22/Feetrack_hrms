@@ -15,14 +15,14 @@ class PayrollAdjustmentScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FA),
       appBar: AppBar(
-        title: const Text("Adjust Payroll"),
+        title: Text("Adjust Payroll"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
           onPressed: () => pop(context),
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20),
+          icon: Icon(Icons.arrow_back_ios_new, size: 20),
         ),
       ),
       bottomNavigationBar: Container(
@@ -420,15 +420,32 @@ class PayrollAdjustmentScreen extends StatelessWidget {
       ),
     );
   }
-  Widget _buildSummaryRow(String label, String value, {Color color = black, bool isBold = false}) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        CustomText(label, style: TextStyle(color: color, fontSize: 14.sp, fontWeight: isBold ? FontWeight.bold : FontWeight.normal)),
-        CustomText(value, style: TextStyle(color: color, fontSize: 14.sp, fontWeight: FontWeight.bold)),
-      ],
-    );
-  }
+Widget _buildSummaryRow(String label, String value, {Color? color, bool isBold = false}) {
+  // Fall back to your 'black' getter if no color is passed
+  final textColor = color ?? black; 
+
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      CustomText(
+        label, 
+        style: TextStyle(
+          color: textColor, 
+          fontSize: 14.sp, 
+          fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+        ),
+      ),
+      CustomText(
+        value, 
+        style: TextStyle(
+          color: textColor, 
+          fontSize: 14.sp, 
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ],
+  );
+}
 }
 
 class _SectionSubtitle extends StatelessWidget {

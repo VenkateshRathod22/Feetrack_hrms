@@ -69,7 +69,7 @@ class _ImageGalleryState extends State<ImageGallery> {
                       height: 70.h,
                       width: 50.w,
                       color: Colors.grey.withValues(alpha:  0.5),
-                      child: const Icon(
+                      child: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.white,
                       ),
@@ -89,7 +89,7 @@ class _ImageGalleryState extends State<ImageGallery> {
                       height: 70.h,
                       width: 50.w,
                       color: Colors.grey.withValues(alpha: 0.5),
-                      child: const Icon(
+                      child: Icon(
                         Icons.arrow_forward_ios,
                         color: Colors.white,
                       ),

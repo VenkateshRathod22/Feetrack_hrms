@@ -51,11 +51,11 @@ class _UpdateRoleScreenState extends State<UpdateRoleScreen> {
       return Scaffold(
         backgroundColor: backgroundLight,
         appBar: AppBar(
-          title: const Text("Update Role"),
+          title: Text("Update Role"),
           centerTitle: true,
           leading: IconButton(
             onPressed: () => pop(context),
-            icon: const Icon(Icons.arrow_back_ios, size: 20),
+            icon: Icon(Icons.arrow_back_ios, size: 20),
           ),
         ),
         body: controller.isLoading

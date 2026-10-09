@@ -47,7 +47,7 @@ class _AttritionReportScreenState extends State<AttritionReportScreen> {
         actions: [
           IconButton(
             onPressed: () => navigate(context: context, page: const ExitReasonScreen()),
-            icon: const Icon(Icons.list_alt_rounded, color: primaryColor),
+            icon:  Icon(Icons.list_alt_rounded, color: primaryColor),
             tooltip: "Exit Reasons",
           ),
           IconButton(
@@ -55,7 +55,7 @@ class _AttritionReportScreenState extends State<AttritionReportScreen> {
               uri: AppConstants.attritionExport,
               search: {},
             ),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -196,10 +196,10 @@ class _AttritionReportScreenState extends State<AttritionReportScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Record?"),
+        title: Text("Delete Record?"),
         content: Text("Are you sure you want to delete the exit record for ${record.employeeName}?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -211,7 +211,7 @@ class _AttritionReportScreenState extends State<AttritionReportScreen> {
                 }
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

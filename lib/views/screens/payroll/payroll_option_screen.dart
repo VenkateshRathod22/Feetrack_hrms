@@ -18,7 +18,7 @@ class PayrollOptionScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFC),
       appBar: AppBar(
-        title: const Text("Payroll Management"),
+        title: Text("Payroll Management"),
         centerTitle: true,
         backgroundColor: white,
         foregroundColor: black,

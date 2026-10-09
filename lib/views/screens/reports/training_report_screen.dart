@@ -55,7 +55,7 @@ class _TrainingReportScreenState extends State<TrainingReportScreen> {
         actions: [
           IconButton(
             onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.trainingExport, search: _getSearchMap()),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon: Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -100,7 +100,7 @@ class _TrainingReportScreenState extends State<TrainingReportScreen> {
           controller: searchController,
           decoration: InputDecoration(
               hintText: "Training Title...",
-              prefixIcon: const Icon(Icons.search),
+              prefixIcon: Icon(Icons.search),
               contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r), borderSide: BorderSide(color: greyLight1))),
           onChanged: (v) => _fetchReport(),
@@ -110,7 +110,7 @@ class _TrainingReportScreenState extends State<TrainingReportScreen> {
           Expanded(
               child: DropdownButtonFormField<String>(
                   value: status,
-                  hint: const Text("Status"),
+                  hint: Text("Status"),
                   items: ['assigned', 'in_progress', 'completed']
                       .map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e.replaceAll("_", " ")))))
                       .toList(),
@@ -122,7 +122,7 @@ class _TrainingReportScreenState extends State<TrainingReportScreen> {
           Expanded(
               child: DropdownButtonFormField<String>(
                   value: result,
-                  hint: const Text("Result"),
+                  hint: Text("Result"),
                   items: ['pending', 'passed', 'failed'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(),
                   onChanged: (v) {
                     setState(() => result = v);
@@ -134,7 +134,7 @@ class _TrainingReportScreenState extends State<TrainingReportScreen> {
           return DropdownButtonFormField<String>(
               isExpanded: true,
               value: departmentId,
-              hint: const Text("All Departments"),
+              hint: Text("All Departments"),
               items: [
                 const DropdownMenuItem(value: null, child: Text("All Departments")),
                 ...dept.departmentList.map((e) => DropdownMenuItem(value: e.id.toString(), child: Text(e.name ?? "")))

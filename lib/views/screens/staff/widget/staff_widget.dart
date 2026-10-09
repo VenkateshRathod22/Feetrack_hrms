@@ -458,14 +458,14 @@ class StaffWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
-        title: const Text("Delete Staff"),
-        content: const Text(
+        title: Text("Delete Staff"),
+        content: Text(
           "Are you sure you want to delete this staff member?",
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
 
           TextButton(
@@ -490,7 +490,7 @@ class StaffWidget extends StatelessWidget {
                 nav.pop();
               });
             },
-            child: const Text(
+            child: Text(
               "Delete",
               style: TextStyle(
                 color: red1,

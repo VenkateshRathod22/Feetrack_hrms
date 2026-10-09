@@ -100,7 +100,7 @@ class _EmployeeCostReportScreenState extends State<EmployeeCostReportScreen> {
               uri: AppConstants.employeeCostExport,
               search: _getFilterData(),
             ),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -275,7 +275,7 @@ class _EmployeeCostReportScreenState extends State<EmployeeCostReportScreen> {
             controller: searchController,
             decoration: InputDecoration(
               hintText: "Search employee...",
-              prefixIcon: const Icon(Icons.search),
+              prefixIcon: Icon(Icons.search),
               filled: true,
               fillColor: backgroundLight,
               contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),

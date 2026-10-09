@@ -95,7 +95,7 @@ class CustomDropDownList<T> extends StatelessWidget {
           style: textStyle,
           dropdownColor: white,
           elevation: 2,
-          icon: const Icon(Icons.keyboard_arrow_down),
+          icon: Icon(Icons.keyboard_arrow_down),
           validator: validator ??
               (v) {
                 if (isRequired && v == null) return "This field is required";

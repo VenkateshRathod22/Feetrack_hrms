@@ -52,7 +52,7 @@ class _EmployeeCostReportScreenState extends State<EmployeeCostReportScreen> {
         actions: [
           IconButton(
             onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.employeeCostExport, search: _getSearchMap()),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -87,7 +87,7 @@ class _EmployeeCostReportScreenState extends State<EmployeeCostReportScreen> {
                         icon: Icons.group_rounded),
                   ]),
               if (reportsController.employeeCostReportList.isEmpty)
-                Padding(padding: EdgeInsets.only(top: 100.h), child: const Text("No data found"))
+                Padding(padding: EdgeInsets.only(top: 100.h), child: Text("No data found"))
               else
                 ListView.separated(
                   shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
@@ -109,17 +109,17 @@ class _EmployeeCostReportScreenState extends State<EmployeeCostReportScreen> {
       child: Column(children: [
         TextField(
           controller: searchController,
-          decoration: InputDecoration(hintText: "Search...", prefixIcon: const Icon(Icons.search), contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h), border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r), borderSide: BorderSide(color: greyLight1))),
+          decoration: InputDecoration(hintText: "Search...", prefixIcon: Icon(Icons.search), contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h), border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r), borderSide: BorderSide(color: greyLight1))),
           onChanged: (v) => _fetchReport(),
         ),
         sizedBoxHeight(height: 12),
         Row(children: [
-          Expanded(child: DropdownButtonFormField<String>(value: selectedYear, hint: const Text("Year"), items: List.generate(5, (i) => (DateTime.now().year - i).toString()).map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(), onChanged: (v) { setState(() => selectedYear = v!); _fetchReport(); })),
+          Expanded(child: DropdownButtonFormField<String>(value: selectedYear, hint: Text("Year"), items: List.generate(5, (i) => (DateTime.now().year - i).toString()).map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(), onChanged: (v) { setState(() => selectedYear = v!); _fetchReport(); })),
           sizedBoxWidth(width: 8),
-          Expanded(child: DropdownButtonFormField<String>(value: selectedMonth, hint: const Text("Month"), items: List.generate(12, (i) => (i + 1).toString()).map((e) => DropdownMenuItem(value: e, child: Text(DateFormat('MMMM').format(DateTime(2022, int.parse(e)))))).toList(), onChanged: (v) { setState(() => selectedMonth = v!); _fetchReport(); })),
+          Expanded(child: DropdownButtonFormField<String>(value: selectedMonth, hint: Text("Month"), items: List.generate(12, (i) => (i + 1).toString()).map((e) => DropdownMenuItem(value: e, child: Text(DateFormat('MMMM').format(DateTime(2022, int.parse(e)))))).toList(), onChanged: (v) { setState(() => selectedMonth = v!); _fetchReport(); })),
         ]),
         sizedBoxHeight(height: 12),
-        GetBuilder<DepartmentController>(builder: (dept) { return DropdownButtonFormField<String>(isExpanded: true, value: departmentId, hint: const Text("All Departments"), items: [const DropdownMenuItem(value: null, child: Text("All Departments")), ...dept.departmentList.map((e) => DropdownMenuItem(value: e.id.toString(), child: Text(e.name ?? "")))], onChanged: (v) { setState(() => departmentId = v); _fetchReport(); }); }),
+        GetBuilder<DepartmentController>(builder: (dept) { return DropdownButtonFormField<String>(isExpanded: true, value: departmentId, hint: Text("All Departments"), items: [const DropdownMenuItem(value: null, child: Text("All Departments")), ...dept.departmentList.map((e) => DropdownMenuItem(value: e.id.toString(), child: Text(e.name ?? "")))], onChanged: (v) { setState(() => departmentId = v); _fetchReport(); }); }),
       ]),
     );
   }

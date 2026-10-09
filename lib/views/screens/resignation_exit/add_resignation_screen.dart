@@ -142,7 +142,7 @@ class _AddResignationScreenState extends State<AddResignationScreen> {
                   readOnly: true,
                   onTap: () => _selectDate(context, resignationDateController),
                   isRequired: true,
-                  suffix: const Icon(Icons.calendar_today_outlined, size: 18),
+                  suffix: Icon(Icons.calendar_today_outlined, size: 18),
                 ),
                 sizedBoxHeight(height: 20),
                 AppTextFieldWithHeading(
@@ -159,7 +159,7 @@ class _AddResignationScreenState extends State<AddResignationScreen> {
                   controller: lastWorkingDateController,
                   readOnly: true,
                   onTap: () => _selectDate(context, lastWorkingDateController),
-                  suffix: const Icon(Icons.calendar_today_outlined, size: 18),
+                  suffix: Icon(Icons.calendar_today_outlined, size: 18),
                 ),
                 sizedBoxHeight(height: 20),
                 AppTextFieldWithHeading(
@@ -201,7 +201,7 @@ class _AddResignationScreenState extends State<AddResignationScreen> {
                   controller: settlementDateController,
                   readOnly: true,
                   onTap: () => _selectDate(context, settlementDateController),
-                  suffix: const Icon(Icons.calendar_today_outlined, size: 18),
+                  suffix: Icon(Icons.calendar_today_outlined, size: 18),
                 ),
                 sizedBoxHeight(height: 20),
                 AppTextFieldWithHeading(
@@ -225,7 +225,7 @@ class _AddResignationScreenState extends State<AddResignationScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.check_rounded, color: Colors.white, size: 20),
+                      Icon(Icons.check_rounded, color: Colors.white, size: 20),
                       sizedBoxWidth(width: 8),
                       CustomText(
                         widget.exitModel != null ? "Update Exit Record" : "Save Exit Record",

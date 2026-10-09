@@ -54,7 +54,7 @@ class _PipReportScreenState extends State<PipReportScreen> {
         actions: [
           IconButton(
             onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.pipExport, search: _getSearchMap()),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -68,7 +68,7 @@ class _PipReportScreenState extends State<PipReportScreen> {
                   controller: searchController,
                   decoration: InputDecoration(
                     hintText: "Search...",
-                    prefixIcon: const Icon(Icons.search),
+                    prefixIcon: Icon(Icons.search),
                     filled: true,
                     fillColor: white,
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r), borderSide: BorderSide.none),
@@ -97,7 +97,7 @@ class _PipReportScreenState extends State<PipReportScreen> {
                     ...reportsController.pipReportSummary!.statusCounts?.entries.map((e) => ReportSummaryItemModel(label: capitalize(e.key.replaceAll("_", " ")), value: e.value.toString(), icon: Icons.analytics_rounded)).toList() ?? [],
                   ]),
                 if (reportsController.pipReportList.isEmpty)
-                  Padding(padding: EdgeInsets.only(top: 100.h), child: const Text("No data found"))
+                  Padding(padding: EdgeInsets.only(top: 100.h), child: Text("No data found"))
                 else
                   ListView.separated(
                     shrinkWrap: true,

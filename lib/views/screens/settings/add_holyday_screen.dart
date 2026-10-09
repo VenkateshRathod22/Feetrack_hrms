@@ -62,7 +62,7 @@ class _AddHolydayScreenState extends State<AddHolydayScreen> {
                     controller: holidayController.dateController,
                     isRequired: true,
                     readOnly: true,
-                    suffix: const Icon(Icons.calendar_today),
+                    suffix: Icon(Icons.calendar_today),
                     onTap: () async {
                       DateTime? picked = await showDatePicker(
                         context: context,

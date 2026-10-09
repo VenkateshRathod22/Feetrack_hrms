@@ -40,7 +40,7 @@ class PunchInAndOutAttendanceDetailsSection extends StatelessWidget {
                 isCheckIn: true,
               ),
             ),
-            const CircleAvatar(
+             CircleAvatar(
               radius: 4,
               backgroundColor: green2,
             ),
@@ -53,7 +53,7 @@ class PunchInAndOutAttendanceDetailsSection extends StatelessWidget {
                 child: DottedLine(
               color: grey,
             )),
-            const CircleAvatar(
+             CircleAvatar(
               radius: 4,
               backgroundColor: red1,
             ),

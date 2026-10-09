@@ -53,7 +53,7 @@ class NotificationScreen extends StatelessWidget {
                       right: 20.w,
                       top: 10.h,
                       child: PopupMenuButton<String>(
-                        icon: const Icon(Icons.more_vert),
+                        icon: Icon(Icons.more_vert),
                         onSelected: (val) {
                           if (val == 'edit') {
                             navigate(context: context, page: CreateNoticeScreen(isEdit: true, noticeModel: noticeModel));
@@ -83,10 +83,10 @@ class NotificationScreen extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Notice"),
-        content: const Text("Are you sure you want to delete this notice?"),
+        title: Text("Delete Notice"),
+        content: Text("Are you sure you want to delete this notice?"),
         actions: [
-          TextButton(onPressed: () => pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               controller.deleteNotice(id).then((res) {
@@ -94,7 +94,7 @@ class NotificationScreen extends StatelessWidget {
                 pop(context);
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

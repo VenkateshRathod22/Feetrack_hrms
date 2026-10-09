@@ -47,7 +47,7 @@ class _OrderspipelinescreenState extends State<Orderspipelinescreen> {
           actions: [
             IconButton(
               onPressed: () => navigate(context: context, page: const LeadCreateOrderScreen()),
-              icon: const Icon(Icons.add_circle_outline, color: primaryColor),
+              icon:  Icon(Icons.add_circle_outline, color: primaryColor),
               tooltip: "Create Order",
             ),
           ],
@@ -357,7 +357,7 @@ class _OrderPipelineCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText("Order Comments", style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
-                  IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.close)),
+                  IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.close)),
                 ],
               ),
               const Divider(),
@@ -425,7 +425,7 @@ class _OrderPipelineCard extends StatelessWidget {
                         });
                       }
                     },
-                    icon: const Icon(Icons.send_rounded, color: primaryColor),
+                    icon:  Icon(Icons.send_rounded, color: primaryColor),
                   ),
                 ],
               ),
@@ -444,7 +444,7 @@ class _OrderPipelineCard extends StatelessWidget {
         title: Text("$action Order"),
         content: Text("Are you sure you want to $action this order?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);

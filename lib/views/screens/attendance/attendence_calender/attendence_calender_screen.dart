@@ -392,7 +392,7 @@ class _AttendenceCalenderScreenState extends State<AttendenceCalenderScreen> {
           ],
         ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Close")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Close")),
         ],
       ),
     );

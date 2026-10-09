@@ -78,7 +78,7 @@ class _DailyReportScreenState extends State<DailyReportScreen> with SingleTicker
             onPressed: () {
               _selectDate(context);
             },
-            icon: const Icon(Icons.calendar_month),
+            icon: Icon(Icons.calendar_month),
           ),
           if (_dateController.text.isNotEmpty || _searchController.text.isNotEmpty || _selectedStatus.isNotEmpty)
             IconButton(
@@ -90,7 +90,7 @@ class _DailyReportScreenState extends State<DailyReportScreen> with SingleTicker
                 });
                 _fetchFilteredData();
               },
-              icon: const Icon(Icons.clear_all),
+              icon: Icon(Icons.clear_all),
             ),
         ],
       ),
@@ -184,7 +184,7 @@ class _DailyReportScreenState extends State<DailyReportScreen> with SingleTicker
                   controller: _searchController,
                   decoration: InputDecoration(
                     hintText: "Search employee...",
-                    prefixIcon: const Icon(Icons.search),
+                    prefixIcon: Icon(Icons.search),
                     isDense: true,
                     contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r)),
@@ -670,7 +670,7 @@ class _AddDailyReportScreenState extends State<AddDailyReportScreen> {
                     const CustomText("Report Items", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
                     TextButton.icon(
                       onPressed: () => _showAddItemDialog(context, controller),
-                      icon: const Icon(Icons.add),
+                      icon: Icon(Icons.add),
                       label: const CustomText("Add Item"),
                     ),
                   ],
@@ -712,7 +712,7 @@ class _AddDailyReportScreenState extends State<AddDailyReportScreen> {
                             ),
                             IconButton(
                               onPressed: () => controller.removeItem(index),
-                              icon: const Icon(Icons.delete, color: Colors.red),
+                              icon: Icon(Icons.delete, color: Colors.red),
                             ),
                           ],
                         ),

@@ -54,7 +54,7 @@ class _ExitReasonsReportScreenState extends State<ExitReasonsReportScreen> {
               uri: AppConstants.exitReasonsExport,
               search: _getSearchMap(),
             ),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -156,7 +156,7 @@ class _ExitReasonsReportScreenState extends State<ExitReasonsReportScreen> {
             controller: searchController,
             decoration: InputDecoration(
               hintText: "Search reasons...",
-              prefixIcon: const Icon(Icons.search_rounded),
+              prefixIcon: Icon(Icons.search_rounded),
               contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),
@@ -168,7 +168,7 @@ class _ExitReasonsReportScreenState extends State<ExitReasonsReportScreen> {
           sizedBoxHeight(height: 12),
           DropdownButtonFormField<String>(
             value: exitType,
-            hint: const Text("Exit Type"),
+            hint: Text("Exit Type"),
             items: ['voluntary', 'involuntary']
                 .map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e))))
                 .toList(),

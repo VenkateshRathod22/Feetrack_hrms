@@ -35,7 +35,7 @@ class ProfileDetailScreen extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.transparent,
-          iconTheme: const IconThemeData(color: black),
+          iconTheme:  IconThemeData(color: black),
         ),
         body: user == null
             ? const Center(child: CircularProgressIndicator())
@@ -66,7 +66,7 @@ class ProfileDetailScreen extends StatelessWidget {
                             right: 5.w,
                             child: Container(
                               padding: EdgeInsets.all(4.r),
-                              decoration: const BoxDecoration(
+                              decoration:  BoxDecoration(
                                 color: green,
                                 shape: BoxShape.circle,
                               ),

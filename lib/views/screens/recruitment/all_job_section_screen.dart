@@ -34,7 +34,7 @@ class AllJobSectionScreen extends StatelessWidget {
         backgroundColor: white,
         elevation: 0.5,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: black),
+          icon: Icon(Icons.arrow_back, color: black),
           onPressed: () => pop(context),
         ),
       ),

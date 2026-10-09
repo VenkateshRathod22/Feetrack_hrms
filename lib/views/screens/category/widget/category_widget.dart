@@ -99,12 +99,12 @@ class CategoryWidget extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Category"),
-        content: const Text("Are you sure you want to delete this category?"),
+        title: Text("Delete Category"),
+        content: Text("Are you sure you want to delete this category?"),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {
@@ -118,7 +118,7 @@ class CategoryWidget extends StatelessWidget {
                 nav.pop();
               });
             },
-            child: const Text("Delete", style: TextStyle(color: red1)),
+            child:  Text("Delete", style: TextStyle(color: red1)),
           ),
         ],
       ),

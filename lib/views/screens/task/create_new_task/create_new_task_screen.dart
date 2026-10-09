@@ -148,7 +148,7 @@ class _CreateNewTaskScreenState extends State<CreateNewTaskScreen>
                             "${pickedDate.year}";
                       }
                     },
-                    suffix: const Icon(Icons.calendar_month),
+                    suffix: Icon(Icons.calendar_month),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Select due date";

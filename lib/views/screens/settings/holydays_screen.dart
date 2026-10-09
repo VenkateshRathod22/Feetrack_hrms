@@ -31,7 +31,7 @@ class _HolydaysScreenState extends State<HolydaysScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Holidays"),
+        title: Text("Holidays"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -53,7 +53,7 @@ class _HolydaysScreenState extends State<HolydaysScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: "Search holidays...",
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: grey.withValues(alpha: 0.1),
                   border: OutlineInputBorder(
@@ -138,13 +138,13 @@ class _HolydaysScreenState extends State<HolydaysScreen> {
                                         page: AddHolydayScreen(isEdit: true, holidayId: holiday.id),
                                       );
                                     },
-                                    icon: const Icon(Icons.edit, color: Colors.blue),
+                                    icon: Icon(Icons.edit, color: Colors.blue),
                                   ),
                                   IconButton(
                                     onPressed: () {
                                       _showDeleteDialog(context, holidayController, holiday.id!);
                                     },
-                                    icon: const Icon(Icons.delete, color: Colors.red),
+                                    icon: Icon(Icons.delete, color: Colors.red),
                                   ),
                                 ],
                               ),
@@ -162,12 +162,12 @@ class _HolydaysScreenState extends State<HolydaysScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Holiday"),
-        content: const Text("Are you sure you want to delete this holiday?"),
+        title: Text("Delete Holiday"),
+        content: Text("Are you sure you want to delete this holiday?"),
         actions: [
           TextButton(
             onPressed: () => pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {
@@ -176,7 +176,7 @@ class _HolydaysScreenState extends State<HolydaysScreen> {
                 pop(context);
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

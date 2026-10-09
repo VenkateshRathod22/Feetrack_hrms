@@ -54,7 +54,7 @@ class _GrievanceDisciplineReportScreenState extends State<GrievanceDisciplineRep
         actions: [
           IconButton(
             onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.grievanceDisciplineExport, search: _getSearchMap()),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -110,7 +110,7 @@ class _GrievanceDisciplineReportScreenState extends State<GrievanceDisciplineRep
           Expanded(
               child: DropdownButtonFormField<String>(
                   value: recordType,
-                  hint: const Text("Type"),
+                  hint: Text("Type"),
                   items: ['grievance', 'disciplinary', 'warning', 'suspension'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(),
                   onChanged: (v) {
                     setState(() => recordType = v);
@@ -120,7 +120,7 @@ class _GrievanceDisciplineReportScreenState extends State<GrievanceDisciplineRep
           Expanded(
               child: DropdownButtonFormField<String>(
                   value: status,
-                  hint: const Text("Status"),
+                  hint: Text("Status"),
                   items: ['open', 'under_investigation', 'resolved', 'closed']
                       .map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e.replaceAll("_", " ")))))
                       .toList(),
@@ -149,7 +149,7 @@ class _GrievanceDisciplineReportScreenState extends State<GrievanceDisciplineRep
             padding: EdgeInsets.all(12.r),
             decoration: BoxDecoration(border: Border.all(color: greyLight1), borderRadius: BorderRadius.circular(8.r)),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Icon(Icons.calendar_today, size: 16, color: primaryColor),
+               Icon(Icons.calendar_today, size: 16, color: primaryColor),
               sizedBoxWidth(width: 8),
               Text("${DateFormat('dd-MM-yy').format(startDate)} - ${DateFormat('dd-MM-yy').format(endDate)}")
             ]),

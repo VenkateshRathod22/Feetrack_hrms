@@ -81,11 +81,11 @@ class _ExitReasonScreenState extends State<ExitReasonScreen> {
           ),
           IconButton(
             onPressed: () => _showReasonDialog(context, reason: reason),
-            icon: const Icon(Icons.edit_rounded, color: Colors.blue, size: 20),
+            icon: Icon(Icons.edit_rounded, color: Colors.blue, size: 20),
           ),
           IconButton(
             onPressed: () => _confirmDelete(context, reason),
-            icon: const Icon(Icons.delete_rounded, color: Colors.red, size: 20),
+            icon: Icon(Icons.delete_rounded, color: Colors.red, size: 20),
           ),
         ],
       ),
@@ -133,7 +133,7 @@ class _ExitReasonScreenState extends State<ExitReasonScreen> {
                 ),
                 sizedBoxHeight(height: 16),
                 SwitchListTile(
-                  title: const Text("Is Active"),
+                  title: Text("Is Active"),
                   value: isActive,
                   onChanged: (val) => setDialogState(() => isActive = val),
                   activeColor: primaryColor,
@@ -143,7 +143,7 @@ class _ExitReasonScreenState extends State<ExitReasonScreen> {
             ),
           ),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+            TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
             TextButton(
               onPressed: () {
                 if (nameController.text.isEmpty) {
@@ -198,10 +198,10 @@ class _ExitReasonScreenState extends State<ExitReasonScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Reason?"),
+        title: Text("Delete Reason?"),
         content: Text("Are you sure you want to delete '${reason.name}'?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -209,7 +209,7 @@ class _ExitReasonScreenState extends State<ExitReasonScreen> {
                 showToast(message: res.message, toastType: res.isSuccess ? ToastType.success : ToastType.error);
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

@@ -30,7 +30,7 @@ class _PiplineConfigScreenState extends State<PiplineConfigScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Pipeline Stages"),
+        title: Text("Pipeline Stages"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -52,7 +52,7 @@ class _PiplineConfigScreenState extends State<PiplineConfigScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: "Search stages...",
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: grey.withValues(alpha: 0.1),
                   border: OutlineInputBorder(
@@ -143,13 +143,13 @@ class _PiplineConfigScreenState extends State<PiplineConfigScreen> {
                                         page: AddPiplineConfigScreem(isEdit: true, pipelineId: stage.id),
                                       );
                                     },
-                                    icon: const Icon(Icons.edit, color: Colors.blue),
+                                    icon: Icon(Icons.edit, color: Colors.blue),
                                   ),
                                   IconButton(
                                     onPressed: () {
                                       _showDeleteDialog(context, pipelineController, stage.id!);
                                     },
-                                    icon: const Icon(Icons.delete, color: Colors.red),
+                                    icon: Icon(Icons.delete, color: Colors.red),
                                   ),
                                 ],
                               ),
@@ -167,12 +167,12 @@ class _PiplineConfigScreenState extends State<PiplineConfigScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Stage"),
-        content: const Text("Are you sure you want to delete this pipeline stage?"),
+        title: Text("Delete Stage"),
+        content: Text("Are you sure you want to delete this pipeline stage?"),
         actions: [
           TextButton(
             onPressed: () => pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {
@@ -181,7 +181,7 @@ class _PiplineConfigScreenState extends State<PiplineConfigScreen> {
                 pop(context);
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

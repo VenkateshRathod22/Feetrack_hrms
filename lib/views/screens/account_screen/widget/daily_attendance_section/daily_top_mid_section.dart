@@ -147,7 +147,7 @@ class DailyTopMidSection extends StatelessWidget {
                 height: 40.h,
                 width: 40.w,
                 fit: BoxFit.cover,
-                colorFilter: const ColorFilter.mode(
+                colorFilter:  ColorFilter.mode(
                   greenDark2,
                   BlendMode.srcIn,
                 ),

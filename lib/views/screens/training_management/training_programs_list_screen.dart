@@ -15,7 +15,6 @@ import 'package:vlr/views/base/custom_dropdown.dart';
 import 'package:vlr/views/screens/training_management/add_training_program_screen.dart';
 import 'package:vlr/views/screens/training_management/widget/taining_stats_card_widget.dart';
 import 'package:vlr/views/widget/text_box/app_text_box.dart';
-import 'package:collection/collection.dart';
 
 class TrainingProgramsListScreen extends StatefulWidget {
   const TrainingProgramsListScreen({super.key});
@@ -328,7 +327,7 @@ class _TrainingProgramsListScreenState extends State<TrainingProgramsListScreen>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText("Assign Training", style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold, color: blackText1)),
-                  IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.close_rounded)),
+                  IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.close_rounded)),
                 ],
               ),
               const Divider(),
@@ -502,7 +501,7 @@ class _TrainingProgramsListScreenState extends State<TrainingProgramsListScreen>
       contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r), borderSide: BorderSide(color: greyLight2)),
       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r), borderSide: BorderSide(color: greyLight2)),
-      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r), borderSide: const BorderSide(color: primaryColor)),
+      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r), borderSide:  BorderSide(color: primaryColor)),
       filled: true,
       fillColor: white,
     );
@@ -664,10 +663,10 @@ class _TrainingProgramsListScreenState extends State<TrainingProgramsListScreen>
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Program?"),
+        title: Text("Delete Program?"),
         content: Text("Are you sure you want to delete '${program.title}'? This action cannot be undone."),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -679,7 +678,7 @@ class _TrainingProgramsListScreenState extends State<TrainingProgramsListScreen>
                 }
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

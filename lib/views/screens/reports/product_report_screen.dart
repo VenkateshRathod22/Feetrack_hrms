@@ -61,7 +61,7 @@ class _ProductReportScreenState extends State<ProductReportScreen> {
                 search: _getSearchMap(),
               );
             },
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),

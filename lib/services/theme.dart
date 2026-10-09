@@ -1,108 +1,351 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 
-const Color primaryColor = const Color(0xFF021A45);
-Color tertiaryColor = Color(0xFF0052D9);
+// Current application theme.
+bool get _isDark => Get.isDarkMode;
 
-Color secondaryColor = const Color(0xFF0D9488);
-Color backgroundDark = const Color(0xff231F20);
-Color backgroundLight = const Color(0xFFF4F5F7);
+// =========================================================
+// PRIMARY COLORS
+// =========================================================
 
-//black
-const Color black = Colors.black;
+Color get primaryColor =>
+    _isDark ? const Color(0xFF8AB4FF) : const Color(0xFF021A45);
 
-//* white Colors
-Color white = Colors.white;
-Color whiteSmoke = const Color(0xFFF5ECED);
+Color get tertiaryColor =>
+    _isDark ? const Color(0xFF8AB4FF) : const Color(0xFF0052D9);
 
-//* Blue Colors
+Color get secondaryColor =>
+    _isDark ? const Color(0xFF5EEAD4) : const Color(0xFF0D9488);
 
-Color blueLight3 = const Color(0xFF003DA6);
-Color blueDark2 = const Color(0xFF36446E);
-Color blueDark1 = const Color(0xFF1E40AF);
+    Color get backgroundLight =>     _isDark ?   const Color(0xCC0E1420) :  const Color(0xFFF4F5F7);
 
-//* purple Colors
-Color purpleLight = const Color(0xFFEADDFF);
-Color purple = const Color(0xFF484AD6);
-Color purple2 = const Color(0xFF9333EA);
-Color deepPurple = Colors.deepPurple;
 
-//* Grey Colors
-Color grey = const Color(0xFF999999);
-Color greyLight = const Color(0xFFF6F3F2);
-Color greyLight1 = const Color(0xFFEFF6FF);
-Color greyLight2 = const Color(0xFFC3C6D1);
-Color greyLight3 = const Color(0xFFEBE7E7);
-Color greyLight4 = const Color(0xFFF1F5F9);
-Color greyLight5 = const Color(0xFF94A3B8);
-Color greyLight6 = const Color(0xFFC3C6D7);
-Color greyLight7 = const Color(0xFFF3F4F6);
-Color greyLight8 = const Color(0xFF64748B);
-Color greyDart = const Color(0xFF73777F);
-Color greyDart2 = const Color(0xFF434654);
-Color greyDart3 = const Color(0xFF475569);
+// =========================================================
+// BACKGROUND AND SURFACE COLORS
+// =========================================================
 
-//* pink color
-Color pinLight = const Color(0xFFFBF1F2);
-Color pinkLight2 = const Color(0xFFFFEDD5);
+Color get appBackground =>
+    _isDark ? const Color(0xFF0E1420) : const Color(0xFFF4F5F7);
 
-//* Green colors
-const Color green = Color(0xFF006C49);
-const Color green2 = Color(0xFF0E9A41);
-const Color greenDark = Color(0xFF006A61);
-const Color greenDark1 = Color(0xFF006A61);
-const Color greenDark2 = Color(0xFF1E7E34);
-const Color greenLight = Color(0xFF108548);
+Color get surfaceColor =>
+    _isDark ? const Color(0xFF171F2D) : Colors.white;
 
-//* Yellow colors
-const Color yellow = Color(0xFFF59E0B);
-const Color goldColor = Color(0xFFFFB400);
+Color get cardColor =>
+    _isDark ? const Color(0xFF1B2637) : Colors.white;
 
-//* Organ colors
-const Color organ = Color(0xFFF97316);
+Color get inputBackgroundColor =>
+    _isDark ? const Color(0xFF202B3B) : const Color(0xFFF7F8FA);
 
-//* red colorsp
-const Color red = Colors.red;
-const Color red1 = Color(0xFFE11D48);
-const Color redDark = Color(0xFFBA1A1A);
+Color get borderColor =>
+    _isDark ? const Color(0xFF354257) : const Color(0xFFE2E8F0);
 
-//* Textbox colors
-Color textBox = Colors.grey.withValues(alpha: 0.30);
-const Color textBlue = Color(0xff003B73);
+Color get dividerColor =>
+    _isDark ? const Color(0xFF303B4D) : const Color(0xFFE2E8F0);
 
-//* Text Colors
-Color greyText = const Color(0xFF43474E);
-Color greyText2 = const Color(0xFF434750);
+// Keep these literal colors for places that specifically require black/white.
+ Color get black =>      _isDark ?  Colors.white :  Colors.black;
+ Color get white =>      _isDark ? const Color(0xCC0E1420) : Colors.white;
 
-Color blackText1 = const Color(0xFF334155);
-Color blackText2 = const Color(0xFF171717);
-Color blackText3 = const Color(0xFF191C1E);
-Color blackText4 = const Color(0xFF1E293B);
+// =========================================================
+// TEXT COLORS
+// =========================================================
 
-const Color textPrimary = Color(0xff000000);
-const Color textSecondary = Color(0xff838383);
+Color get greyDart2 =>
+    _isDark ? const Color(0xFFD0D9E8) : const Color(0xFF434654);
 
-//* Status color
-const Color notPunchIn = Color(0xFF2563EB); // Blue
+Color get greyDart =>
+    _isDark ? const Color(0xFFB8C5D9) : const Color(0xFF73777F);
 
-const Color punchIn = Color(0xFFF59E0B); // Orange
+Color get greyDart3 =>
+    _isDark ? const Color(0xFFB8C5D9) : const Color(0xFF475569);
 
-const Color punchOut = Color(0xFF16A34A); // Green
+Color get greyText =>
+    _isDark ? const Color(0xFFA8B4C8) : const Color(0xFF43474E);
 
-const Color shortLeave = Color(0xFFF97316); // Purple
+Color get greyText2 =>
+    _isDark ? const Color(0xFFA8B4C8) : const Color(0xFF434750);
 
-const Color halfDay = Color(0xFF0EA5E9); // Sky Blue
+Color get blackText1 =>
+    _isDark ? const Color(0xFFE8EDF5) : const Color(0xFF334155);
 
-const Color absent = Color(0xFFEF4444); // Red
+Color get blackText2 =>
+    _isDark ? const Color(0xFFE8EDF5) : const Color(0xFF171717);
 
-Color leave = purple2; // Primary Blue
+Color get blackText3 =>
+    _isDark ? const Color(0xFFE8EDF5) : const Color(0xFF191C1E);
 
-const Color holiday = green2; // Teal
+Color get blackText4 =>
+    _isDark ? const Color(0xFFE8EDF5) : const Color(0xFF1E293B);
 
-const Color weekOff = Color(0xFF6B7280); // Gray
+Color get textPrimary =>
+    _isDark ? const Color(0xFFE8EDF5) : const Color(0xFF000000);
 
-const Color defaultColor = Color(0xFF0052D9);
+Color get textSecondary =>
+    _isDark ? const Color(0xFFA8B4C8) : const Color(0xFF838383);
+
+// =========================================================
+// BLUE COLORS
+// =========================================================
+
+Color get blueLight3 =>
+    _isDark ? const Color(0xFF8AB4FF) : const Color(0xFF003DA6);
+
+Color get blueDark2 =>
+    _isDark ? const Color(0xFFB8C9E8) : const Color(0xFF36446E);
+
+Color get blueDark1 =>
+    _isDark ? const Color(0xFF8AB4FF) : const Color(0xFF1E40AF);
+
+Color get textBlue =>
+    _isDark ? const Color(0xFF8AB4FF) : const Color(0xFF003B73);
+
+Color get defaultColor => tertiaryColor;
+
+// =========================================================
+// PURPLE COLORS
+// =========================================================
+
+Color get purpleLight =>
+    _isDark ? const Color(0xFF39304D) : const Color(0xFFEADDFF);
+
+Color get purple => const Color(0xFF484AD6);
+
+Color get purple2 =>
+    _isDark ? const Color(0xFFC084FC) : const Color(0xFF9333EA);
+
+Color get deepPurple =>
+    _isDark ? const Color(0xFFB39DDB) : Colors.deepPurple;
+
+// =========================================================
+// GREY COLORS
+// =========================================================
+
+Color get grey =>
+    _isDark ? const Color(0xFFA0A8B5) : const Color(0xFF999999);
+
+Color get greyLight =>
+    _isDark ? const Color(0xFF252D3A) : const Color(0xFFF6F3F2);
+
+Color get greyLight1 =>
+    _isDark ? const Color(0xFF202C3D) : const Color(0xFFEFF6FF);
+
+Color get greyLight2 =>
+    _isDark ? const Color(0xFF364255) : const Color(0xFFC3C6D1);
+
+Color get greyLight3 =>
+    _isDark ? const Color(0xFF29313E) : const Color(0xFFEBE7E7);
+
+Color get greyLight4 =>
+    _isDark ? const Color(0xFF202B3B) : const Color(0xFFF1F5F9);
+
+Color get greyLight5 =>
+    _isDark ? const Color(0xFFA8B4C8) : const Color(0xFF94A3B8);
+
+Color get greyLight6 =>
+    _isDark ? const Color(0xFF394458) : const Color(0xFFC3C6D7);
+
+Color get greyLight7 =>
+    _isDark ? const Color(0xFF202733) : const Color(0xFFF3F4F6);
+
+Color get greyLight8 =>
+    _isDark ? const Color(0xFFA8B4C8) : const Color(0xFF64748B);
+
+// =========================================================
+// PINK COLORS
+// =========================================================
+
+Color get pinLight =>
+    _isDark ? const Color(0xFF342731) : const Color(0xFFFBF1F2);
+
+Color get pinkLight2 =>
+    _isDark ? const Color(0xFF3B302B) : const Color(0xFFFFEDD5);
+
+// =========================================================
+// GREEN COLORS
+// =========================================================
+
+Color get green =>
+    _isDark ? const Color(0xFF6EE7B7) : const Color(0xFF006C49);
+
+Color get green2 =>
+    _isDark ? const Color(0xFF4ADE80) : const Color(0xFF0E9A41);
+
+Color get greenDark =>
+    _isDark ? const Color(0xFF5EEAD4) : const Color(0xFF006A61);
+
+Color get greenDark1 => greenDark;
+
+Color get greenDark2 =>
+    _isDark ? const Color(0xFF86EFAC) : const Color(0xFF1E7E34);
+
+Color get greenLight =>
+    _isDark ? const Color(0xFF86EFAC) : const Color(0xFF108548);
+
+// =========================================================
+// YELLOW AND ORANGE COLORS
+// =========================================================
+
+Color get yellow =>
+    _isDark ? const Color(0xFFFBBF24) : const Color(0xFFF59E0B);
+
+Color get goldColor => const Color(0xFFFFB400);
+
+Color get organ => const Color(0xFFF97316);
+
+// =========================================================
+// RED COLORS
+// =========================================================
+
+Color get red =>
+    _isDark ? const Color(0xFFFF8A80) : Colors.red;
+
+Color get red1 =>
+    _isDark ? const Color(0xFFFF8FAB) : const Color(0xFFE11D48);
+
+Color get redDark =>
+    _isDark ? const Color(0xFFFF8A80) : const Color(0xFFBA1A1A);
+
+// =========================================================
+// INPUT COLORS
+// =========================================================
+
+Color get textBox =>
+    _isDark ? const Color(0xFF283448) : Colors.grey.withValues(alpha: 0.30);
+
+// =========================================================
+// ATTENDANCE STATUS COLORS
+// =========================================================
+
+Color get notPunchIn =>
+    _isDark ? const Color(0xFF8AB4FF) : const Color(0xFF2563EB);
+
+Color get punchIn =>
+    _isDark ? const Color(0xFFFBBF24) : const Color(0xFFF59E0B);
+
+Color get punchOut =>
+    _isDark ? const Color(0xFF4ADE80) : const Color(0xFF16A34A);
+
+Color get shortLeave =>
+    _isDark ? const Color(0xFFFB923C) : const Color(0xFFF97316);
+
+Color get halfDay =>
+    _isDark ? const Color(0xFF38BDF8) : const Color(0xFF0EA5E9);
+
+Color get absent =>
+    _isDark ? const Color(0xFFF87171) : const Color(0xFFEF4444);
+
+Color get leave =>
+    _isDark ? const Color(0xFFC084FC) : const Color(0xFF9333EA);
+
+Color get holiday =>
+    _isDark ? const Color(0xFF4ADE80) : const Color(0xFF0E9A41);
+
+Color get weekOff =>
+    _isDark ? const Color(0xFF9CA3AF) : const Color(0xFF6B7280);
+
+// const Color primaryColor = const Color(0xFF021A45);
+// Color tertiaryColor = Color(0xFF0052D9);
+
+// Color secondaryColor = const Color(0xFF0D9488);
+// Color backgroundDark = const Color(0xff231F20);
+// Color backgroundLight = const Color(0xFFF4F5F7);
+
+// //black
+// const Color black = Colors.black;
+
+// //* white Colors
+// Color white = Colors.white;
+// Color whiteSmoke = const Color(0xFFF5ECED);
+
+// //* Blue Colors
+
+// Color blueLight3 = const Color(0xFF003DA6);
+// Color blueDark2 = const Color(0xFF36446E);
+// Color blueDark1 = const Color(0xFF1E40AF);
+
+// //* purple Colors
+// Color purpleLight = const Color(0xFFEADDFF);
+// Color purple = const Color(0xFF484AD6);
+// Color purple2 = const Color(0xFF9333EA);
+// Color deepPurple = Colors.deepPurple;
+
+// //* Grey Colors
+// Color grey = const Color(0xFF999999);
+// Color greyLight = const Color(0xFFF6F3F2);
+// Color greyLight1 = const Color(0xFFEFF6FF);
+// Color greyLight2 = const Color(0xFFC3C6D1);
+// Color greyLight3 = const Color(0xFFEBE7E7);
+// Color greyLight4 = const Color(0xFFF1F5F9);
+// Color greyLight5 = const Color(0xFF94A3B8);
+// Color greyLight6 = const Color(0xFFC3C6D7);
+// Color greyLight7 = const Color(0xFFF3F4F6);
+// Color greyLight8 = const Color(0xFF64748B);
+// Color greyDart = const Color(0xFF73777F);
+// Color greyDart2 = const Color(0xFF434654);
+// Color greyDart3 = const Color(0xFF475569);
+
+// //* pink color
+// Color pinLight = const Color(0xFFFBF1F2);
+// Color pinkLight2 = const Color(0xFFFFEDD5);
+
+// //* Green colors
+// const Color green = Color(0xFF006C49);
+// const Color green2 = Color(0xFF0E9A41);
+// const Color greenDark = Color(0xFF006A61);
+// const Color greenDark1 = Color(0xFF006A61);
+// const Color greenDark2 = Color(0xFF1E7E34);
+// const Color greenLight = Color(0xFF108548);
+
+// //* Yellow colors
+// const Color yellow = Color(0xFFF59E0B);
+// const Color goldColor = Color(0xFFFFB400);
+
+// //* Organ colors
+// const Color organ = Color(0xFFF97316);
+
+// //* red colorsp
+// const Color red = Colors.red;
+// const Color red1 = Color(0xFFE11D48);
+// const Color redDark = Color(0xFFBA1A1A);
+
+// //* Textbox colors
+// Color textBox = Colors.grey.withValues(alpha: 0.30);
+// const Color textBlue = Color(0xff003B73);
+
+// //* Text Colors
+// Color greyText = const Color(0xFF43474E);
+// Color greyText2 = const Color(0xFF434750);
+
+// Color blackText1 = const Color(0xFF334155);
+// Color blackText2 = const Color(0xFF171717);
+// Color blackText3 = const Color(0xFF191C1E);
+// Color blackText4 = const Color(0xFF1E293B);
+
+// const Color textPrimary = Color(0xff000000);
+// const Color textSecondary = Color(0xff838383);
+
+// //* Status color
+// const Color notPunchIn = Color(0xFF2563EB); // Blue
+
+// const Color punchIn = Color(0xFFF59E0B); // Orange
+
+// const Color punchOut = Color(0xFF16A34A); // Green
+
+// const Color shortLeave = Color(0xFFF97316); // Purple
+
+// const Color halfDay = Color(0xFF0EA5E9); // Sky Blue
+
+// const Color absent = Color(0xFFEF4444); // Red
+
+// Color leave = purple2; // Primary Blue
+
+// const Color holiday = green2; // Teal
+
+// const Color weekOff = Color(0xFF6B7280); // Gray
+
+// const Color defaultColor = Color(0xFF0052D9);
 
 Map<int, Color> color = const {
   50: Color.fromRGBO(255, 244, 149, .1),
@@ -147,12 +390,12 @@ class CustomTheme {
       surface: backgroundLight,
       onSurface: Colors.black,
     ),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
       actionsIconTheme: IconThemeData(
         color: black,
       ),
-      iconTheme: IconThemeData(
+      iconTheme:  IconThemeData(
         color: black,
       ),
       systemOverlayStyle: SystemUiOverlayStyle(
@@ -231,6 +474,9 @@ class CustomTheme {
       ),
     ),
   );
+
+
+
  static ThemeData dark = ThemeData(
   fontFamily: "Montserrat",
   brightness: Brightness.dark,

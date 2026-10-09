@@ -135,12 +135,12 @@ class WorkShiftWidget extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Work Shift"),
-        content: const Text("Are you sure you want to delete this work shift?"),
+        title: Text("Delete Work Shift"),
+        content: Text("Are you sure you want to delete this work shift?"),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {
@@ -154,7 +154,7 @@ class WorkShiftWidget extends StatelessWidget {
                 nav.pop();
               });
             },
-            child: const Text("Delete", style: TextStyle(color: red1)),
+            child: Text("Delete", style: TextStyle(color: red1)),
           ),
         ],
       ),

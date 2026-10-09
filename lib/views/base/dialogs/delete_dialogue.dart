@@ -38,7 +38,7 @@ class DeleteDialog extends StatelessWidget {
                   border: Border.all(
                     color: Colors.redAccent,
                   )),
-              child: const Icon(Icons.delete_outline, color: Colors.redAccent),
+              child: Icon(Icons.delete_outline, color: Colors.redAccent),
             ),
             const SizedBox(
               height: 10,

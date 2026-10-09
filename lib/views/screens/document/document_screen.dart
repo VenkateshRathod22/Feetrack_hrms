@@ -282,10 +282,10 @@ class _DocumentScreenState extends State<DocumentScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Document?"),
+        title: Text("Delete Document?"),
         content: Text("Are you sure you want to delete '${doc.title}'?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -297,7 +297,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
                 }
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

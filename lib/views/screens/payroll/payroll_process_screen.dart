@@ -20,7 +20,7 @@ class _PayrollProcessScreenState extends State<PayrollProcessScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Process Payroll"),
+        title: Text("Process Payroll"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,

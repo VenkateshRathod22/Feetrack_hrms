@@ -25,7 +25,7 @@ class _AppliedJobListScreenState extends State<AppliedJobListScreen> {
   final TextEditingController searchController = TextEditingController();
   Timer? _debounce;
 
-  static const Color appBluePrimary = primaryColor; // 0xFF021A45
+  static  Color appBluePrimary = primaryColor; // 0xFF021A45
   static const Color appBlueAccent = Color(0xFF0052D9); // Vibrant Blue
   static const Color appBlueLight = Color(0xFFEFF6FF); // Light blue tint
   static const Color appBlueBorder = Color(0xFFBFDBFE); // Soft blue border
@@ -163,7 +163,7 @@ class _AppliedJobListScreenState extends State<AppliedJobListScreen> {
                 ),
                 child: IconButton(
                   padding: EdgeInsets.zero,
-                  icon: const Icon(Icons.arrow_back_rounded, color: appBluePrimary, size: 20),
+                  icon:  Icon(Icons.arrow_back_rounded, color: appBluePrimary, size: 20),
                   onPressed: () => pop(context),
                 ),
               ),
@@ -255,8 +255,8 @@ class _AppliedJobListScreenState extends State<AppliedJobListScreen> {
                                             borderRadius: BorderRadius.circular(10.r),
                                           ),
                                         ),
-                                        icon: const Icon(Icons.refresh_rounded, color: appBlueAccent, size: 16),
-                                        label: const Text("Reset Filters", style: TextStyle(color: appBlueAccent)),
+                                        icon: Icon(Icons.refresh_rounded, color: appBlueAccent, size: 16),
+                                        label: Text("Reset Filters", style: TextStyle(color: appBlueAccent)),
                                       ),
                                     ],
                                   ],
@@ -294,10 +294,10 @@ class _AppliedJobListScreenState extends State<AppliedJobListScreen> {
             hindText: "Search candidate, role, mobile, job code...",
             bgColor: const Color(0xFFF8FAFC),
             borderColor: cardBorderColor,
-            preFixWidget: const Icon(Icons.search_rounded, color: appBlueAccent, size: 20),
+            preFixWidget: Icon(Icons.search_rounded, color: appBlueAccent, size: 20),
             suffix: searchController.text.isNotEmpty
                 ? IconButton(
-                    icon: const Icon(Icons.clear, size: 18, color: Color(0xFF434654)),
+                    icon: Icon(Icons.clear, size: 18, color: Color(0xFF434654)),
                     onPressed: () {
                       searchController.clear();
                       setState(() {});
@@ -807,7 +807,7 @@ class _AppliedJobListScreenState extends State<AppliedJobListScreen> {
                       ),
                       IconButton(
                         onPressed: () => Navigator.pop(context),
-                        icon: const Icon(Icons.close_rounded, color: Color(0xFF434654)),
+                        icon: Icon(Icons.close_rounded, color: Color(0xFF434654)),
                         padding: EdgeInsets.zero,
                         constraints: const BoxConstraints(),
                       ),

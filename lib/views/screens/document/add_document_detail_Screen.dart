@@ -88,8 +88,8 @@ class _AddDocumentDetailScreenState extends State<AddDocumentDetailScreen> {
                           onPressed: () {
                              // Implement view file logic
                           },
-                          icon: const Icon(Icons.visibility_rounded),
-                          label: const Text("View Attachment"),
+                          icon: Icon(Icons.visibility_rounded),
+                          label: Text("View Attachment"),
                         ),
                       ],
                     ),

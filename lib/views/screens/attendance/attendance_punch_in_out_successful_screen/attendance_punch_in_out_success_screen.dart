@@ -115,7 +115,7 @@ class _AttendancePunchInOutSuccessScreenState
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
+                       Icon(
                         Icons.home_outlined,
                         color: primaryColor,
                       ),

@@ -78,7 +78,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
             onPressed: () {
               navigate(context: context, page: const LeaveHistoryScreen());
             },
-            icon: const Icon(Icons.history),
+            icon: Icon(Icons.history),
           ),
         ],
       ),
@@ -125,7 +125,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                           "${pickedDate.year}";
                     }
                   },
-                  suffix: const Icon(Icons.calendar_month),
+                  suffix: Icon(Icons.calendar_month),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Select end date";
@@ -170,7 +170,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                           "${pickedDate.year}";
                     }
                   },
-                  suffix: const Icon(Icons.calendar_month),
+                  suffix: Icon(Icons.calendar_month),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Select end date";

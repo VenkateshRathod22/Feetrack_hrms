@@ -119,7 +119,7 @@ class _CreateDepartmentScreenState extends State<CreateDepartmentScreen> {
                                 });
                               }
                             },
-                            icon: const Icon(Icons.add_circle, color: green2, size: 30),
+                            icon:  Icon(Icons.add_circle, color: green2, size: 30),
                           ),
                         ),
                       ],

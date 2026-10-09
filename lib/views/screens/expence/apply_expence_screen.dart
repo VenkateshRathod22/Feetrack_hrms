@@ -86,7 +86,7 @@ class _ApplyExpenceScreenState extends State<ApplyExpenceScreen> {
               onPressed: () {
                 navigate(context: context, page: const ExpenceHistoryScreen());
               },
-              icon: const Icon(Icons.history),
+              icon: Icon(Icons.history),
             ),
         ],
       ),
@@ -195,7 +195,7 @@ class _ApplyExpenceScreenState extends State<ApplyExpenceScreen> {
                           "${pickedDate.year}";
                     }
                   },
-                  suffix: const Icon(Icons.calendar_month),
+                  suffix: Icon(Icons.calendar_month),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Select date";
@@ -279,7 +279,7 @@ class _ApplyExpenceScreenState extends State<ApplyExpenceScreen> {
                               color: Colors.red,
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(Icons.close, color: Colors.white, size: 16),
+                            child: Icon(Icons.close, color: Colors.white, size: 16),
                           ),
                         ),
                       ),
@@ -296,7 +296,7 @@ class _ApplyExpenceScreenState extends State<ApplyExpenceScreen> {
                               width: double.infinity,
                               fit: BoxFit.cover,
                               placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-                              errorWidget: (context, url, error) => const Icon(Icons.error),
+                              errorWidget: (context, url, error) => Icon(Icons.error),
                             ),
                           ),
                           Positioned(

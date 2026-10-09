@@ -19,7 +19,7 @@ class GetPayslipConfigScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Payslip Configuration"),
+        title: Text("Payslip Configuration"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -28,7 +28,7 @@ class GetPayslipConfigScreen extends StatelessWidget {
             onPressed: () {
               navigate(context: context, page: const CreatePayslipConfigScreen());
             },
-            icon: const Icon(Icons.edit),
+            icon: Icon(Icons.edit),
           ),
         ],
       ),
@@ -143,7 +143,7 @@ class _CreatePayslipConfigScreenState extends State<CreatePayslipConfigScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Edit Payslip Config"),
+        title: Text("Edit Payslip Config"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -202,7 +202,7 @@ class _CreatePayslipConfigScreenState extends State<CreatePayslipConfigScreen> {
                   ),
                   child: controller.isLoading
                       ? const CircularProgressIndicator(color: Colors.white)
-                      : const Text("Save Configuration"),
+                      : Text("Save Configuration"),
                 ),
               ],
             ),
@@ -271,7 +271,7 @@ class _CreatePayslipConfigScreenState extends State<CreatePayslipConfigScreen> {
                         borderRadius: BorderRadius.circular(12.r),
                         child: Image.network(remoteUrl, fit: BoxFit.contain),
                       )
-                    : const Icon(Icons.add_a_photo, color: Colors.grey),
+                    : Icon(Icons.add_a_photo, color: Colors.grey),
           ),
         ),
       ],

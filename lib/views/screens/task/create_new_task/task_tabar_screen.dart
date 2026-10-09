@@ -35,7 +35,7 @@ class TaskTabarScreen extends StatelessWidget {
 
       if (tabs.isEmpty) {
         return Scaffold(
-          appBar: AppBar(title: const Text("Task Management")),
+          appBar: AppBar(title: Text("Task Management")),
           body: const Center(child: Text("You don't have permission to view tasks")),
         );
       }

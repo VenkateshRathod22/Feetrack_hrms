@@ -59,7 +59,7 @@ class _RecoveryReportScreenState extends State<RecoveryReportScreen> {
                 search: _getSearchMap(),
               );
             },
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),

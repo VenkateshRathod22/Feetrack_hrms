@@ -54,7 +54,7 @@ class SelectMonthWidget extends StatelessWidget {
           ),
           child: Row(
             children: [
-              const Icon(Icons.calendar_month),
+              Icon(Icons.calendar_month),
               sizedBoxWidth(width: 12.w),
               Expanded(
                 child: CustomText(

@@ -24,7 +24,7 @@ class SettingsScreen extends StatelessWidget {
     return GetBuilder<AuthController>(builder: (authController) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text("Settings"),
+          title: Text("Settings"),
           centerTitle: true,
         ),
         body: ListView(
@@ -169,7 +169,7 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         subtitle: Text(subtitle),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+        trailing: Icon(Icons.arrow_forward_ios, size: 18),
         onTap: onTap,
       ),
     );

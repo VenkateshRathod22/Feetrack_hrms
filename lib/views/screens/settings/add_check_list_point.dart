@@ -23,7 +23,7 @@ class _AddCheckListPointState extends State<AddCheckListPoint> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Add Checklist Point"),
+        title: Text("Add Checklist Point"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,

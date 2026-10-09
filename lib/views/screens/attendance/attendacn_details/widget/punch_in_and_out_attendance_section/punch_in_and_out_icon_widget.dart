@@ -22,7 +22,7 @@ class PunchInAndPunchOutIconWidget extends StatelessWidget {
             padding: EdgeInsets.all(12.w),
             decoration: BoxDecoration(
                 shape: BoxShape.circle, color: green2.withValues(alpha: 0.3)),
-            child: const Icon(
+            child:  Icon(
               Icons.login,
               color: green2,
             ),
@@ -51,7 +51,7 @@ class PunchInAndPunchOutIconWidget extends StatelessWidget {
           padding: EdgeInsets.all(12.w),
           decoration: BoxDecoration(
               shape: BoxShape.circle, color: red1.withValues(alpha: 0.2)),
-          child: const Icon(
+          child:  Icon(
             Icons.logout,
             color: red1,
           ),

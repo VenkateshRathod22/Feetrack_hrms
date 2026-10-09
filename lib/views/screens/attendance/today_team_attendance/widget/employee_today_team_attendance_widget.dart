@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/state_manager.dart';
 import 'package:vlr/controllers/attendance_controller.dart';
 import 'package:vlr/data/models/employee_model.dart';
@@ -192,7 +191,7 @@ class EmployeeTodayTeamAttendanceWidget extends StatelessWidget {
                                 color: green2.withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(8.r),
                               ),
-                              child: const Icon(
+                              child:  Icon(
                                 Icons.login,
                                 color: green2,
                               ),
@@ -242,7 +241,7 @@ class EmployeeTodayTeamAttendanceWidget extends StatelessWidget {
                                 color: red1.withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(8.r),
                               ),
-                              child: const Icon(
+                              child:  Icon(
                                 Icons.logout,
                                 color: red1,
                               ),

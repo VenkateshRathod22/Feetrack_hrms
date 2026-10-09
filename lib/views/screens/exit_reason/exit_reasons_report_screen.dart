@@ -46,7 +46,7 @@ class _ExitReasonsReportScreenState extends State<ExitReasonsReportScreen> {
         actions: [
           IconButton(
             onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.exitReasonsExport, search: _getSearchMap()),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -64,7 +64,7 @@ class _ExitReasonsReportScreenState extends State<ExitReasonsReportScreen> {
                   ReportSummaryItemModel(label: "Involuntary", value: exitReasonController.exitReasonReportSummary!.involuntaryCount.toString(), icon: Icons.person_off_rounded),
                 ]),
               if (exitReasonController.exitReasonReportList.isEmpty)
-                Padding(padding: EdgeInsets.only(top: 100.h), child: const Text("No data found"))
+                Padding(padding: EdgeInsets.only(top: 100.h), child: Text("No data found"))
               else
                 ListView.separated(
                   shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
@@ -86,11 +86,11 @@ class _ExitReasonsReportScreenState extends State<ExitReasonsReportScreen> {
       child: Column(children: [
         TextField(
           controller: searchController,
-          decoration: InputDecoration(hintText: "Search...", prefixIcon: const Icon(Icons.search), contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h), border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r), borderSide: BorderSide(color: greyLight1))),
+          decoration: InputDecoration(hintText: "Search...", prefixIcon: Icon(Icons.search), contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h), border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r), borderSide: BorderSide(color: greyLight1))),
           onChanged: (v) => _fetchReport(),
         ),
         sizedBoxHeight(height: 12),
-        DropdownButtonFormField<String>(value: exitType, hint: const Text("Exit Type"), items: ['voluntary', 'involuntary'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(), onChanged: (v) { setState(() => exitType = v); _fetchReport(); }),
+        DropdownButtonFormField<String>(value: exitType, hint: Text("Exit Type"), items: ['voluntary', 'involuntary'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(), onChanged: (v) { setState(() => exitType = v); _fetchReport(); }),
       ]),
     );
   }

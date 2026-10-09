@@ -140,7 +140,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                                                   isEdit: true,
                                                   departmentId: dept.id));
                                         },
-                                        icon: const Icon(Icons.edit,
+                                        icon:  Icon(Icons.edit,
                                             color: primaryColor),
                                       ),
                                     if (authController
@@ -148,7 +148,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                                       IconButton(
                                         onPressed: () => _showDeleteDialog(
                                             context, dept.id!),
-                                        icon: const Icon(Icons.delete,
+                                        icon:  Icon(Icons.delete,
                                             color: red1),
                                       ),
                                   ],
@@ -172,10 +172,10 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Department"),
-        content: const Text("Are you sure you want to delete this department?"),
+        title: Text("Delete Department"),
+        content: Text("Are you sure you want to delete this department?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Get.find<DepartmentController>().deleteDepartment(id).then((value) {
@@ -183,7 +183,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                 Navigator.pop(context);
               });
             },
-            child: const Text("Delete", style: TextStyle(color: red1)),
+            child:  Text("Delete", style: TextStyle(color: red1)),
           ),
         ],
       ),

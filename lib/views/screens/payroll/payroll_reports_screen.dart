@@ -27,7 +27,7 @@ class _PayrollReportsScreenState extends State<PayrollReportsScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FA),
       appBar: AppBar(
-        title: const Text("Advance Reports"),
+        title: Text("Advance Reports"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,

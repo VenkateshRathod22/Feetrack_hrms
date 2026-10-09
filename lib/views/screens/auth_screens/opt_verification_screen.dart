@@ -127,8 +127,8 @@ class _OTPVerificationState extends State<OTPVerification> {
             onChanged: (value) {},
           ),
           const SizedBox(height: 60),
-          const Text("Didn’t you received any code?"),
-          const Text("Resend a new code.",
+          Text("Didn’t you received any code?"),
+          Text("Resend a new code.",
               style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold))
         ],
       ),

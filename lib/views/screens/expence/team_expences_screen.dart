@@ -224,12 +224,12 @@ class _TeamExpenseCard extends StatelessWidget {
                           },
                     style: OutlinedButton.styleFrom(
                       foregroundColor: red,
-                      side: const BorderSide(color: red),
+                      side:  BorderSide(color: red),
                       padding: EdgeInsets.symmetric(vertical: 8.h),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.r)),
                     ),
-                    child: const Text("Reject"),
+                    child: Text("Reject"),
                   ),
                 ),
                 sizedBoxWidth(width: 12.w),
@@ -248,7 +248,7 @@ class _TeamExpenseCard extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.r)),
                     ),
-                    child: const Text("Approve"),
+                    child: Text("Approve"),
                   ),
                 ),
               ],
@@ -269,7 +269,7 @@ class _TeamExpenseCard extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {

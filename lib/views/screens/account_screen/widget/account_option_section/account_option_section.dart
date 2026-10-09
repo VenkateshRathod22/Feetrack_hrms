@@ -6,13 +6,24 @@ import 'package:vlr/services/theme.dart';
 import 'package:vlr/views/screens/account_screen/widget/account_option_section/account_option_model.dart';
 import 'package:vlr/views/screens/account_screen/widget/account_option_section/account_option_widget.dart';
 
-class AccountOptionSection extends StatelessWidget {
+class AccountOptionSection extends StatefulWidget {
   const AccountOptionSection({
     super.key,
   });
 
   @override
+  State<AccountOptionSection> createState() => _AccountOptionSectionState();
+}
+
+class _AccountOptionSectionState extends State<AccountOptionSection> {
+
+  
+  @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+  final colorScheme = theme.colorScheme;
+
+    
     return GetBuilder<AuthController>(builder: (authController) {
       List<AccountOptionModel> filterList(
           List<AccountOptionModel> originalList) {
@@ -48,7 +59,7 @@ class AccountOptionSection extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: white,
+              color:   white,
               border: Border.all(
                 width: 1,
                 color: greyLight4,
@@ -56,7 +67,7 @@ class AccountOptionSection extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               boxShadow: [
                 BoxShadow(
-                    offset: Offset(0, 1),
+                    offset: const Offset(0, 1),
                     blurRadius: 2,
                     spreadRadius: 0,
                     color: black.withValues(alpha: 0.05))

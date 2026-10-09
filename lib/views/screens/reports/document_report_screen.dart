@@ -54,7 +54,7 @@ class _DocumentReportScreenState extends State<DocumentReportScreen> {
         actions: [
           IconButton(
             onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.documentExport, search: _getSearchMap()),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -114,7 +114,7 @@ class _DocumentReportScreenState extends State<DocumentReportScreen> {
           Expanded(
               child: DropdownButtonFormField<String>(
                   value: documentCategory,
-                  hint: const Text("Category"),
+                  hint: Text("Category"),
                   items: ['kyc', 'education', 'experience', 'joining'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(),
                   onChanged: (v) {
                     setState(() => documentCategory = v);
@@ -124,7 +124,7 @@ class _DocumentReportScreenState extends State<DocumentReportScreen> {
           Expanded(
               child: DropdownButtonFormField<String>(
                   value: status,
-                  hint: const Text("Status"),
+                  hint: Text("Status"),
                   items: ['verified', 'pending_verification', 'rejected']
                       .map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e.replaceAll("_", " ")))))
                       .toList(),
@@ -153,7 +153,7 @@ class _DocumentReportScreenState extends State<DocumentReportScreen> {
             padding: EdgeInsets.all(12.r),
             decoration: BoxDecoration(border: Border.all(color: greyLight1), borderRadius: BorderRadius.circular(8.r)),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Icon(Icons.calendar_today, size: 16, color: primaryColor),
+               Icon(Icons.calendar_today, size: 16, color: primaryColor),
               sizedBoxWidth(width: 8),
               Text("${DateFormat('dd-MM-yy').format(startDate)} - ${DateFormat('dd-MM-yy').format(endDate)}")
             ]),

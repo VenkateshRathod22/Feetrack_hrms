@@ -92,7 +92,7 @@ class _TopStatusSectionState extends State<TopStatusSection> {
                         height: 24.h,
                         width: 24.w,
                         colorFilter:
-                            const ColorFilter.mode(green2, BlendMode.srcIn),
+                             ColorFilter.mode(green2, BlendMode.srcIn),
                       ),
                       sizedBoxWidth(width: 8.w),
                       CustomText(

@@ -36,7 +36,7 @@ class _EmployeeSalaryStructureState extends State<EmployeeSalaryStructure> {
     return Scaffold(
       backgroundColor: backgroundLight,
       appBar: AppBar(
-        title: const Text("Salary Structure"),
+        title: Text("Salary Structure"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,

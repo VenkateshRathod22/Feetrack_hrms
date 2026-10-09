@@ -22,7 +22,7 @@ showCustomToast({required String msg, String? description, ToastType? toastType,
       description: description != null ? Text(description) : null,
       style: toastificationStyle ?? ToastificationStyle.fillColored,
       icon: toastType == null
-          ? const Icon(Icons.check_circle_outline)
+          ? Icon(Icons.check_circle_outline)
           : null,
       autoCloseDuration: const Duration(seconds: 3),
       showProgressBar: false

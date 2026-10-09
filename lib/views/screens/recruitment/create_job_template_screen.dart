@@ -131,7 +131,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
   int? selectedPlanId;
 
   // App Blue Theme Colors
-  static const Color appBluePrimary = primaryColor; // 0xFF021A45
+  static  Color appBluePrimary = primaryColor; // 0xFF021A45
   static const Color appBlueAccent = Color(0xFF0052D9); // Vibrant Blue
   static const Color appBlueLight = Color(0xFFEFF6FF); // Light blue tint
   static const Color appBlueBorder = Color(0xFFBFDBFE); // Soft blue border
@@ -295,7 +295,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                 ),
                 child: IconButton(
                   padding: EdgeInsets.zero,
-                  icon: const Icon(Icons.arrow_back_rounded, color: appBluePrimary, size: 20),
+                  icon:  Icon(Icons.arrow_back_rounded, color: appBluePrimary, size: 20),
                   onPressed: () {
                     if (_currentStep > 0) {
                       setState(() => _currentStep--);
@@ -394,7 +394,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           gradient: isActive
-                              ? const LinearGradient(
+                              ?  LinearGradient(
                                   colors: [appBluePrimary, appBlueAccent],
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
@@ -511,7 +511,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                 isRequired: true,
                 bgColor: white,
                 borderColor: cardBorderColor,
-                preFixWidget: const Icon(Icons.work_outline_rounded, color: appBlueAccent, size: 20),
+                preFixWidget: Icon(Icons.work_outline_rounded, color: appBlueAccent, size: 20),
                 validator: (v) => (v == null || v.trim().isEmpty) ? "Job title is required" : null,
               ),
               sizedBoxHeight(height: 16),
@@ -620,7 +620,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                 controller: jobCityController,
                 bgColor: white,
                 borderColor: cardBorderColor,
-                preFixWidget: const Icon(Icons.location_city_rounded, color: appBlueAccent, size: 20),
+                preFixWidget: Icon(Icons.location_city_rounded, color: appBlueAccent, size: 20),
               ),
               sizedBoxHeight(height: 16),
 
@@ -755,7 +755,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                         color: appBlueAccent,
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.stars_rounded, size: 18, color: Colors.white),
+                      child: Icon(Icons.stars_rounded, size: 18, color: Colors.white),
                     ),
                     sizedBoxWidth(width: 12),
                     Expanded(
@@ -1294,7 +1294,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                               color: appBlueLight,
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(
+                            child: Icon(
                               Icons.check_rounded,
                               size: 14,
                               color: appBlueAccent,
@@ -1341,9 +1341,9 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.star_rounded, size: 12, color: Colors.white),
+                    Icon(Icons.star_rounded, size: 12, color: Colors.white),
                     sizedBoxWidth(width: 4),
-                    const Text(
+                    Text(
                       "RECOMMENDED",
                       style: TextStyle(
                         fontSize: 9,
@@ -1542,7 +1542,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
             color: blackText1,
           ),
         ),
-        const Text(" *", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.red)),
+        Text(" *", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.red)),
       ],
     );
   }
@@ -1625,7 +1625,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
       height: 50.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
-        gradient: const LinearGradient(
+        gradient:  LinearGradient(
           colors: [appBluePrimary, appBlueAccent],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
@@ -1656,7 +1656,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                 ),
               ),
               sizedBoxWidth(width: 8),
-              const Icon(Icons.arrow_forward_rounded, color: Colors.white, size: 18),
+              Icon(Icons.arrow_forward_rounded, color: Colors.white, size: 18),
             ],
           ),
         ),
@@ -1686,7 +1686,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                   borderRadius: BorderRadius.circular(12.r),
                 ),
               ),
-              icon: const Icon(Icons.arrow_back_rounded, size: 16, color: appBluePrimary),
+              icon:  Icon(Icons.arrow_back_rounded, size: 16, color: appBluePrimary),
               label: CustomText(
                 "Back",
                 style: TextStyle(
@@ -1739,7 +1739,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             if (isPublish) ...[
-                              const Icon(Icons.rocket_launch_rounded, color: Colors.white, size: 18),
+                              Icon(Icons.rocket_launch_rounded, color: Colors.white, size: 18),
                               sizedBoxWidth(width: 8),
                             ],
                             CustomText(
@@ -1753,7 +1753,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
                             ),
                             if (!isPublish) ...[
                               sizedBoxWidth(width: 8),
-                              const Icon(Icons.arrow_forward_rounded, color: Colors.white, size: 18),
+                              Icon(Icons.arrow_forward_rounded, color: Colors.white, size: 18),
                             ],
                           ],
                         ),
@@ -1787,7 +1787,7 @@ class _CreateJobTemplateScreenState extends State<CreateJobTemplateScreen> {
         DropdownButtonFormField<String>(
           isExpanded: true,
           initialValue: validatedValue,
-          icon: const Icon(Icons.keyboard_arrow_down_rounded, color: appBlueAccent),
+          icon: Icon(Icons.keyboard_arrow_down_rounded, color: appBlueAccent),
           hint: hintText != null
               ? Text(
                   hintText,

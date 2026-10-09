@@ -98,7 +98,7 @@ class _AssetScreenState extends State<AssetScreen> {
               uri: AppConstants.assetExport,
               search: _getFilterData(),
             ),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon:  Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -386,10 +386,10 @@ class _AssetScreenState extends State<AssetScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Asset?"),
+        title: Text("Delete Asset?"),
         content: Text("Are you sure you want to delete '${asset.name}'?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -397,7 +397,7 @@ class _AssetScreenState extends State<AssetScreen> {
                 showToast(message: res.message, toastType: res.isSuccess ? ToastType.success : ToastType.error);
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

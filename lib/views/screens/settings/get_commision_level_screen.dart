@@ -30,7 +30,7 @@ class _GetCommisionLevelScreenState extends State<GetCommisionLevelScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Commission Levels"),
+        title: Text("Commission Levels"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -52,7 +52,7 @@ class _GetCommisionLevelScreenState extends State<GetCommisionLevelScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: "Search levels...",
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: grey.withValues(alpha: 0.1),
                   border: OutlineInputBorder(
@@ -141,13 +141,13 @@ class _GetCommisionLevelScreenState extends State<GetCommisionLevelScreen> {
                                         page: AddCommissionScreen(isEdit: true, commissionId: level.id),
                                       );
                                     },
-                                    icon: const Icon(Icons.edit, color: Colors.blue),
+                                    icon: Icon(Icons.edit, color: Colors.blue),
                                   ),
                                   IconButton(
                                     onPressed: () {
                                       _showDeleteDialog(context, commissionController, level.id!);
                                     },
-                                    icon: const Icon(Icons.delete, color: Colors.red),
+                                    icon: Icon(Icons.delete, color: Colors.red),
                                   ),
                                 ],
                               ),
@@ -165,12 +165,12 @@ class _GetCommisionLevelScreenState extends State<GetCommisionLevelScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Commission Level"),
-        content: const Text("Are you sure you want to remove this commission level?"),
+        title: Text("Delete Commission Level"),
+        content: Text("Are you sure you want to remove this commission level?"),
         actions: [
           TextButton(
             onPressed: () => pop(context),
-            child: const Text("Cancel"),
+            child: Text("Cancel"),
           ),
           TextButton(
             onPressed: () {
@@ -179,7 +179,7 @@ class _GetCommisionLevelScreenState extends State<GetCommisionLevelScreen> {
                 pop(context);
               });
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            child: Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

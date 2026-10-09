@@ -31,7 +31,7 @@ class _PayrollDraftsScreenState extends State<PayrollDraftsScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Payroll Drafts"),
+        title: Text("Payroll Drafts"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -45,7 +45,7 @@ class _PayrollDraftsScreenState extends State<PayrollDraftsScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: "Search employee...",
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: grey.withValues(alpha: 0.1),
                   border: OutlineInputBorder(
@@ -154,8 +154,8 @@ class _PayrollDraftsScreenState extends State<PayrollDraftsScreen> {
                                             page: PayrollAdjustmentScreen(payrollId: draft['id']),
                                           );
                                         },
-                                        icon: const Icon(Icons.edit_note, size: 18),
-                                        label: const Text("Adjustment"),
+                                        icon: Icon(Icons.edit_note, size: 18),
+                                        label: Text("Adjustment"),
                                         style: TextButton.styleFrom(
                                           foregroundColor: primaryColor,
                                           padding: EdgeInsets.zero,

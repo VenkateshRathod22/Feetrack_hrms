@@ -107,43 +107,97 @@ enum ToastType {
   final ToastificationType value;
 }
 
-void showToast(
-    {ToastType? toastType,
-    required String message,
-    String? description,
-    ToastificationStyle? toastificationStyle,
-    bool? typeCheck}) {
+void showToast({
+  ToastType? toastType,
+  required String message,
+  String? description,
+  ToastificationStyle? toastificationStyle,
+  bool? typeCheck,
+}) {
+  final context = navigatorKey.currentContext;
+
+  if (context == null) return;
+
+  final theme = Theme.of(context);
+  final colorScheme = theme.colorScheme;
+  final isDark = theme.brightness == Brightness.dark;
+
+  final resolvedType = toastType?.value ??
+      ((typeCheck ?? false)
+          ? ToastificationType.success
+          : ToastificationType.error);
+
+  // Select the accent color and icon according to toast type.
+  late final Color accentColor;
+  late final IconData iconData;
+
+  if (resolvedType == ToastificationType.success) {
+    accentColor = isDark
+        ? const Color(0xFF4ADE80)
+        : const Color(0xFF16A34A);
+    iconData = Icons.check_circle_outline_rounded;
+  } else if (resolvedType == ToastificationType.error) {
+    accentColor = colorScheme.error;
+    iconData = Icons.error_outline_rounded;
+  } else if (resolvedType == ToastificationType.warning) {
+    accentColor = isDark
+        ? const Color(0xFFFBBF24)
+        : const Color(0xFFF59E0B);
+    iconData = Icons.warning_amber_rounded;
+  } else {
+    accentColor = colorScheme.primary;
+    iconData = Icons.info_outline_rounded;
+  }
+
   toastification.show(
+    context: context,
     alignment: Alignment.topLeft,
-    type: toastType?.value ??
-        ((typeCheck ?? false)
-            ? ToastificationType.success
-            : ToastificationType.error),
+    type: resolvedType,
+
+    // Adapt the toast to the active theme.
+    style: toastificationStyle ?? ToastificationStyle.minimal,
+    backgroundColor: colorScheme.surface,
+    foregroundColor: colorScheme.onSurface,
+    primaryColor: accentColor,
+
+    borderSide: BorderSide(
+      color: colorScheme.outlineVariant,
+    ),
+    borderRadius: BorderRadius.circular(12),
+
+    boxShadow: [
+      BoxShadow(
+        color: theme.shadowColor.withValues(
+          alpha: isDark ? 0.25 : 0.08,
+        ),
+        blurRadius: 12,
+        offset: const Offset(0, 4),
+      ),
+    ],
+
     title: Text(
       message,
-      style:
-          Helper(navigatorKey.currentContext!).textTheme.bodyMedium!.copyWith(
-                color: black,
-                fontSize: 14,
-              ),
+      style: theme.textTheme.bodyMedium?.copyWith(
+        color: colorScheme.onSurface,
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+      ),
     ),
+
     description: description != null
-        ? Text(description,
-            style: Helper(navigatorKey.currentContext!)
-                .textTheme
-                .bodySmall!
-                .copyWith(
-                  color: black,
-                ))
+        ? Text(
+            description,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: colorScheme.onSurfaceVariant,
+            ),
+          )
         : null,
-    style: toastificationStyle ?? ToastificationStyle.minimal,
-    icon: toastType == ToastType.success
-        ? const Icon(Icons.check_circle_outline)
-        : toastType == ToastType.error
-            ? const Icon(Icons.error_outline)
-            : toastType == ToastType.warning
-                ? const Icon(Icons.warning_amber)
-                : const Icon(Icons.info_outline),
+
+    icon: Icon(
+      iconData,
+      color: accentColor,
+    ),
+
     autoCloseDuration: const Duration(seconds: 2),
   );
 }

@@ -234,7 +234,7 @@ class _BranchesScreenState extends State<BranchesScreen> {
                                       ),
                                     );
                                   },
-                                  icon: const Icon(
+                                  icon:  Icon(
                                     Icons.edit,
                                     color: primaryColor,
                                   ),
@@ -253,7 +253,7 @@ class _BranchesScreenState extends State<BranchesScreen> {
                                       branch.id!,
                                     );
                                   },
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.delete,
                                     color: red1,
                                   ),
@@ -281,8 +281,8 @@ class _BranchesScreenState extends State<BranchesScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text("Delete Branch"),
-          content: const Text(
+          title: Text("Delete Branch"),
+          content: Text(
             "Are you sure you want to delete this branch?",
           ),
           actions: [
@@ -290,7 +290,7 @@ class _BranchesScreenState extends State<BranchesScreen> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text(
+              child: Text(
                 "Cancel",
               ),
             ),
@@ -308,7 +308,7 @@ class _BranchesScreenState extends State<BranchesScreen> {
                   Navigator.pop(context);
                 });
               },
-              child: const Text(
+              child:  Text(
                 "Delete",
                 style: TextStyle(
                   color: red1,

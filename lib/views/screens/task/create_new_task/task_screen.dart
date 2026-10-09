@@ -86,7 +86,7 @@ class _TaskScreenState extends State<TaskScreen> {
             onPressed: () {
               navigate(context: context, page: const CreateNewTaskScreen());
             },
-            icon: const Icon(Icons.add_circle_outline, color: primaryColor),
+            icon: Icon(Icons.add_circle_outline, color: primaryColor),
           ),
         ],
       ),
@@ -444,7 +444,7 @@ class _TaskCard extends StatelessWidget {
                           color: greyLight4,
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(Icons.close, size: 20),
+                        child: Icon(Icons.close, size: 20),
                       ),
                     ),
                   ],
@@ -575,7 +575,7 @@ class _TaskCard extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.all(4.r),
                           padding: EdgeInsets.all(10.r),
-                          decoration: const BoxDecoration(
+                          decoration:  BoxDecoration(
                             color: primaryColor,
                             shape: BoxShape.circle,
                           ),

@@ -43,7 +43,7 @@ class _TaskStatusScreenState extends State<TaskStatusScreen> {
               Get.find<TaskStatusController>().clearData();
               navigate(context: context, page: const CreateTaskStatusScreen());
             },
-            icon: const Icon(Icons.add_circle_outline, color: primaryColor),
+            icon: Icon(Icons.add_circle_outline, color: primaryColor),
           ),
         ],
       ),
@@ -145,10 +145,10 @@ class _TaskStatusScreenState extends State<TaskStatusScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Delete Status"),
-        content: const Text("Are you sure you want to remove this task status?"),
+        title: Text("Delete Status"),
+        content: Text("Are you sure you want to remove this task status?"),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
@@ -160,7 +160,7 @@ class _TaskStatusScreenState extends State<TaskStatusScreen> {
                 }
               });
             },
-            child: const Text("Delete", style: TextStyle(color: red)),
+            child: Text("Delete", style: TextStyle(color: red)),
           ),
         ],
       ),

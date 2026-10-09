@@ -20,7 +20,7 @@ class _GenerateProcessCommionsScreenState extends State<GenerateProcessCommionsS
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: const Text("Process Commissions"),
+        title: Text("Process Commissions"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,

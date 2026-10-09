@@ -18,7 +18,7 @@ class CalenderWidgetTodayStatus extends StatelessWidget {
       decoration: BoxDecoration(
         color: greyDart.withValues(alpha: 0.20),
         borderRadius: BorderRadius.circular(16),
-        border: const Border(
+        border:  Border(
           left: BorderSide(
             width: 4,
             color: primaryColor,

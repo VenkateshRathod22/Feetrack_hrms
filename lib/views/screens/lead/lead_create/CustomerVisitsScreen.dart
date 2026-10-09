@@ -63,7 +63,7 @@ class _CustomervisitsscreenState extends State<Customervisitsscreen> {
         onPressed: () {
           navigate(context: context, page: const CreateCustomerVisitScreen());
         },
-        icon: const Icon(Icons.add_location_alt_rounded, color: Colors.white),
+        icon: Icon(Icons.add_location_alt_rounded, color: Colors.white),
         label: CustomText("Schedule Visit", style: TextStyle(color: white, fontWeight: FontWeight.bold, fontSize: 14.sp)),
       ),
       body: GetBuilder<LeadController>(builder: (controller) {
@@ -268,7 +268,7 @@ class _CustomervisitsscreenState extends State<Customervisitsscreen> {
               Navigator.pop(context);
               Get.find<LeadController>().deleteCustomerVisit(visit.id!);
             },
-            child: const CustomText("Delete", style: TextStyle(color: red)),
+            child:  CustomText("Delete", style: TextStyle(color: red)),
           ),
         ],
       ),

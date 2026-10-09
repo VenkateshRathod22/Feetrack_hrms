@@ -57,7 +57,7 @@ class _ResignationExitReportScreenState extends State<ResignationExitReportScree
         actions: [
           IconButton(
             onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.resignationExitExport, search: _getSearchMap()),
-            icon: const Icon(Icons.download_rounded, color: primaryColor),
+            icon: Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
       ),
@@ -69,7 +69,7 @@ class _ResignationExitReportScreenState extends State<ResignationExitReportScree
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                 child: TextField(
                   controller: searchController,
-                  decoration: InputDecoration(hintText: "Search...", prefixIcon: const Icon(Icons.search), filled: true, fillColor: white, border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r), borderSide: BorderSide.none)),
+                  decoration: InputDecoration(hintText: "Search...", prefixIcon: Icon(Icons.search), filled: true, fillColor: white, border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r), borderSide: BorderSide.none)),
                   onChanged: (v) => _fetchReport(),
                 ),
               ),

@@ -92,7 +92,7 @@ class _BillingHistoryScreenState extends State<BillingHistoryScreen> {
               ),
               centerTitle: true,
               leading: IconButton(
-                icon: const Icon(Icons.arrow_back, color: black),
+                icon: Icon(Icons.arrow_back, color: black),
                 onPressed: () => pop(context),
               ),
             ),

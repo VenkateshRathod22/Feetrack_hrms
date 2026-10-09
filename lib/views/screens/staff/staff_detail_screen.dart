@@ -17,7 +17,7 @@ class StaffDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: greyLight4,
       appBar: AppBar(
-        title: const Text("Staff Details"),
+        title: Text("Staff Details"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,
@@ -30,7 +30,7 @@ class StaffDetailScreen extends StatelessWidget {
                 Get.find<SalaryController>().getSalaryStructure(staff.id!);
                 navigate(context: context, page: EmployeeSalaryStructure(staffId: staff.id!, staffName: staff.name ?? ""));
               },
-              icon: const Icon(Icons.account_balance_wallet_outlined, color: primaryColor),
+              icon: Icon(Icons.account_balance_wallet_outlined, color: primaryColor),
               tooltip: "Salary Structure",
             );
           }),
