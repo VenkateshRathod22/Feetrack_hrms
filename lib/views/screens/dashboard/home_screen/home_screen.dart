@@ -6,6 +6,7 @@ import 'package:vlr/controllers/notice_controller.dart';
 import 'package:vlr/controllers/dashboard_controller.dart';
 import 'package:vlr/services/constants.dart';
 import 'package:vlr/views/screens/account_screen/widget/puch_time_in_out_section/daily_attendance_section.dart';
+import 'package:vlr/views/screens/dashboard/home_screen/widget/home_screen_appbar.dart';
 import 'package:vlr/views/screens/dashboard/home_screen/widget/notice_board_section/notice_board_section.dart';
 import 'package:vlr/views/screens/dashboard/home_screen/widget/notification_section/notification_section.dart';
 import 'package:vlr/views/screens/dashboard/home_screen/widget/quick_action_section/quick_action_section.dart';
@@ -65,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: HomeScreenAppBar(),
       body: GetBuilder<AuthController>(builder: (authController) {
         return GetBuilder<DashBoardController>(builder: (dashController) {
           return RefreshIndicator(
@@ -76,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
               physics: const AlwaysScrollableScrollPhysics(),
               child: Column(
                 children: [
-                  const UserInfoTopHome(),
+                  // const UserInfoTopHome(),
                   sizedBoxHeight(height: 16.h),
                 const   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: AppConstants.horizontalPadding),
