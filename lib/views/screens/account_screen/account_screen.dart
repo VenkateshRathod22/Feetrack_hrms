@@ -6,7 +6,6 @@ import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
 import 'package:vlr/views/screens/account_screen/widget/account_option_section/account_option_section.dart';
-import 'package:vlr/views/screens/account_screen/widget/puch_time_in_out_section/daily_attendance_section.dart';
 import 'package:vlr/views/screens/account_screen/widget/reporting_manager_widget.dart';
 import 'package:vlr/views/screens/account_screen/widget/row_logout_account_delete_section/row_logout_account_delete_section.dart';
 import 'package:vlr/views/screens/attendance/attendance_punch_in_out_successful_screen/attendance_punch_in_out_success_screen.dart';
@@ -31,14 +30,16 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  primaryColor,
-        elevation: 0,
+                elevation: 2,
+        scrolledUnderElevation: 0, // Prevents tinting on scroll in Material 3
+        backgroundColor: Get.isDarkMode ? white : primaryColor,
         centerTitle: true,
         title: CustomText(
           "Account",
           style: Helper(context).textTheme.titleMedium?.copyWith(
                 fontSize: 16,
-                color: white,
+                                    color: Get.isDarkMode ? black : white,
+
               ),
         ),
         leading: Navigator.canPop(context) ? IconButton(
@@ -47,7 +48,8 @@ class _AccountScreenState extends State<AccountScreen> {
             },
             icon: Icon(
               Icons.arrow_back,
-              color: white,
+                                  color: Get.isDarkMode ? black : white,
+
             )) : null,
         actions: [
           IconButton(
@@ -56,7 +58,8 @@ class _AccountScreenState extends State<AccountScreen> {
             },
             icon: Icon(
               Icons.notifications_none_outlined,
-              color: white,
+                    color: Get.isDarkMode ? black : white,
+
             ),
           )
         ],
@@ -70,7 +73,7 @@ class _AccountScreenState extends State<AccountScreen> {
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Column(
                 children: [
-                  const DailyAttendanceSection(),
+                  // const DailyAttendanceSection(),
                   sizedBoxHeight(height: 16.h),
                   const ReportingManagerWidget(),
                   sizedBoxHeight(height: 24.h),

@@ -60,6 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
       await permissionController.requestLocationPermissionAndFetch(context);
 
       Get.find<AttendanceController>().fetchCheckListPoint();
+            Get.find<AttendanceController>().fetchTodayAttendance();
+
       log("Attendance status : - ${Get.find<AttendanceController>().attendanceModel?.status ?? ""}");
       log("Attendance status : - ${Get.find<AttendanceController>().attendanceModel?.status ?? ""}");
 

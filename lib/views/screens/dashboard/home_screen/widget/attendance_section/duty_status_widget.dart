@@ -18,22 +18,22 @@ class DutyStatusWidget extends StatelessWidget {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
         decoration: BoxDecoration(
-          color: greenLight1.withValues(alpha: 0.2),
+          color:  attendanceController.attendanceModel?.statusColor.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(20.r),
-            border: Border.all(width: 1, color: greenLight2,),),
+            border: Border.all(width: 1, color: attendanceController.attendanceModel?.statusColor ?? primaryColor,),),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             CircleAvatar(
               radius: 4.r,
-              backgroundColor: greenLight2,
+              backgroundColor: attendanceController.attendanceModel?.statusColor ?? primaryColor,
             ),
             sizedBoxWidth(width: 8.w),
             CustomText(
            attendanceController.attendanceModel?.statusText ?? "",
               style: Helper(context).textTheme.titleSmall?.copyWith(
                     fontSize: 12.sp,
-                    color: greenLight2,
+                    color: attendanceController.attendanceModel?.statusColor ?? primaryColor,
                   ),
             ),
           ],

@@ -329,7 +329,8 @@ Future<bool> requestCameraPermission(BuildContext context) async {
 
   void updateCamera({required bool value}){
     isCameraOn = value;
-    update();
+    log("camera stuts $value")
+;    update();
   }
 
 

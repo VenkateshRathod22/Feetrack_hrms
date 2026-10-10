@@ -28,16 +28,18 @@ class _OptionScreenState extends State<OptionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+              elevation: 2,
+        scrolledUnderElevation: 0, // Prevents tinting on scroll in Material 3
+        backgroundColor: Get.isDarkMode ? white : primaryColor,
         title: CustomText(
           "All Options",
           style: Helper(context).textTheme.titleMedium?.copyWith(
                 fontSize: 18.sp,
-                color: white,
+                                    color: Get.isDarkMode ? black : white,
+
               ),
         ),
-        backgroundColor: primaryColor,
         centerTitle: true,
-        elevation: 0,
         leading: Navigator.canPop(context) ? IconButton(
           onPressed: () => Navigator.pop(context),
           icon:  Icon(Icons.arrow_back, color: white),

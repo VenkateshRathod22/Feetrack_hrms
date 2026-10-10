@@ -77,8 +77,8 @@ class AttendanceModel {
         date: json["date"] == null ? null : DateTime.parse(json["date"]),
         checkIn: json["check_in"]?.toString(),
         checkOut: json["check_out"]?.toString(),
-        status: "notPunchIn",
-        // status: json["status"]?.toString(),
+        // status: "leave",
+        status: json["status"]?.toString(),
         statusReason: json["status_reason"]?.toString(),
 
         createdAt: json["created_at"] == null
@@ -299,6 +299,7 @@ class AttendanceModel {
     if (isPunchIn) {
       return getWorkingTime(checkIn);
     }
+    
     return formatMinutesToHours(
       workingMinutes,
     );
@@ -326,7 +327,7 @@ class AttendanceModel {
 
   Color get statusColor {
     if (isNotPunchIn) return notPunchIn;
-    if (isPunchIn) return punchIn;
+    if (isPunchIn) return greenLight2;
     if (isPunchOut) return punchOut;
     if (isShortLeave) return shortLeave;
     if (isHalfDay) return halfDay;
@@ -378,7 +379,17 @@ class AttendanceModel {
 
   //* ---- New UI -------
 
-  String get statusText => isNotPunchIn ? "Read For Duty" : "On duty";
+  String get statusText => isNotPunchIn ? "Read For Duty" : 
+                            isPunchIn ?  "On duty" : 
+                            isPunchOut ? "Check out" :
+                            isAbsent ?  "Absent" : 
+                            isShortLeave ? "Short Leave" : 
+                             isHalfDay ? "Half day" :
+                             isLeave ?  "Leave" :
+                             isHoliday ? "Holiday" :
+                             isWeekOff ? "WeekOff" : "Loading.."
+
+                            ;
   String get workingTiming => workingTimeFormat ?? "00 : 00";
 }
 
