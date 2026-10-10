@@ -80,7 +80,7 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _borderColor = borderColor ?? primaryColor;
+    final _borderColor = borderColor ?? color;
     if (type == ButtonType.primary) {
       return MaterialButton(
         onPressed: isLoading ? null : onTap,
@@ -95,7 +95,8 @@ class CustomButton extends StatelessWidget {
         disabledColor: disabledColor ?? Theme.of(context).disabledColor,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radius),
-            side: BorderSide(color: _borderColor)),
+            // side: BorderSide(color: _borderColor)
+            ),
         child: Center(
           child: Builder(
             builder: (context) {
@@ -138,7 +139,7 @@ class CustomButton extends StatelessWidget {
         disabledColor: disabledColor ?? Theme.of(context).disabledColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius),
-          side: BorderSide(color: _borderColor),
+          side: BorderSide(color: primaryColor),
         ),
         child: Center(
           child: Builder(

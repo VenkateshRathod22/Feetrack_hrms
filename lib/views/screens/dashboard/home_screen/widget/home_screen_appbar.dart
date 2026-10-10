@@ -8,6 +8,7 @@ import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
 import 'package:vlr/views/base/custom_image.dart';
 import 'package:vlr/views/screens/edit_profile/profile_detail_screen.dart';
+import 'package:vlr/views/screens/notification_screen/notification_screen.dart';
 
 class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeScreenAppBar({super.key});
@@ -44,7 +45,7 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
         actions: [
           IconButton(
             onPressed: () {
-              // Handle notifications
+              navigate(context: context, page: const NotificationScreen());
             },
             icon: Badge(
               isLabelVisible: true,

@@ -20,153 +20,151 @@ class AttendanceSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AttendanceController>(
-      builder: (attendanceController) {
-        return CustomShimmer(
-          isLoading: attendanceController.isLoading,
-          child: Container(
-            padding: EdgeInsets.all(20.w),
-            decoration: containerDecoration,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    CustomText(
-                      "Today’s Attendance",
-                      style: Helper(context).textTheme.titleMedium?.copyWith(
-                            fontSize: 18.sp,
-                          ),
-                    ),
-                  ],
-                ),
-                sizedBoxHeight(height: 20.h),
-                const AttendanceCameraSection(),
-                sizedBoxHeight(height: 16.h),
-                const DutyStatusWidget(),
-                sizedBoxHeight(height: 8.h),
-                const LocationRowWidget(),
-                sizedBoxHeight(height: 12.h),
-                const WorkingTimeSection(),
-                sizedBoxHeight(height: 12.h),
-                const CheckInAndOutTImeRowSection(),
-                sizedBoxHeight(height: 20.h),
-                GetBuilder<PermissionController>(builder: (permissionController) {
-                  
-                    if (
-                      (attendanceController.attendanceModel?.isNotPunchIn ??
-                        false) || 
-                      (attendanceController.attendanceModel?.isPunchIn ??
-                        false) 
-                        
-                        ) {
-                      return Row(
-                        children: [
-                          Expanded(
-                            child: CustomButton(
-                              height: 50.h,
-                              radius: 12.r,
-                              onTap: () {
-                                if (permissionController.selfie == null) {
-                                  return showToast(
-                                      message: "Take selfie of you",
-                                      toastType: ToastType.info);
-                                }
-                                if ((permissionController.latitude == null) ||
-                                    (permissionController.longitude == null)) {
-                                  permissionController
-                                      .requestLocationPermissionAndFetch(context);
-                                }
-          
-                                if (attendanceController
-                                        .attendanceModel?.isNotPunchIn ??
-                                    false) {
+    return GetBuilder<AttendanceController>(builder: (attendanceController) {
+      return CustomShimmer(
+        isLoading: attendanceController.isLoading,
+        child: Container(
+          padding: EdgeInsets.all(20.w),
+          decoration: containerDecoration,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  CustomText(
+                    "Today’s Attendance",
+                    style: Helper(context).textTheme.titleMedium?.copyWith(
+                          fontSize: 18.sp,
+                        ),
+                  ),
+                ],
+              ),
+              sizedBoxHeight(height: 20.h),
+              const AttendanceCameraSection(),
+              sizedBoxHeight(height: 16.h),
+              const DutyStatusWidget(),
+              sizedBoxHeight(height: 8.h),
+              const LocationRowWidget(),
+              sizedBoxHeight(height: 12.h),
+              const WorkingTimeSection(),
+              sizedBoxHeight(height: 12.h),
+              const CheckInAndOutTImeRowSection(),
+              sizedBoxHeight(height: 20.h),
+              GetBuilder<PermissionController>(builder: (permissionController) {
+                if ((attendanceController.attendanceModel?.isNotPunchIn ??
+                        false) ||
+                    (attendanceController.attendanceModel?.isPunchIn ??
+                        false)) {
+                  return Row(
+                    children: [
+                      Expanded(
+                        child: CustomButton(
+                          height: 50.h,
+                          radius: 12.r,
+                          onTap: () {
+                            if (permissionController.selfie == null) {
+                              return showToast(
+                                  message: "Take selfie of you",
+                                  toastType: ToastType.info);
+                            }
+                            if ((permissionController.latitude == null) ||
+                                (permissionController.longitude == null)) {
+                              permissionController
+                                  .requestLocationPermissionAndFetch(context);
+                            }
+
+                            if (attendanceController
+                                    .attendanceModel?.isNotPunchIn ??
+                                false) {
+                              attendanceController
+                                  .punchInAttendance(
+                                lat: permissionController.latitude.toString(),
+                                lng: permissionController.longitude.toString(),
+                                selfie: permissionController.selfie,
+                              )
+                                  .then((value) {
+                                if (value.isSuccess) {
                                   attendanceController
-                                      .punchInAttendance(
-                                    lat: permissionController.latitude.toString(),
-                                    lng: permissionController.longitude.toString(),
-                                    selfie: permissionController.selfie,
-                                  )
+                                      .submitCheckListPointForPunchIn()
                                       .then((value) {
                                     if (value.isSuccess) {
-                                      attendanceController
-                                          .submitCheckListPointForPunchIn()
-                                          .then((value) {
-                                        if (value.isSuccess) {
-                                          permissionController.updateCamera(
-                                              value: false);
-                                          permissionController.updateCamera(
-                                              value: false);
-          
-                                          navigate(
-                                              context: context,
-                                              page:
-                                                  const AttendancePunchInOutSuccessScreen());
-                                        } else {
-                                          permissionController.updateCamera(
-                                              value: false);
-          
-                                          showToast(
-                                              message: value.message,
-                                              typeCheck: value.isSuccess);
-                                        }
-                                      });
-                                      permissionController.updateCamera(value: false);
-          
-                                      showToast(
-                                          message: value.message,
-                                          typeCheck: value.isSuccess);
+                                      permissionController.updateCamera(
+                                          value: false);
+                                      permissionController.updateCamera(
+                                          value: false);
+
+                                      navigate(
+                                          context: context,
+                                          page:
+                                              const AttendancePunchInOutSuccessScreen());
                                     } else {
-                                      permissionController.updateCamera(value: false);
-          
+                                      permissionController.updateCamera(
+                                          value: false);
+
                                       showToast(
                                           message: value.message,
                                           typeCheck: value.isSuccess);
                                     }
                                   });
+                                  permissionController.updateCamera(
+                                      value: false);
+
+                                  showToast(
+                                      message: value.message,
+                                      typeCheck: value.isSuccess);
+                                } else {
+                                  permissionController.updateCamera(
+                                      value: false);
+
+                                  showToast(
+                                      message: value.message,
+                                      typeCheck: value.isSuccess);
                                 }
-                              },
-                              type: ButtonType.secondary,
-                              borderColor: grey1,
-                              child: CustomText(
-                                "Check in",
-                                style: Helper(context).textTheme.bodyLarge?.copyWith(
+                              });
+                            }
+                          },
+                          type: ButtonType.secondary,
+                          borderColor: grey1,
+                          child: CustomText(
+                            "Check in",
+                            style:
+                                Helper(context).textTheme.bodyLarge?.copyWith(
                                       fontSize: 16.sp,
                                     ),
-                              ),
-                            ),
                           ),
-                          sizedBoxWidth(width: 12),
-          
-                          ///* ----- Check out -------
-                          Expanded(
-                            child: CustomButton(
-                              height: 50.h,
-                              radius: 12.r,
-                              onTap: () {
-                                if (attendanceController.attendanceModel?.isPunchIn ??
-                                    false) {
-                                  if (permissionController.selfie == null) {
-                                    return showToast(
-                                        message: "Take selfie of you",
-                                        toastType: ToastType.info);
-                                  }
-          
-                                  if ((permissionController.latitude == null) ||
-                                      (permissionController.longitude == null)) {
-                                    permissionController
-                                        .requestLocationPermissionAndFetch(context);
-                                  }
-          
+                        ),
+                      ),
+                      sizedBoxWidth(width: 12),
+
+                      ///* ----- Check out -------
+                      Expanded(
+                        child: CustomButton(
+                          height: 50.h,
+                          radius: 12.r,
+                          onTap: () {
+                            if (attendanceController
+                                    .attendanceModel?.isPunchIn ??
+                                false) {
+                              if (permissionController.selfie == null) {
+                                return showToast(
+                                    message: "Take selfie of you",
+                                    toastType: ToastType.info);
+                              }
+
+                              attendanceController
+                                  .fetchCheckListPoint()
+                                  .then((value1) {
+                                if (value1.isSuccess) {
                                   attendanceController
                                       .submitCheckListPointForPunchOut()
                                       .then((value) {
                                     if (value.isSuccess) {
                                       attendanceController
                                           .punchOutAttendance(
-                                        lat: permissionController.latitude.toString(),
-                                        lng:
-                                            permissionController.longitude.toString(),
+                                        lat: permissionController.latitude
+                                            .toString(),
+                                        lng: permissionController.longitude
+                                            .toString(),
                                         selfie: permissionController.selfie,
                                       )
                                           .then((value) {
@@ -180,52 +178,64 @@ class AttendanceSection extends StatelessWidget {
                                         } else {
                                           permissionController.updateCamera(
                                               value: false);
-          
+
                                           showToast(
                                               message: value.message,
                                               typeCheck: value.isSuccess);
                                         }
                                       });
                                     } else {
-                                      permissionController.updateCamera(value: false);
-          
+                                      permissionController.updateCamera(
+                                          value: false);
+
                                       showToast(
                                           message: value.message,
                                           typeCheck: value.isSuccess);
                                     }
                                   });
-                                } else if (attendanceController
-                                        .attendanceModel?.isNotPunchIn ??
-                                    false) {
-                                  permissionController.updateCamera(value: false);
-          
-                                  return showToast(
-                                      message: "Check in first",
-                                      toastType: ToastType.warning);
+                                } else {
+                                  showToast(
+                                              message: value1.message,
+                                              typeCheck: value1.isSuccess);
                                 }
-                              },
-                              color: primaryColor,
-                              borderColor: primaryColor,
-                              child: CustomText(
-                                "Check out",
-                                style: Helper(context).textTheme.bodyLarge?.copyWith(
+                              });
+
+                              if ((permissionController.latitude == null) ||
+                                  (permissionController.longitude == null)) {
+                                permissionController
+                                    .requestLocationPermissionAndFetch(context);
+                              }
+                            } else if (attendanceController
+                                    .attendanceModel?.isNotPunchIn ??
+                                false) {
+                              permissionController.updateCamera(value: false);
+
+                              return showToast(
+                                  message: "Check in first",
+                                  toastType: ToastType.warning);
+                            }
+                          },
+                          color: primaryColor,
+                          borderColor: primaryColor,
+                          child: CustomText(
+                            "Check out",
+                            style:
+                                Helper(context).textTheme.bodyLarge?.copyWith(
                                       fontSize: 16.sp,
                                       color: Get.isDarkMode ? black : white,
                                     ),
-                              ),
-                            ),
                           ),
-                        ],
-                      );
-                    }
-                    return SizedBox();
-                
-                })
-              ],
-            ),
+                        ),
+                      ),
+                    ],
+                  );
+                }
+                return SizedBox();
+              })
+            ],
           ),
-        );
-      }
-    );
+        ),
+      );
+    });
   }
 }

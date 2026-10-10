@@ -20,7 +20,6 @@ import 'package:vlr/views/screens/task/create_new_task/task_tabar_screen.dart';
 
 import 'package:vlr/views/screens/reports/reports_section_screen.dart';
 import 'package:vlr/views/screens/pip/pip_screen.dart';
-import 'package:vlr/views/screens/recruitment/recruitment_screen.dart';
 import 'package:vlr/views/screens/resignation_exit/resignation_exit_screen.dart';
 import 'package:vlr/views/screens/discipline/discipline_screen.dart';
 import 'package:vlr/views/screens/attendance/attendance_history/attendance_history_screen.dart';
