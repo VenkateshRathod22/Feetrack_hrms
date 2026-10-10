@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 
 import 'package:camera/camera.dart';
@@ -340,16 +338,16 @@ class _AttendanceCameraSectionState extends State<AttendanceCameraSection> {
     }
 
     return GestureDetector(
-      onTap: (){
-        Get.find<PermissionController>().updateCamera(value: true);
+      onTap: () {
+        _startCamera(Get.find<PermissionController>());
       },
       child: CustomImage(
         key: const ValueKey('scan-face'),
         path: Assets.gifScanFace,
-        height: 128.h,
-        width: 112.w,
+        width: 150.w,
+        height: 112.5.w, // 150 × 600 / 800
         radius: 12.r,
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
       ),
     );
   }
@@ -370,6 +368,12 @@ class _AttendanceCameraSectionState extends State<AttendanceCameraSection> {
         _cameraError != null;
 
     final double boxSize = showLargeBox ? cameraBoxSize : 128.h;
+    final double gifWidth = 150.w;
+    final double gifHeight = gifWidth * (600 / 800);
+
+    final double boxHeight = showLargeBox ? cameraBoxSize : gifHeight;
+
+    final double boxWidth = showLargeBox ? cameraBoxSize : gifWidth;
 
     final Widget content = _buildCameraContent(
       selfie: selfie,
@@ -379,8 +383,8 @@ class _AttendanceCameraSectionState extends State<AttendanceCameraSection> {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 400),
       curve: Curves.easeInOutCubic,
-      height: boxSize,
-      width: showLargeBox ? cameraBoxSize : 112.w,
+      height: boxHeight,
+width: boxWidth,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: black,
@@ -489,7 +493,8 @@ class _AttendanceCameraSectionState extends State<AttendanceCameraSection> {
           builder: (permissionController) {
             final File? selfie = permissionController.selfie;
 
-            final double cameraBoxSize = MediaQuery.of(context).size.height / 3;
+            final double cameraBoxSize =
+                MediaQuery.of(context).size.height / 2.3;
 
             final bool showButton = permissionController.isCameraOn ||
                 selfie != null ||
