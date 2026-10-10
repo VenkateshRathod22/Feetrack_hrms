@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vlr/controllers/auth_controller.dart';
+import 'package:vlr/controllers/dashboard_controller.dart';
 import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
@@ -54,7 +55,9 @@ class QuickActionsSection extends StatelessWidget {
                     ),
               ),
               CustomButton(
-                onTap: () {},
+                onTap: () {
+                  Get.find<DashBoardController>().dashPage = 1;
+                },
                 type: ButtonType.tertiary,
                 child: CustomText(
                   "View All",

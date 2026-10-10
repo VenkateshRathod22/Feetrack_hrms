@@ -367,7 +367,6 @@ class _AttendanceCameraSectionState extends State<AttendanceCameraSection> {
         _isClosingCamera ||
         _cameraError != null;
 
-    final double boxSize = showLargeBox ? cameraBoxSize : 128.h;
     final double gifWidth = 150.w;
     final double gifHeight = gifWidth * (600 / 800);
 

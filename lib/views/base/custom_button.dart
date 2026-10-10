@@ -80,7 +80,7 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _borderColor = borderColor ?? color;
+    // final _borderColor = borderColor ?? color;
     if (type == ButtonType.primary) {
       return MaterialButton(
         onPressed: isLoading ? null : onTap,
