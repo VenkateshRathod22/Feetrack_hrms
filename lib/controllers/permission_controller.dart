@@ -1,3 +1,5 @@
+
+
 import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -9,6 +11,7 @@ import 'package:permission_handler/permission_handler.dart';
 import '../views/base/dialogs/request_permission_dialog.dart';
 
 class PermissionController extends GetxController implements GetxService {
+
   Future<bool> getPermission(
       Permission permission, BuildContext context) async {
     PermissionStatus? status;
@@ -45,8 +48,10 @@ class PermissionController extends GetxController implements GetxService {
   bool _locationFetched = false;
 
   String? _currentAddress;
+  String? _areaName; // <-- NEW VARIABLE FOR AREA NAME
 
   String? get currentAddress => _currentAddress;
+  String? get areaName => _areaName; // <-- NEW GETTER
 
   double? get latitude => _latitude;
   double? get longitude => _longitude;
@@ -69,21 +74,21 @@ class PermissionController extends GetxController implements GetxService {
             context: context,
             barrierDismissible: false,
             builder: (_) => AlertDialog(
-              title: Text("Location Disabled"),
-              content: Text(
+              title: const Text("Location Disabled"),
+              content: const Text(
                 "Please enable GPS/Location Services.",
               ),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () async {
                     Navigator.pop(context);
                     await Geolocator.openLocationSettings();
                   },
-                  child: Text("Settings"),
+                  child: const Text("Settings"),
                 ),
               ],
             ),
@@ -114,21 +119,21 @@ class PermissionController extends GetxController implements GetxService {
           await showDialog(
             context: context,
             builder: (_) => AlertDialog(
-              title: Text("Permission Required"),
-              content: Text(
+              title: const Text("Permission Required"),
+              content: const Text(
                 "Location permission is permanently denied. Please enable it from Settings.",
               ),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () async {
                     Navigator.pop(context);
                     await openAppSettings();
                   },
-                  child: Text("Open Settings"),
+                  child: const Text("Open Settings"),
                 ),
               ],
             ),
@@ -148,8 +153,10 @@ class PermissionController extends GetxController implements GetxService {
       _locationFetched = true;
 
       try {
+        // 1. Put back your original Geocoding initialization
         final Geocoding geocoding = Geocoding();
 
+        // 2. Call the method using your geocoding instance
         List<Placemark> placemarks = await geocoding.placemarkFromCoordinates(
           position.latitude,
           position.longitude,
@@ -158,20 +165,33 @@ class PermissionController extends GetxController implements GetxService {
         if (placemarks.isNotEmpty) {
           Placemark place = placemarks.first;
 
+          // FULL ADDRESS
           _currentAddress = [
             place.street,
             place.subLocality,
+            place.locality,
+            place.postalCode,
           ].where((e) => e != null && e.trim().isNotEmpty).join(", ");
+
+          // AREA NAME ONLY
+          _areaName = (place.subLocality != null && place.subLocality!.isNotEmpty) 
+              ? place.subLocality 
+              : place.locality;
+
         } else {
           _currentAddress = "Unknown Location";
+          _areaName = "Unknown Area";
         }
       } catch (e) {
         log("Address Error: $e");
         _currentAddress = "Unable to fetch address";
+        _areaName = "Unable to fetch area";
       }
 
       log("Latitude : $_latitude");
       log("Longitude: $_longitude");
+      log("Full Address: $_currentAddress");
+      log("Area Name: $_areaName");
 
       update();
       return true;
@@ -187,9 +207,131 @@ class PermissionController extends GetxController implements GetxService {
     _longitude = null;
     _locationFetched = false;
     _currentAddress = "Location pending...";
+    _areaName = "Area pending..."; // <-- Clear area name too
 
     update();
   }
+// -------------------- CAMERA PERMISSION --------------------
+
+Future<bool> requestCameraPermission(BuildContext context) async {
+  try {
+    // Check current camera permission.
+    PermissionStatus status = await Permission.camera.status;
+
+    // Permission already granted.
+    if (status.isGranted) {
+      log("Camera permission already granted");
+      return true;
+    }
+
+    // Permission permanently denied.
+    if (status.isPermanentlyDenied) {
+      if (!context.mounted) return false;
+
+      bool openSettings = await showDialog<bool>(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text("Camera Permission Required"),
+              content: const Text(
+                "Camera permission is permanently denied. "
+                "Please enable camera access from app settings "
+                "to continue attendance verification.",
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context, false),
+                  child: const Text("Cancel"),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.pop(context, true),
+                  child: const Text("Open Settings"),
+                ),
+              ],
+            ),
+          ) ??
+          false;
+
+      if (openSettings) {
+        await openAppSettings();
+      }
+
+      // User can tap Start Camera again after enabling permission.
+      return false;
+    }
+
+    // Show your existing permission dialog.
+    bool shouldRequest = await showDialog<bool>(
+          context: context,
+          builder: (context) => RequestPermissionDialog(
+            permission: "camera",
+          ),
+        ) ??
+        false;
+
+    if (!shouldRequest || !context.mounted) {
+      return false;
+    }
+
+    // Request camera permission from the operating system.
+    status = await Permission.camera.request();
+
+    log(
+      "Camera permission status: $status",
+      name: "CameraPermission",
+    );
+
+    if (status.isGranted) {
+      log("Camera permission granted");
+      return true;
+    }
+
+    // Handle permanent denial after the request.
+    if (status.isPermanentlyDenied && context.mounted) {
+      bool openSettings = await showDialog<bool>(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text("Camera Permission Required"),
+              content: const Text(
+                "Please enable camera access from your app settings.",
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context, false),
+                  child: const Text("Cancel"),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.pop(context, true),
+                  child: const Text("Open Settings"),
+                ),
+              ],
+            ),
+          ) ??
+          false;
+
+      if (openSettings) {
+        await openAppSettings();
+      }
+    }
+
+    return false;
+  } catch (e, st) {
+    log(
+      "Camera permission error: $e",
+      name: "CameraPermission",
+    );
+    log(st.toString());
+
+    return false;
+  }
+}
+
+  bool isCameraOn = false;
+
+  void updateCamera({required bool value}){
+    isCameraOn = value;
+    update();
+  }
+
 
   // -------------------- Camera  --------------------
 

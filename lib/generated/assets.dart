@@ -2,6 +2,18 @@
 class Assets {
   Assets._();
   
+  /// Assets for gifScanFace
+  /// assets/gif/scan-face.gif
+  static const String gifScanFace = "assets/gif/scan-face.gif";
+
+  /// Assets for imagesAppIconLogo
+  /// assets/images/app_icon_logo.png
+  static const String imagesAppIconLogo = "assets/images/app_icon_logo.png";
+
+  /// Assets for imagesExpence
+  /// assets/images/expence.png
+  static const String imagesExpence = "assets/images/expence.png";
+
   /// Assets for imagesLoginBg
   /// assets/images/login-bg.png
   static const String imagesLoginBg = "assets/images/login-bg.png";
@@ -37,9 +49,6 @@ class Assets {
   /// Assets for svgsAbsent
   /// assets/svgs/Absent.svg
   static const String svgsAbsent = "assets/svgs/Absent.svg";
-
-  ///expence
-  static const String expence = "assets/images/expence.png";
 
   /// Assets for svgsAleamWatch
   /// assets/svgs/aleam-watch.svg

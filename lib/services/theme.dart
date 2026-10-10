@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 
@@ -10,9 +11,11 @@ bool get _isDark => Get.isDarkMode;
 // PRIMARY COLORS
 // =========================================================
 
-Color get primaryColor =>
-    _isDark ? const Color(0xFF8AB4FF) : const Color(0xFF021A45);
+Color primaryColorWithTheme = const Color(0xFF021A45);
+Color whiteColorWithTheme = Colors.white;
 
+Color get primaryColor =>
+    _isDark ? const Color(0xFFFE7725) : const Color(0xFF021A45);
 Color get tertiaryColor =>
     _isDark ? const Color(0xFF8AB4FF) : const Color(0xFF0052D9);
 
@@ -20,7 +23,7 @@ Color get secondaryColor =>
     _isDark ? const Color(0xFF5EEAD4) : const Color(0xFF0D9488);
 
 Color get backgroundLight =>
-    _isDark ? const Color(0xCC0E1420) : const Color(0xFFF4F5F7);
+    _isDark ? const Color(0xFF0D182C) : const Color(0xFFF4F5F7);
 
 // =========================================================
 // BACKGROUND AND SURFACE COLORS
@@ -38,9 +41,6 @@ Color get inputBackgroundColor =>
 
 Color get borderColor =>
     _isDark ? const Color(0xFF354257) : const Color(0xFFE2E8F0);
-
-Color get dividerColor =>
-    _isDark ? const Color(0xFF303B4D) : const Color(0xFFE2E8F0);
 
 // Keep these literal colors for places that specifically require black/white.
 Color get black => _isDark ? Colors.white : Colors.black;
@@ -120,6 +120,7 @@ Color get deepPurple => _isDark ? const Color(0xFFB39DDB) : Colors.deepPurple;
 // =========================================================
 
 Color get grey => _isDark ? const Color(0xFFA0A8B5) : const Color(0xFF999999);
+Color get grey1 => _isDark ? const Color(0xFF4E5359) : const Color(0xFF999999);
 
 Color get greyLight =>
     _isDark ? const Color(0xFF252D3A) : const Color(0xFFF6F3F2);
@@ -147,6 +148,9 @@ Color get greyLight7 =>
 
 Color get greyLight8 =>
     _isDark ? const Color(0xFFA8B4C8) : const Color(0xFF64748B);
+
+Color get greyLight9 =>
+    _isDark ? const Color(0xFF8F9CAE) : const Color(0xFF8F9CAE);
 
 // =========================================================
 // PINK COLORS
@@ -176,6 +180,11 @@ Color get greenDark2 =>
 
 Color get greenLight =>
     _isDark ? const Color(0xFF86EFAC) : const Color(0xFF108548);
+Color get greenLight1 =>
+    _isDark ? const Color(0xFF34D399) : const Color(0xFF108548);
+
+Color get greenLight2 =>
+    _isDark ? const Color(0xFF32CF64) : const Color(0xFF32CF64);
 
 // =========================================================
 // YELLOW AND ORANGE COLORS
@@ -243,6 +252,62 @@ Color get shimmerBase =>
 
 Color get shimmerHighlight =>
     _isDark ? const Color(0xFF3A3A3A) : const Color(0xFFF4F4F4);
+
+// =========================================================
+// Divider COLORS
+// =========================================================
+
+Color get dividerColor =>
+    _isDark ? const Color(0xFF303B4D) : const Color(0xFFE2E8F0);
+
+Color get dividerColor1 =>
+    _isDark ? const Color(0xFF1E293B) : const Color(0xFFF1F5F9);
+
+// =========================================================
+// Container
+// =========================================================
+
+Color get containerBg => _isDark ? const Color(0xFF131B2E) : Colors.white;
+
+BoxDecoration get containerDecoration => _isDark
+    ? BoxDecoration(
+        color: containerBg,
+        borderRadius: BorderRadius.circular(20.r),
+        border: Border.all(
+          width: 1,
+          color: whiteColorWithTheme.withValues(alpha: 0.02),
+          // color: const Color(0xFF24304D),
+        ),
+        boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 4),
+              blurRadius: 6,
+              spreadRadius: -4,
+              color: black.withValues(alpha: 0.1),
+            ),
+            BoxShadow(
+              offset: const Offset(0, 10),
+              blurRadius: 15,
+              spreadRadius: -3,
+              color: black.withValues(alpha: 0.1),
+            )
+          ])
+    : BoxDecoration(
+        color: containerBg,
+        borderRadius: BorderRadius.circular(20.r),
+        border: Border.all(
+          width: 1,
+          color: const Color(0xFFF1F5F9),
+        ),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(0, 1),
+            blurRadius: 2,
+            spreadRadius: 0,
+            color: black.withValues(alpha: 0.05),
+          )
+        ],
+      );
 
 // const Color primaryColor = const Color(0xFF021A45);
 // Color tertiaryColor = Color(0xFF0052D9);
@@ -320,7 +385,6 @@ Color get shimmerHighlight =>
 // Color blackText1 = const Color(0xFF334155);
 // Color blackText2 = const Color(0xFF171717);
 // Color blackText3 = const Color(0xFF191C1E);
-// Color blackText4 = const Color(0xFF1E293B);
 
 // const Color textPrimary = Color(0xff000000);
 // const Color textSecondary = Color(0xff838383);

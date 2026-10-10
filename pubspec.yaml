@@ -46,12 +46,14 @@ dependencies:
   firebase_core: ^4.11.0
   month_picker_dialog: ^6.7.2
   http_parser: 
+  camera: ^0.12.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
   flutter_lints: ^4.0.0
+  
 
 dependency_overrides:
   path_provider_foundation: 2.3.0
@@ -62,9 +64,17 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/images/app_icon_logo.png"
   min_sdk_android: 21
+  
 
 flutter:
   uses-material-design: true
   assets:
     - assets/images/
     - assets/svgs/
+    - assets/gif/
+
+flutter_assets:
+  assets_path: assets/
+  output_path: lib/generated/
+  filename: assets.dart
+  field_prefix:

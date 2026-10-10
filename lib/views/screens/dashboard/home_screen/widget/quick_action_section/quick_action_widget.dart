@@ -216,7 +216,7 @@ List<QuickActionModel> quickActionModelList({required BuildContext context}) =>
         onTap: () {},
       ),
       QuickActionModel(
-        icon: Assets.expence,
+        icon: Assets.imagesExpence,
         title: "Advance Pay",
         color: Colors.amber.shade700,
         requiredPermission: ["advancepayment_viewown", "advancepayment_viewany", "advancepayment_viewteam", "payroll_viewown", "payroll_viewany", "salary_viewown"],
@@ -243,7 +243,7 @@ List<QuickActionModel> quickActionModelList({required BuildContext context}) =>
         },
       ),
       QuickActionModel(
-        icon: Assets.expence,
+        icon: Assets.imagesExpence,
         title: "Expense",
         color: greenDark,
         requiredPermission: ["expense_viewown", "expense_viewany", "expense_viewteam"],

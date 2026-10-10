@@ -18,6 +18,7 @@ class DateFormatters {
   DateFormat dMonthYear = DateFormat('dd MMMM yyyy');
   DateFormat dateTime = DateFormat('dd MMM yyyy, hh:mm a');
   DateFormat dayDMY = DateFormat('EEE,  dd MMM yyyy');
+  DateFormat dayDM = DateFormat('EEE, dd MMM');
   DateFormat dayDateTime = DateFormat('EEE,  dd MMM yyyy, hh:mm a');
   DateFormat day = DateFormat('EEE');
   DateFormat dayFull = DateFormat('EEE');
@@ -79,7 +80,7 @@ String convertTo12HourFormat({
   if (time24 == null || time24.isEmpty) return '';
 
   try {
-    final format = time24.split(':').length == 3 ? "HH:mm:ss" : "HH:mm";
+    final format = time24.split(' : ').length == 3 ? "HH:mm:ss" : "HH:mm";
 
     final dateTime = DateFormat(format).parse(time24);
 

@@ -77,8 +77,8 @@ class AttendanceModel {
         date: json["date"] == null ? null : DateTime.parse(json["date"]),
         checkIn: json["check_in"]?.toString(),
         checkOut: json["check_out"]?.toString(),
-        // status: "short_leave",
-        status: json["status"]?.toString(),
+        status: "notPunchIn",
+        // status: json["status"]?.toString(),
         statusReason: json["status_reason"]?.toString(),
 
         createdAt: json["created_at"] == null
@@ -118,8 +118,11 @@ class AttendanceModel {
         workingHours: json["working_hours"]?.toString(),
         productiveHours: json["productive_hours"]?.toString(),
         overtimeHours: json["overtime_hours"]?.toString(),
-        workingMode: json["working_mode"]?.toString() ?? json["employee"]?["working_mode"]?.toString(),
-        employee: json["employee"] == null ? null : EmployeesModel.fromJson(json["employee"]),
+        workingMode: json["working_mode"]?.toString() ??
+            json["employee"]?["working_mode"]?.toString(),
+        employee: json["employee"] == null
+            ? null
+            : EmployeesModel.fromJson(json["employee"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -372,6 +375,11 @@ class AttendanceModel {
 
     return "";
   }
+
+  //* ---- New UI -------
+
+  String get statusText => isNotPunchIn ? "Read For Duty" : "On duty";
+  String get workingTiming => workingTimeFormat ?? "00 : 00";
 }
 
 class CheckchecklistResponse {

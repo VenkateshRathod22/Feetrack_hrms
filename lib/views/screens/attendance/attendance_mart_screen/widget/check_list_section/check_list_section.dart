@@ -172,32 +172,7 @@ class CheckListSection extends StatelessWidget {
                     }
                   });
 
-                  // attendanceController
-                  //     .punchOutAttendance(
-                  //   lat: permissionController.latitude.toString(),
-                  //   lng: permissionController.longitude.toString(),
-                  //   selfie: permissionController.selfie,
-                  // )
-                  //     .then((value) {
-                  //   if (value.isSuccess) {
-                  //     attendanceController.submitCheckListPoint().then((value) {
-                  //       if (value.isSuccess) {
-                  //         navigate(
-                  //             context: context,
-                  //             page: const AttendancePunchInOutSuccessScreen());
-                  //       } else {
-                  //         showToast(
-                  //             message: value.message,
-                  //             typeCheck: value.isSuccess);
-                  //       }
-                  //     });
-                  //     showToast(
-                  //         message: value.message, typeCheck: value.isSuccess);
-                  //   } else {
-                  //     showToast(
-                  //         message: value.message, typeCheck: value.isSuccess);
-                  //   }
-                  // });
+
                 }
               },
             );
