@@ -28,7 +28,6 @@ class _PerformanceDetailScreenState extends State<PerformanceDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FAFC),
       appBar: AppBar(
         backgroundColor: primaryColor,
         elevation: 0,
@@ -83,8 +82,8 @@ class _PerformanceDetailScreenState extends State<PerformanceDetailScreen> {
                 children: [
                   _buildStatCard("Total Present", "${detail.stats?.totalPresent ?? 0}", Icons.calendar_today_rounded, Colors.blue),
                   _buildStatCard("Late Marks", "${detail.stats?.lateMarks ?? 0}", Icons.access_time_rounded, Colors.orange),
-                  _buildStatCard("Completed", "${detail.stats?.tasksCompleted ?? 0}", Icons.task_alt_rounded, Colors.green),
-                  _buildStatCard("Total Tasks", "${detail.stats?.totalTasks ?? 0}", Icons.assignment_rounded, Colors.purple),
+                  _buildStatCard("Completed", "${detail.stats?.tasksCompleted ?? 0}", Icons.task_alt_rounded, green),
+                  _buildStatCard("Total Tasks", "${detail.stats?.totalTasks ?? 0}", Icons.assignment_rounded, purple),
                 ],
               ),
               sizedBoxHeight(height: 12),
@@ -148,7 +147,7 @@ class _PerformanceDetailScreenState extends State<PerformanceDetailScreen> {
                   height: 14,
                   width: 14,
                   decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: green,
                     shape: BoxShape.circle,
                     border: Border.all(color: white, width: 2),
                   ),
@@ -217,11 +216,11 @@ class _PerformanceDetailScreenState extends State<PerformanceDetailScreen> {
             children: [
               CustomText(
                 value,
-                style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w800, color: color, letterSpacing: -1),
+                style: Helper(context).textTheme.titleLarge?.copyWith (fontSize: 22.sp,  color: color, letterSpacing: -1),
               ),
               CustomText(
                 label,
-                style: TextStyle(fontSize: 11.sp, color: greyDart2, fontWeight: FontWeight.w600),
+                style: Helper(context).textTheme.bodyLarge?.copyWith(fontSize: 11.sp, color: greyDart2, ),
               ),
             ],
           ),
@@ -252,11 +251,11 @@ class _PerformanceDetailScreenState extends State<PerformanceDetailScreen> {
             children: [
               CustomText(
                 label,
-                style: TextStyle(fontSize: 12.sp, color: greyDart2, fontWeight: FontWeight.w600),
+                style: Helper(context).textTheme.bodyLarge?.copyWith(fontSize: 12.sp, color: greyDart2, ),
               ),
               CustomText(
                 value,
-                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w800, color: color),
+                style: Helper(context).textTheme.bodyLarge?.copyWith(fontSize: 18.sp, fontWeight: FontWeight.w800, ),
               ),
             ],
           ),
@@ -312,7 +311,7 @@ class _PerformanceDetailScreenState extends State<PerformanceDetailScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CustomText(label, style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w600, color: const Color(0xFF475569))),
+              CustomText(label, style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w600, color: greyDart)),
               CustomText("${value ?? 0}%", style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold, color: color)),
             ],
           ),
@@ -424,7 +423,7 @@ class _PerformanceDetailScreenState extends State<PerformanceDetailScreen> {
                   children: [
                     CustomText(
                       preset.name ?? "Strategy Preset",
-                      style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp, color: const Color(0xFF1E293B)),
+                      style: Helper(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700, fontSize: 14.sp, color:  Get.isDarkMode ? null : Color(0xFF1E293B)),
                     ),
                     sizedBoxHeight(height: 8),
                     Row(
@@ -439,7 +438,7 @@ class _PerformanceDetailScreenState extends State<PerformanceDetailScreen> {
                   ],
                 ),
               ),
-              Icon(Icons.chevron_right_rounded, color: Color(0xFF94A3B8)),
+            const   Icon(Icons.chevron_right_rounded, color: Color(0xFF94A3B8)),
             ],
           ),
         );
@@ -462,9 +461,8 @@ class _PerformanceDetailScreenState extends State<PerformanceDetailScreen> {
         CustomText(
           title,
           style: Helper(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w800,
                 fontSize: 16.sp,
-                color: const Color(0xFF1E293B),
+                color: greyLight5,
               ),
         ),
         Icon(Icons.info_outline_rounded, size: 18, color: greyDart2),
