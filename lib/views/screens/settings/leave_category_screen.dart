@@ -28,7 +28,6 @@ class _LeaveCategoryScreenState extends State<LeaveCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Leave Category"),
         backgroundColor: white,

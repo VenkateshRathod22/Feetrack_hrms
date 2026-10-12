@@ -28,7 +28,6 @@ class _PiplineConfigScreenState extends State<PiplineConfigScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Pipeline Stages"),
         backgroundColor: white,

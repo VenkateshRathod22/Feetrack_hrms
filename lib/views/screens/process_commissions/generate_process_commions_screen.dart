@@ -18,7 +18,6 @@ class _GenerateProcessCommionsScreenState extends State<GenerateProcessCommionsS
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Process Commissions"),
         backgroundColor: white,

@@ -21,7 +21,6 @@ class _AddCheckListPointState extends State<AddCheckListPoint> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Add Checklist Point"),
         backgroundColor: white,

@@ -23,7 +23,6 @@ class _AddLeaveCategoryScreenState extends State<AddLeaveCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text(widget.isEdit ? "Edit Leave Category" : "Add Leave Category"),
         backgroundColor: white,

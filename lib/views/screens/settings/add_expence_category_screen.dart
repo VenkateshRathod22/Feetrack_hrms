@@ -23,7 +23,6 @@ class _AddExpenceCategoryScreenState extends State<AddExpenceCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text(widget.isEdit ? "Edit Expense Category" : "Add Expense Category"),
         backgroundColor: white,

@@ -32,7 +32,6 @@ class _AddPiplineConfigScreemState extends State<AddPiplineConfigScreem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text(widget.isEdit ? "Edit Stage" : "Add New Stage"),
         backgroundColor: white,

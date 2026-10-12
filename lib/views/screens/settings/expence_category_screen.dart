@@ -28,7 +28,6 @@ class _ExpenceCategoryScreenState extends State<ExpenceCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Expense Category"),
         backgroundColor: white,

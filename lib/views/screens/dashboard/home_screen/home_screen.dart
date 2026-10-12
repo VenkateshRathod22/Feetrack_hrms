@@ -24,7 +24,7 @@ import 'package:vlr/views/screens/dashboard/home_screen/widget/top_achievers_sec
 import 'package:vlr/views/screens/dashboard/home_screen/widget/recent_tasks_section.dart';
 import 'package:vlr/views/screens/dashboard/home_screen/widget/recent_leads_section.dart';
 import 'package:vlr/views/screens/dashboard/home_screen/widget/recent_orders_section.dart';
-import 'package:vlr/views/screens/dashboard/home_screen/widget/use_info_top_home_section.dart';
+// import 'package:vlr/views/screens/dashboard/home_screen/widget/use_info_top_home_section.dart';
 
 class HomeScreen extends StatefulWidget {
   final bool? isComingForSplashScreen;

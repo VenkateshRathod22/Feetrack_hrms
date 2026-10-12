@@ -41,7 +41,6 @@ class _CreateStaffScreenState extends State<CreateStaffScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text(widget.isEdit ? "Edit Staff" : "Create Staff"),
         backgroundColor: white,

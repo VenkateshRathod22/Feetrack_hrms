@@ -23,7 +23,6 @@ class _AddCommissionScreenState extends State<AddCommissionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text(widget.isEdit ? "Edit Commission" : "Add Commission"),
         backgroundColor: white,

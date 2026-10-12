@@ -17,7 +17,6 @@ class GetPayslipConfigScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Payslip Configuration"),
         backgroundColor: white,
@@ -141,7 +140,6 @@ class _CreatePayslipConfigScreenState extends State<CreatePayslipConfigScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Edit Payslip Config"),
         backgroundColor: white,

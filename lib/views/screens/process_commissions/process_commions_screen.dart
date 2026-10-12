@@ -28,7 +28,6 @@ class _ProcessCommionsScreenState extends State<ProcessCommionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Process Commissions"),
         backgroundColor: white,

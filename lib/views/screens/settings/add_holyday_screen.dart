@@ -32,7 +32,6 @@ class _AddHolydayScreenState extends State<AddHolydayScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text(widget.isEdit ? "Edit Holiday" : "Add Holiday"),
         backgroundColor: white,

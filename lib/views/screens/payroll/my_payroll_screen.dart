@@ -25,7 +25,6 @@ class _MyPayrollScreenState extends State<MyPayrollScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("My Payroll"),
         backgroundColor: white,

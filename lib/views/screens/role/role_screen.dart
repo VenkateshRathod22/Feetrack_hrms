@@ -38,7 +38,6 @@ class _RoleScreenState extends State<RoleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.find<RoleController>().clearControllers();

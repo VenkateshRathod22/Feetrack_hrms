@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vlr/controllers/hrms_permission_controller.dart';
-import 'package:vlr/data/models/role_model.dart';
 import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
@@ -26,9 +25,8 @@ class _PermissionScreenState extends State<PermissionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
-        title: Text("Permissions"),
+        title: const Text("Permissions"),
         backgroundColor: white,
         foregroundColor: black,
         elevation: 0,

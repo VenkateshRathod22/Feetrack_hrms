@@ -38,7 +38,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.find<CategoryController>().clearControllers();

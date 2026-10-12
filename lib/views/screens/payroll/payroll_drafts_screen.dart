@@ -29,7 +29,6 @@ class _PayrollDraftsScreenState extends State<PayrollDraftsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Payroll Drafts"),
         backgroundColor: white,

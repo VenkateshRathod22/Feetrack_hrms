@@ -18,7 +18,6 @@ class _PayrollProcessScreenState extends State<PayrollProcessScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Process Payroll"),
         backgroundColor: white,

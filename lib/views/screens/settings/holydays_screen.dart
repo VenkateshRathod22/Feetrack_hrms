@@ -29,7 +29,6 @@ class _HolydaysScreenState extends State<HolydaysScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Holidays"),
         backgroundColor: white,

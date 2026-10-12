@@ -39,7 +39,6 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
   Widget build(BuildContext context) {
     return GetBuilder<AuthController>(builder: (authController) {
       return Scaffold(
-        backgroundColor: white,
         floatingActionButton: authController.hasPermission("department_create")
             ? FloatingActionButton(
                 onPressed: () {

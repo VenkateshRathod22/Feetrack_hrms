@@ -34,7 +34,6 @@ class _CreateNoticeScreenState extends State<CreateNoticeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text(widget.isEdit ? "Update Notice" : "Create Notice"),
         elevation: 2,

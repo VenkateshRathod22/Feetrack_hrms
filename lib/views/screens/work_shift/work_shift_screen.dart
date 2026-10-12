@@ -40,7 +40,6 @@ class _WorkShiftScreenState extends State<WorkShiftScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {

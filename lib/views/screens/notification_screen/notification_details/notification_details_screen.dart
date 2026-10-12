@@ -32,7 +32,6 @@ class _NotificationDetailsScreenState extends State<NotificationDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         elevation: 2,
         title: CustomText(

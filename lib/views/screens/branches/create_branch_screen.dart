@@ -69,7 +69,6 @@ class _CreateBranchScreenState extends State<CreateBranchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text(widget.isEdit ? "Edit Branch" : "Create Branch"),
         backgroundColor: white,

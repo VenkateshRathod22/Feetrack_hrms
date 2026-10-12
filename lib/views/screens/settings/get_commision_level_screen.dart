@@ -28,7 +28,6 @@ class _GetCommisionLevelScreenState extends State<GetCommisionLevelScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Commission Levels"),
         backgroundColor: white,

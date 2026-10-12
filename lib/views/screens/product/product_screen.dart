@@ -38,7 +38,6 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.find<ProductController>().clearControllers();

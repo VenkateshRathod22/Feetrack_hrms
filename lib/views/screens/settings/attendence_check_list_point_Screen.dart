@@ -28,7 +28,6 @@ class _AttendenceCheckListPointScreenState extends State<AttendenceCheckListPoin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
       appBar: AppBar(
         title: Text("Attendance Checklist"),
         backgroundColor: white,
