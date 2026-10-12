@@ -61,7 +61,7 @@ class QuickActionWidget extends StatelessWidget {
           splashColor: color.withValues(alpha: 0.12),
           highlightColor: color.withValues(alpha: 0.05),
           child: Container(
-            width: 80.w,
+            width: 100.w,
             padding: EdgeInsets.symmetric(
               horizontal: 6.w,
               vertical: 8.h,
@@ -82,6 +82,7 @@ class QuickActionWidget extends StatelessWidget {
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 /// Icon Background
                 Container(

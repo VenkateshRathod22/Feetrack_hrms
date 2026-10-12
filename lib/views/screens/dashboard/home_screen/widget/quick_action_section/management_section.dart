@@ -53,7 +53,7 @@ class ManagementSection extends StatelessWidget {
             ),
             sizedBoxHeight(height: 16.h),
             SizedBox(
-              height: 125.h,
+              height: 100.h,
               child: ListView.separated(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,

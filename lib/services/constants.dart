@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:vlr/main.dart';
 import 'package:vlr/services/route_helper.dart';
-import 'package:vlr/services/theme.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:toastification/toastification.dart';
 

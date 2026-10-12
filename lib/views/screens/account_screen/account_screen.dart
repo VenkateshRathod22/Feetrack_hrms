@@ -30,7 +30,7 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-                elevation: 2,
+        elevation: 2,
         scrolledUnderElevation: 0, // Prevents tinting on scroll in Material 3
         backgroundColor: Get.isDarkMode ? white : primaryColor,
         centerTitle: true,
@@ -38,28 +38,29 @@ class _AccountScreenState extends State<AccountScreen> {
           "Account",
           style: Helper(context).textTheme.titleMedium?.copyWith(
                 fontSize: 16,
-                                    color: Get.isDarkMode ? black : white,
-
+                color: Get.isDarkMode ? black : white,
               ),
         ),
-        leading: Navigator.canPop(context) ? IconButton(
-            onPressed: () {
-              pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back,
-                                  color: Get.isDarkMode ? black : white,
-
-            )) : null,
+        leading: Navigator.canPop(context)
+            ? IconButton(
+                onPressed: () {
+                  pop(context);
+                },
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Get.isDarkMode ? black : white,
+                ))
+            : null,
         actions: [
           IconButton(
             onPressed: () {
-              navigate(context: context, page: const AttendancePunchInOutSuccessScreen());
+              navigate(
+                  context: context,
+                  page: const AttendancePunchInOutSuccessScreen());
             },
             icon: Icon(
               Icons.notifications_none_outlined,
-                    color: Get.isDarkMode ? black : white,
-
+              color: Get.isDarkMode ? black : white,
             ),
           )
         ],
@@ -67,7 +68,7 @@ class _AccountScreenState extends State<AccountScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-             // UserInfoTopHome(),
+            // UserInfoTopHome(),
             sizedBoxHeight(height: 16.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
