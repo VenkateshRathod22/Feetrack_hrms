@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:vlr/controllers/auth_controller.dart';
+import 'package:vlr/controllers/notice_controller.dart';
 import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
@@ -25,7 +26,7 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             CustomText(
-              "FEETRACK",
+              AppConstants.appNameFirstHalf,
               style: Helper(context).textTheme.titleLarge?.copyWith(
                     fontSize: 22.sp,
                     color: Get.isDarkMode ? black : white,
@@ -34,7 +35,7 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             sizedBoxWidth(width: 6),
             CustomText(
-              "HRMS",
+              AppConstants.appNameSecondHalf,
               style: Helper(context).textTheme.titleSmall?.copyWith(
                     fontSize: 14.sp,
                     color: Get.isDarkMode ? black : white,
@@ -43,17 +44,21 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              navigate(context: context, page: const NotificationScreen());
-            },
-            icon: Badge(
-              isLabelVisible: true,
-              child: Icon(
-                Icons.notifications_outlined,
-                color: Get.isDarkMode ? black : white,
-              ),
-            ),
+          GetBuilder<NoticeController>(
+            builder: (noticeController) {
+              return IconButton(
+                onPressed: () {
+                  navigate(context: context, page: const NotificationScreen());
+                },
+                icon: Badge(
+                  isLabelVisible: noticeController.noticeModelList.isNotEmpty,
+                  child: Icon(
+                    Icons.notifications_outlined,
+                    color: Get.isDarkMode ? black : white,
+                  ),
+                ),
+              );
+            }
           ),
           GestureDetector(
             onTap: () {

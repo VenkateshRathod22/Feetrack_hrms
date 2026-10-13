@@ -212,15 +212,12 @@ class AppConstants {
   String get getBaseUrl => baseUrl;
   set setBaseUrl(String url) => baseUrl = url;
 
-  //TODO: Change Base Url
-  // static String baseUrl = 'https://feetrackhrms.bestitcompanylucknow.com/api';
   static String baseUrl = 'https://app.feetrack.in/api';
-  // static String baseUrl = 'https://test.feetrack.in/api';
-  // static String baseUrl = 'http://192.168.1.5:9000/'; ///USE FOR LOCAL
-  //TODO: Change Base Url
-  static String appName = 'Feetrack Hrms';
 
-  static const String agoraAppId = 'c87b710048c049f59570bd1895b7e561';
+  static String appNameFirstHalf = 'Feetrack';
+  static String appNameSecondHalf = 'Hrms';
+  
+  static String appName = '$appNameFirstHalf $appNameSecondHalf';
 
   static const String dashboard = '/hrms/dashboard';
 
@@ -268,21 +265,6 @@ class AppConstants {
   static const String applyExpensePost = '/hrms/expenses';
   static const String getExpenses = '/hrms/expenses';
   static const String getTeamExpenses = '/hrms/team-expenses';
-
-  //
-  static const double horizontalPadding = 16;
-  static const double verticalPadding = 20;
-  static const EdgeInsets screenPadding = EdgeInsets.symmetric(
-      horizontal: AppConstants.horizontalPadding,
-      vertical: AppConstants.verticalPadding);
-
-  // Shared Key
-  static const String token = 'user_app_token';
-  static const String userId = 'user_app_id';
-  static const String razorpayKey = 'razorpay_key';
-  static const String recentOrders = 'recent_orders';
-  static const String isUser = 'is_user';
-  static const String fcmToken = 'fcmToken';
 
   //Lead Management
   static const String addLead = '/hrms/leads';
@@ -437,4 +419,21 @@ class AppConstants {
   static const String employeeCostExport = '/hrms/reports/employee-cost/export';
   static const String trainingExport = '/hrms/reports/training/export';
   static const String assetExport = '/hrms/reports/assets/export';
+
+
+
+  // container
+  static const double horizontalPadding = 16;
+  static const double verticalPadding = 20;
+  static const EdgeInsets screenPadding = EdgeInsets.symmetric(
+      horizontal: AppConstants.horizontalPadding,
+      vertical: AppConstants.verticalPadding);
+
+  // Shared Key
+  static const String token = 'user_app_token';
+  static const String userId = 'user_app_id';
+  static const String razorpayKey = 'razorpay_key';
+  static const String recentOrders = 'recent_orders';
+  static const String isUser = 'is_user';
+  static const String fcmToken = 'fcmToken';
 }

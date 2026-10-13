@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -42,7 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
     final dashBoardController = Get.find<DashBoardController>();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+
       dashBoardController.getDashboardData();
+
       if (widget.isComingForSplashScreen == true) {
         noticeController.fetchNoticeBoard().then((value) {
           if (value.isSuccess && noticeController.noticeModelList.isNotEmpty) {
@@ -53,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Get.find<AuthController>().fetchProfile();
       }
 
+//* Clean a  old selfie and image
       final PermissionController permissionController =
           Get.find<PermissionController>();
       permissionController.clearSelfie();
@@ -61,11 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
       await permissionController.requestLocationPermissionAndFetch(context);
 
       Get.find<AttendanceController>().fetchCheckListPoint();
-            Get.find<AttendanceController>().fetchTodayAttendance();
-
-      log("Attendance status : - ${Get.find<AttendanceController>().attendanceModel?.status ?? ""}");
-      log("Attendance status : - ${Get.find<AttendanceController>().attendanceModel?.status ?? ""}");
-
+      Get.find<AttendanceController>().fetchTodayAttendance();
     });
   }
 
