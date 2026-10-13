@@ -249,7 +249,8 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
               sizedBoxWidth(width: 12),
               CustomText(
                 "${DateFormat('dd MMM').format(startDate)} - ${DateFormat('dd MMM yyyy').format(endDate)}",
-                style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w600, color: primaryColor),
+                style: TextStyle(fontSize: 12.sp,  color: primaryColor),
+                // style: Helper(context).textTheme.bodyLarge?.copyWith(fontSize: 12.sp,  color: primaryColor),
               ),
               sizedBoxWidth(width: 8),
               Icon(Icons.arrow_drop_down_rounded, color: grey),

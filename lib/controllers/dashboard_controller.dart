@@ -30,7 +30,7 @@ class DashBoardController extends GetxController implements GetxService {
     try {
       Response response = await dashBoardRepo.getDashboardData();
 
-      log("Dashboard Response: ${response.body}");
+      // log("Dashboard Response: ${response.body}");
 
       if (response.body['status'] == "success") {
         responseModel = ResponseModel(

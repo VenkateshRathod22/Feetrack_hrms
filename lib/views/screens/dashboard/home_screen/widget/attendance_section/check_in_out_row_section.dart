@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vlr/controllers/attendance_controller.dart';
+import 'package:vlr/controllers/dashboard_controller.dart';
 import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
 import 'package:vlr/services/theme.dart';
@@ -46,13 +47,16 @@ class CheckInAndOutTImeRowSection extends StatelessWidget {
                 height: 50.h,
                 width: 1, color: dividerColor1,
                ), 
-              Expanded(
-                child: checkWidget(
-                  context: context,
-                  title: 'Shift',
-                  subTitle:
-                          "-- : --",
-                ),
+              GetBuilder<DashBoardController>(
+                builder: (dashBoardController) {
+                  return Expanded(
+                    child: checkWidget(
+                      context: context,
+                      title: 'Shift',
+                      subTitle: dashBoardController.dashboardModel?.myShift?.myShiftTimeFormat ?? "-- : --",
+                    ),
+                  );
+                }
               ), 
             ],
           )
@@ -78,6 +82,8 @@ class CheckInAndOutTImeRowSection extends StatelessWidget {
         sizedBoxHeight(height: 2), 
         CustomText(
           subTitle,
+          overflow: TextOverflow.clip,
+          textAlign: TextAlign.center,
           style: Helper(context).textTheme.titleMedium?.copyWith(
                 fontSize: 12.sp,
                 color: black,

@@ -3,6 +3,7 @@ import 'package:vlr/data/models/response/task_model.dart';
 import 'package:vlr/data/models/response/lead_model.dart';
 import 'package:vlr/data/models/response/lead_order_model.dart';
 import 'package:vlr/data/models/user_model.dart';
+import 'package:vlr/services/date_formatters_and_converters.dart';
 
 class DashboardModel {
   final List<dynamic>? departmentPerformance;
@@ -89,9 +90,8 @@ class DashboardModel {
             ? null
             : AttendanceToday.fromJson(json["myAttendanceToday"]),
         myLeaveToday: json["myLeaveToday"],
-        myShift: json["myShift"] == null
-            ? null
-            : MyShift.fromJson(json["myShift"]),
+        myShift:
+            json["myShift"] == null ? null : MyShift.fromJson(json["myShift"]),
         isLate: json["isLate"],
         lateMinutes: json["lateMinutes"],
         upcomingLeaves: json["upcomingLeaves"],
@@ -234,6 +234,23 @@ class MyShift {
                 ? [] // Could parse string if it's JSON string
                 : json["week_off_days"].map((x) => x)),
       );
+
+  String? get startTimeFormat {
+    if (startTime == null || (startTime?.isEmpty ?? false)) {
+      return "-- : --";
+    }
+    return convertTo12HourFormat(time24: startTime, isShowAMPM: true);
+  }
+
+  String? get endTimeFormat {
+    if (endTime == null || (endTime?.isEmpty ?? false)) {
+      return "-- : --";
+    }
+    return convertTo12HourFormat(time24: endTime, isShowAMPM: true);
+  }
+
+  String get myShiftTimeFormat =>
+      "${startTimeFormat ?? "--"} : ${endTimeFormat ?? "--"}";
 }
 
 class ChartData {

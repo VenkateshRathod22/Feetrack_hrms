@@ -350,6 +350,7 @@ class AuthController extends GetxController implements GetxService {
 
     try {
       final Map<String, dynamic> data = {};
+      log('name : ${fullNameController.text.trim()}');
 
       if (isUpdateFCMToken) {
         // Update only the FCM token.

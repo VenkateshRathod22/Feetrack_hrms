@@ -136,40 +136,140 @@ class ApiClient extends GetConnect implements GetxService {
     }
   }
 
-  Future<Response> putData(
-    String uri,
-    String name,
-    dynamic body, {
-    Map<String, dynamic>? query,
-    String? contentType,
-    Map<String, String>? headers,
-    Function(dynamic)? decoder,
-    Function(double)? uploadProgress,
-  }) async {
-    try {
-      if (kDebugMode) {
-        print('====> GetX Call: $uri\nToken: $token');
-        print('====> GetX Body: $body');
-      }
-      Response response = await put(
-        uri,
-        body,
-        query: query,
-        contentType: contentType,
-        headers: headers ?? _mainHeaders,
-        decoder: decoder,
-        uploadProgress: uploadProgress,
+  // Future<Response> putData(
+  //   String uri,
+  //   String name,
+  //   dynamic body, {
+  //   Map<String, dynamic>? query,
+  //   String? contentType,
+  //   Map<String, String>? headers,
+  //   Function(dynamic)? decoder,
+  //   Function(double)? uploadProgress,
+  // }) async {
+  //   try {
+  //     if (kDebugMode) {
+  //       print('====> GetX Call: $uri\nToken: $token');
+  //       print('====> GetX Body: $body');
+  //     }
+
+
+  //     ///---
+  //     Response response = await put(
+  //       uri,
+  //       body,
+  //       query: query,
+  //       contentType: contentType,
+  //       headers: headers ?? _mainHeaders,
+  //       decoder: decoder,
+  //       uploadProgress: uploadProgress,
+  //     );
+  //     response = handleResponse(response);
+  //     log('====> GetX Response: [${response.statusCode}] $uri\n${response.bodyString}');
+  //     if (kDebugMode) {
+  //       // print('====> GetX Response: [${response.statusCode}] $uri\n${response.body}');
+  //     }
+  //     return response;
+  //   } catch (e) {
+  //     return Response(statusCode: 1, statusText: e.toString());
+  //   }
+  // }
+
+
+Future<Response> putData(
+  String uri,
+  String name,
+  dynamic body, {
+  Map<String, dynamic>? query,
+  String? contentType,
+  Map<String, String>? headers,
+  Function(dynamic)? decoder,
+  Function(double)? uploadProgress,
+}) async {
+  try {
+    final Map<String, String> requestHeaders =
+        Map<String, String>.from(headers ?? _mainHeaders ?? {});
+
+    // Multipart requests must use the generated Content-Type boundary.
+    if (body is FormData) {
+      requestHeaders.removeWhere(
+        (key, value) => key.toLowerCase() == 'content-type',
       );
-      response = handleResponse(response);
-      log('====> GetX Response: [${response.statusCode}] $uri\n${response.bodyString}');
-      if (kDebugMode) {
-        // print('====> GetX Response: [${response.statusCode}] $uri\n${response.body}');
-      }
-      return response;
-    } catch (e) {
-      return Response(statusCode: 1, statusText: e.toString());
     }
+
+    if (kDebugMode) {
+      final String baseUrl = AppConstants.baseUrl;
+      final Uri requestUri = Uri.parse('$baseUrl$uri').replace(
+        queryParameters: query?.map(
+          (key, value) => MapEntry(key, value.toString()),
+        ),
+      );
+
+      log('''
+==================== API REQUEST ====================
+API Name    : $name
+Method      : PUT
+Full URL    : $requestUri
+Path        : $uri
+Content Type: ${body is FormData ? 'multipart/form-data (automatic)' : contentType ?? 'default'}
+Headers     : ${requestHeaders.map((key, value) {
+        if (key.toLowerCase() == 'authorization' ||
+            key.toLowerCase() == 'token') {
+          return MapEntry(key, '***REDACTED***');
+        }
+        return MapEntry(key, value);
+      })}
+Body Type   : ${body.runtimeType}
+Request Body: ${body is FormData ? body.fields : body}
+======================================================
+''');
+    }
+
+    Response response = await put(
+      uri,
+      body,
+      query: query,
+      contentType: contentType,
+      headers: requestHeaders,
+      decoder: decoder,
+      uploadProgress: (progress) {
+        if (kDebugMode) {
+          log('API Upload Progress: ${(progress * 100).toStringAsFixed(1)}%');
+        }
+
+        uploadProgress?.call(progress);
+      },
+    );
+
+    response = handleResponse(response);
+
+    if (kDebugMode) {
+      log('''
+==================== API RESPONSE ====================
+API Name    : $name
+Method      : PUT
+Path        : $uri
+Status Code : ${response.statusCode}
+Status Text : ${response.statusText}
+Response    : ${response.bodyString}
+======================================================
+''');
+    }
+
+    return response;
+  } catch (e, stackTrace) {
+    log(
+      'API ERROR: $name | PUT $uri',
+      error: e,
+      stackTrace: stackTrace,
+    );
+
+    return Response(
+      statusCode: 1,
+      statusText: e.toString(),
+    );
   }
+}
+
 
   Future<Response> patchData(
     String uri,
