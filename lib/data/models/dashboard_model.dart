@@ -249,7 +249,7 @@ class MyShift {
     return convertTo12HourFormat(time24: endTime, isShowAMPM: true);
   }
 
-  String get myShiftTimeFormat =>
+  String? get myShiftTimeFormat =>
       "${startTimeFormat ?? "--"} : ${endTimeFormat ?? "--"}";
 }
 

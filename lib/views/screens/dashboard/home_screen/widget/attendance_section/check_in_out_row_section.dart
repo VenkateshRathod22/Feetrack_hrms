@@ -53,7 +53,7 @@ class CheckInAndOutTImeRowSection extends StatelessWidget {
                     child: checkWidget(
                       context: context,
                       title: 'Shift',
-                      subTitle: dashBoardController.dashboardModel?.myShift?.myShiftTimeFormat ?? "-- : --",
+                      subTitle: dashBoardController.dashboardModel?.myShift?.startTimeFormat ?? "-- : --",
                     ),
                   );
                 }

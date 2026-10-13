@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vlr/controllers/auth_controller.dart';
@@ -197,19 +200,65 @@ class ReportsController extends GetxController implements GetxService {
   }
 
   Future<void> getTaskReport({Map<String, dynamic>? search}) async {
-    isLoading = true;
-    update();
-    Response response = await reportsRepo.getTaskReport(search ?? {});
-    if (response.statusCode == 200 && response.body['status'] == "success") {
+  isLoading = true;
+  update();
+
+  try {
+    final Response response = await reportsRepo.getTaskReport(search ?? {});
+    final dynamic body = response.body;
+
+    if (response.statusCode == 200 &&
+        body is Map &&
+        body['status'] == 'success') {
+      final dynamic data = body['data'];
+
+      if (data is! Map || data['data'] is! List) {
+        throw const FormatException(
+          'Invalid task report response: expected data.data to be a list.',
+        );
+      }
+
+      final List<dynamic> taskList = data['data'];
+
+      taskReportList = taskList.map((item) {
+        if (item is! Map) {
+          throw const FormatException(
+            'Invalid task item in task report response.',
+          );
+        }
+
+        return TaskReportModel.fromJson(
+          Map<String, dynamic>.from(item),
+        );
+      }).toList();
+
+      final dynamic summary = body['summary'];
+
+      taskReportSummary = summary is Map
+          ? TaskReportSummary.fromJson(
+              Map<String, dynamic>.from(summary),
+            )
+          : null;
+    } else {
       taskReportList = [];
-      response.body['data']['data'].forEach((v) {
-        taskReportList.add(TaskReportModel.fromJson(v));
-      });
-      taskReportSummary = TaskReportSummary.fromJson(response.body['summary']);
+      taskReportSummary = null;
+
+      log(
+        'Task report API failed: '
+        'statusCode=${response.statusCode}, body=${response.body}',
+      );
     }
+  } catch (e, stackTrace) {
+    log('Error fetching task report: $e');
+    debugPrintStack(stackTrace: stackTrace);
+
+    taskReportList = [];
+    taskReportSummary = null;
+  } finally {
     isLoading = false;
     update();
   }
+}
 
   Future<void> getLeadReport({Map<String, dynamic>? search}) async {
     isLoading = true;

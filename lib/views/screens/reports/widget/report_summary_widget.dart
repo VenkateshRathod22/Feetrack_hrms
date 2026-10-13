@@ -83,7 +83,7 @@ class ReportSummaryWidget extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          color: Colors.grey.shade600,
+                          color: grey,
                           fontSize: 10.sp,
                           fontWeight: FontWeight.w500,
                         ),
@@ -96,7 +96,7 @@ class ReportSummaryWidget extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          color: Colors.black87,
+                          color: black,
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w700,
                         ),

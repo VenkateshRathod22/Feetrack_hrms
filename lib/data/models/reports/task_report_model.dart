@@ -49,11 +49,24 @@ class TaskReportSummary {
   });
 
   factory TaskReportSummary.fromJson(Map<String, dynamic> json) {
+    final dynamic rawStatusCounts = json['status_counts'];
+
+    Map<String, int>? parsedStatusCounts;
+
+    if (rawStatusCounts is Map) {
+      parsedStatusCounts = rawStatusCounts.map(
+        (key, value) => MapEntry(
+          key.toString(),
+          int.tryParse(value.toString()) ?? 0,
+        ),
+      );
+    }
+
     return TaskReportSummary(
-      totalTasks: json['total_tasks'],
-      statusCounts: json['status_counts'] != null 
-          ? Map<String, int>.from(json['status_counts'])
-          : null,
+      totalTasks: int.tryParse(
+        json['total_tasks']?.toString() ?? '',
+      ),
+      statusCounts: parsedStatusCounts,
     );
   }
 }
