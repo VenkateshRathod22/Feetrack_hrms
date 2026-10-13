@@ -233,7 +233,7 @@ class AppConstants {
 
   //* profile
   static const String getProfile = '/hrms/profile';
-  static const String updateProfile = '/hrms/profile';
+  static const String updateProfile = '/hrms/edit-profile';
 
   //* Attendance
   static const String punchInAttendancePost = '/hrms/attendance/punch-in';

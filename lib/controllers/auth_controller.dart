@@ -63,7 +63,6 @@ class AuthController extends GetxController implements GetxService {
         data: FormData(data),
       );
 
-
       log("Registration Response: ${response.body}");
 
       //log("Raw Response: ${response.body}");
@@ -345,56 +344,87 @@ class AuthController extends GetxController implements GetxService {
     log('----------- updateProfile Called ----------');
 
     ResponseModel responseModel;
+
     isLoading = true;
     update();
 
     try {
-      log(profileImage.toString());
-      Map<String, dynamic> data = {
-        "name": fullNameController.text.trim(),
-        "email": emailController.text.trim(),
-        "mobile": mobileController.text.trim(),
-        "profile_image": profileImage == null
-            ? null
-            : MultipartFile(
-                profileImage,
-                filename: profileImage?.path.split('/').last ?? "",
-              ),
-      };
+      final Map<String, dynamic> data = {};
 
-      Map<String, dynamic> dataFCMToken = {
-        "fcm_token": authRepo.getFCMToken(),
-      };
+      if (isUpdateFCMToken) {
+        // Update only the FCM token.
+        data["fcm_token"] = authRepo.getFCMToken();
+      } else {
+        // Update profile details.
+        data["name"] = fullNameController.text.trim();
+        data["email"] = emailController.text.trim();
+        data["mobile"] = mobileController.text.trim();
 
-      Response response = await authRepo.updateProfile(
-          data: isUpdateFCMToken ? FormData(dataFCMToken) : FormData(data));
+        // Include the image only when a new one is selected.
+        if (profileImage != null) {
+          data["profile_image"] = MultipartFile(
+            profileImage!,
+            filename: profileImage!.path.split('/').last,
+          );
+        }
+      }
 
-      if (response.body['status'] == "success") {
+      log('Updating profile: ${!isUpdateFCMToken}');
+
+      final Response response = await authRepo.updateProfile(
+        data: FormData(data),
+      );
+
+      final responseBody = response.body;
+
+      log('updateProfile status code: ${response.statusCode}');
+      log('updateProfile response: $responseBody');
+
+      if (responseBody is Map && responseBody['status'] == "success") {
         responseModel = ResponseModel(
           true,
-          response.body['message'] ?? "updateProfile successful",
+          responseBody['message'] ?? "Profile updated successfully",
         );
-        updateImages(null);
-      } else {
-        String errorMessage =
-            response.body['message'] ?? "Error while updateProfile user";
 
-        if (response.body['errors'] != null) {
-          final errors = response.body['errors'] as Map<String, dynamic>;
+        if (!isUpdateFCMToken) {
+          updateImages(null);
+
+          // Refresh the profile data after a successful update.
+          fetchProfile();
+        }
+      } else {
+        String errorMessage = responseBody is Map
+            ? responseBody['message'] ?? "Error while updating profile"
+            : "Invalid response from server";
+
+        if (responseBody is Map && responseBody['errors'] is Map) {
+          final errors = responseBody['errors'] as Map<String, dynamic>;
+
           if (errors.isNotEmpty) {
-            errorMessage = (errors.values.first as List).first.toString();
+            final firstError = errors.values.first;
+
+            if (firstError is List && firstError.isNotEmpty) {
+              errorMessage = firstError.first.toString();
+            } else {
+              errorMessage = firstError.toString();
+            }
           }
         }
 
         responseModel = ResponseModel(false, errorMessage);
       }
     } catch (e) {
-      log('ERROR AT updateProfile()): $e');
-      responseModel = ResponseModel(false, "Error while updateProfile user $e");
+      log('ERROR AT updateProfile(): $e');
+
+      responseModel = ResponseModel(
+        false,
+        "Error while updating profile: $e",
+      );
+    } finally {
+      isLoading = false;
+      update();
     }
 
-    isLoading = false;
-    update();
     return responseModel;
   }
 
@@ -492,7 +522,9 @@ class AuthController extends GetxController implements GetxService {
     // Handle module alias variations
     // work_shift <-> shift
     if (rawReq.contains('work_shift') || rawReq.contains('workshift')) {
-      candidates.add(rawReq.replaceAll('work_shift', 'shift').replaceAll('workshift', 'shift'));
+      candidates.add(rawReq
+          .replaceAll('work_shift', 'shift')
+          .replaceAll('workshift', 'shift'));
     } else if (rawReq.contains('shift')) {
       candidates.add(rawReq.replaceAll('shift', 'work_shift'));
       candidates.add(rawReq.replaceAll('shift', 'workshift'));
@@ -532,7 +564,8 @@ class AuthController extends GetxController implements GetxService {
       final strippedP = cleanP.replaceAll(RegExp(r'[-_\s]'), '');
 
       if (candidates.contains(cleanP) ||
-          candidates.any((c) => c.replaceAll(RegExp(r'[-_\s]'), '') == strippedP)) {
+          candidates
+              .any((c) => c.replaceAll(RegExp(r'[-_\s]'), '') == strippedP)) {
         return true;
       }
     }

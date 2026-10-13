@@ -31,34 +31,6 @@ class _AttendanceCameraSectionState extends State<AttendanceCameraSection> {
 
   String? _cameraError;
 
-  // -------------------- TOGGLE CAMERA --------------------
-
-  Future<void> _toggleCamera(
-    PermissionController permissionController,
-    AttendanceController attendanceController,
-  ) async {
-    if (attendanceController.isLoading) {
-      showToast(
-        message: "Please wait",
-        toastType: ToastType.warning,
-      );
-      return;
-    }
-
-    if (_isOpeningCamera || _isCapturingSelfie || _isClosingCamera) {
-      return;
-    }
-
-    // Close camera when it is open.
-    if (permissionController.isCameraOn) {
-      await _closeCamera(permissionController);
-      return;
-    }
-
-    // Open camera.
-    await _startCamera(permissionController);
-  }
-
   // -------------------- START CAMERA --------------------
 
   Future<void> _startCamera(
@@ -95,7 +67,7 @@ class _AttendanceCameraSectionState extends State<AttendanceCameraSection> {
 
       newController = CameraController(
         selectedCamera,
-        ResolutionPreset.medium,
+        ResolutionPreset.high,
         enableAudio: false,
       );
 
@@ -331,12 +303,14 @@ class _AttendanceCameraSectionState extends State<AttendanceCameraSection> {
     }
 
     if (_cameraController != null && _cameraController!.value.isInitialized) {
-      return CameraPreview(
-        _cameraController!,
-        key: const ValueKey('live-camera'),
+      return Transform.flip(
+        flipX: false,
+        child: CameraPreview(
+          _cameraController!,
+          key: const ValueKey('live-camera'),
+        ),
       );
     }
-
     return GestureDetector(
       onTap: () {
         _startCamera(Get.find<PermissionController>());
@@ -383,7 +357,7 @@ class _AttendanceCameraSectionState extends State<AttendanceCameraSection> {
       duration: const Duration(milliseconds: 400),
       curve: Curves.easeInOutCubic,
       height: boxHeight,
-width: boxWidth,
+      width: boxWidth,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: black,
@@ -493,7 +467,7 @@ width: boxWidth,
             final File? selfie = permissionController.selfie;
 
             final double cameraBoxSize =
-                MediaQuery.of(context).size.height / 2.3;
+                MediaQuery.of(context).size.height / 1.8;
 
             final bool showButton = permissionController.isCameraOn ||
                 selfie != null ||
