@@ -69,10 +69,25 @@ class PipReportSummary {
   final int? totalPips;
   final Map<String, dynamic>? statusCounts;
 
-  PipReportSummary({this.totalPips, this.statusCounts});
+  PipReportSummary({
+    this.totalPips,
+    this.statusCounts,
+  });
 
-  factory PipReportSummary.fromJson(Map<String, dynamic> json) => PipReportSummary(
-        totalPips: json["total_pips"],
-        statusCounts: json["status_counts"],
-      );
+  factory PipReportSummary.fromJson(Map<String, dynamic> json) {
+    final dynamic rawStatusCounts = json['status_counts'];
+
+    Map<String, dynamic> parsedStatusCounts = {};
+
+    if (rawStatusCounts is Map) {
+      parsedStatusCounts = Map<String, dynamic>.from(rawStatusCounts);
+    }
+
+    return PipReportSummary(
+      totalPips: int.tryParse(
+        json['total_pips']?.toString() ?? '',
+      ),
+      statusCounts: parsedStatusCounts,
+    );
+  }
 }

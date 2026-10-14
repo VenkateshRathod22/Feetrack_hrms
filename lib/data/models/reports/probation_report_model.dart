@@ -78,11 +78,33 @@ class ProbationReportSummary {
   final Map<String, dynamic>? statusCounts;
   final int? isExtendedCount;
 
-  ProbationReportSummary({this.totalRecords, this.statusCounts, this.isExtendedCount});
+  ProbationReportSummary({
+    this.totalRecords,
+    this.statusCounts,
+    this.isExtendedCount,
+  });
 
-  factory ProbationReportSummary.fromJson(Map<String, dynamic> json) => ProbationReportSummary(
-        totalRecords: json["total_records"],
-        statusCounts: json["status_counts"],
-        isExtendedCount: json["is_extended"],
+  factory ProbationReportSummary.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    final dynamic rawStatusCounts = json['status_counts'];
+
+    Map<String, dynamic> parsedStatusCounts = {};
+
+    if (rawStatusCounts is Map) {
+      parsedStatusCounts = Map<String, dynamic>.from(
+        rawStatusCounts,
       );
+    }
+
+    return ProbationReportSummary(
+      totalRecords: int.tryParse(
+        json['total_records']?.toString() ?? '',
+      ),
+      statusCounts: parsedStatusCounts,
+      isExtendedCount: int.tryParse(
+        json['is_extended']?.toString() ?? '',
+      ),
+    );
+  }
 }

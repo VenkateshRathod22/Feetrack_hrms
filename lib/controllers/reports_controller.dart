@@ -519,20 +519,61 @@ Future<void> getNoticeReport({
     update();
   }
 
-  Future<void> getPipReport({Map<String, dynamic>? search}) async {
-    isLoading = true;
-    update();
-    Response response = await reportsRepo.getPipReport(search ?? {});
-    if (response.statusCode == 200 && response.body['status'] == "success") {
-      pipReportList = [];
-      response.body['data']['data'].forEach((v) {
-        pipReportList.add(PipReportModel.fromJson(v));
-      });
-      pipReportSummary = PipReportSummary.fromJson(response.body['summary']);
+ 
+Future<void> getPipReport({
+  Map<String, dynamic>? search,
+}) async {
+  isLoading = true;
+  update();
+
+  try {
+    final Response response = await reportsRepo.getPipReport(
+      search ?? {},
+    );
+
+    final dynamic body = response.body;
+
+    if (response.statusCode == 200 &&
+        body is Map &&
+        body['status'] == 'success') {
+      final dynamic paginationData = body['data'];
+      final dynamic rawPipList =
+          paginationData is Map ? paginationData['data'] : null;
+
+      if (rawPipList is List) {
+        pipReportList = rawPipList
+            .whereType<Map>()
+            .map(
+              (item) => PipReportModel.fromJson(
+                Map<String, dynamic>.from(item),
+              ),
+            )
+            .toList();
+      } else {
+        pipReportList = [];
+      }
+
+      final dynamic rawSummary = body['summary'];
+
+      if (rawSummary is Map) {
+        pipReportSummary = PipReportSummary.fromJson(
+          Map<String, dynamic>.from(rawSummary),
+        );
+      } else {
+        pipReportSummary = null;
+      }
+    } else {
+      debugPrint('PIP report API error: ${response.body}');
     }
+  } catch (e, stackTrace) {
+    debugPrint('Error fetching PIP report: $e');
+    debugPrintStack(stackTrace: stackTrace);
+  } finally {
     isLoading = false;
     update();
   }
+}
+
 
   Future<void> getRecruitmentReport({Map<String, dynamic>? search}) async {
     isLoading = true;

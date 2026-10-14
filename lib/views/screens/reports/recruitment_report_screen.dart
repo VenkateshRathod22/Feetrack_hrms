@@ -13,7 +13,8 @@ class RecruitmentReportScreen extends StatefulWidget {
   const RecruitmentReportScreen({super.key});
 
   @override
-  State<RecruitmentReportScreen> createState() => _RecruitmentReportScreenState();
+  State<RecruitmentReportScreen> createState() =>
+      _RecruitmentReportScreenState();
 }
 
 class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
@@ -21,6 +22,8 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
   DateTime endDate = DateTime.now();
   String? departmentId;
   String? interviewStage;
+  static const String _allDepartments = 'all';
+  static const String _allStage = 'all';
 
   @override
   void initState() {
@@ -45,15 +48,19 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
-        title: CustomText("Recruitment Report", style: Helper(context).textTheme.titleMedium?.copyWith(fontSize: 18.sp)),
+        title: CustomText("Recruitment Report",
+            style: Helper(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith(fontSize: 18.sp)),
         centerTitle: true,
         backgroundColor: white,
         elevation: 0,
         actions: [
           IconButton(
-            onPressed: () => Get.find<ReportsController>().exportReport(uri: AppConstants.recruitmentExport, search: _getSearchMap()),
+            onPressed: () => Get.find<ReportsController>().exportReport(
+                uri: AppConstants.recruitmentExport, search: _getSearchMap()),
             icon: Icon(Icons.download_rounded, color: primaryColor),
           ),
         ],
@@ -63,30 +70,45 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
           child: Column(
             children: [
               _buildFilters(),
-              if (reportsController.isLoading && reportsController.recruitmentReportList.isEmpty)
-                Padding(padding: EdgeInsets.only(top: 100.h), child: const CircularProgressIndicator())
+              if (reportsController.isLoading &&
+                  reportsController.recruitmentReportList.isEmpty)
+                Padding(
+                    padding: EdgeInsets.only(top: 100.h),
+                    child: const CircularProgressIndicator())
               else ...[
                 if (reportsController.recruitmentReportSummary != null)
                   ReportSummaryWidget(items: [
                     ReportSummaryItemModel(
                         label: "Candidates",
-                        value: reportsController.recruitmentReportSummary!.totalCandidates.toString(),
+                        value: reportsController
+                            .recruitmentReportSummary!.totalCandidates
+                            .toString(),
                         icon: Icons.people_rounded),
                     ReportSummaryItemModel(
                         label: "Vacancies",
-                        value: reportsController.recruitmentReportSummary!.totalVacancies.toString(),
+                        value: reportsController
+                            .recruitmentReportSummary!.totalVacancies
+                            .toString(),
                         icon: Icons.work_rounded),
                     ReportSummaryItemModel(
                         label: "Under Review",
-                        value: (reportsController.recruitmentReportSummary!.statusCounts?['under_review'] ?? 0).toString(),
+                        value: (reportsController.recruitmentReportSummary!
+                                    .statusCounts?['under_review'] ??
+                                0)
+                            .toString(),
                         icon: Icons.rate_review_rounded),
                     ReportSummaryItemModel(
                         label: "Pending Offers",
-                        value: (reportsController.recruitmentReportSummary!.offerCounts?['pending'] ?? 0).toString(),
+                        value: (reportsController.recruitmentReportSummary!
+                                    .offerCounts?['pending'] ??
+                                0)
+                            .toString(),
                         icon: Icons.local_offer_rounded),
                   ]),
                 if (reportsController.recruitmentReportList.isEmpty)
-                  Padding(padding: EdgeInsets.only(top: 100.h), child: Text("No data found"))
+                  Padding(
+                      padding: EdgeInsets.only(top: 100.h),
+                      child: Text("No data found"))
                 else
                   ListView.separated(
                     shrinkWrap: true,
@@ -94,7 +116,8 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
                     padding: EdgeInsets.all(16.r),
                     itemCount: reportsController.recruitmentReportList.length,
                     separatorBuilder: (_, __) => sizedBoxHeight(height: 12.h),
-                    itemBuilder: (context, index) => _buildCard(reportsController.recruitmentReportList[index]),
+                    itemBuilder: (context, index) => _buildCard(
+                        reportsController.recruitmentReportList[index]),
                   ),
               ],
             ],
@@ -108,28 +131,71 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
     return Container(
       padding: EdgeInsets.all(16.r),
       margin: EdgeInsets.all(16.r),
-      decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(16.r)),
+      decoration: BoxDecoration(
+          color: white, borderRadius: BorderRadius.circular(16.r)),
       child: Column(
         children: [
           Row(
             children: [
               Expanded(
-                child: GetBuilder<DepartmentController>(builder: (dept) {
-                  return DropdownButtonFormField<String>(
-                    value: departmentId,
-                    hint: Text("Dept"),
-                    items: [const DropdownMenuItem(value: null, child: Text("All Depts")), ...dept.departmentList.map((e) => DropdownMenuItem(value: e.id.toString(), child: Text(e.name ?? "")))],
-                    onChanged: (v) { setState(() => departmentId = v); _fetchReport(); },
-                  );
-                }),
+                child: GetBuilder<DepartmentController>(
+                  builder: (dept) {
+                    return DropdownButtonFormField<String>(
+                      initialValue: departmentId ?? _allDepartments,
+                      isExpanded: true,
+                      decoration: const InputDecoration(
+                        hintText: "Dept",
+                        border: OutlineInputBorder(),
+                      ),
+                      items: [
+                        const DropdownMenuItem<String>(
+                          value: _allDepartments,
+                          child: Text(
+                            "All Depts",
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        ...dept.departmentList.map(
+                          (e) => DropdownMenuItem<String>(
+                            value: e.id.toString(),
+                            child: Text(
+                              e.name ?? "",
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
+                      ],
+                      onChanged: (value) {
+                        setState(() {
+                          departmentId =
+                              value == _allDepartments ? null : value;
+                        });
+
+                        _fetchReport();
+                      },
+                    );
+                  },
+                ),
               ),
               sizedBoxWidth(width: 8),
               Expanded(
                 child: DropdownButtonFormField<String>(
-                  value: interviewStage,
+                  initialValue: interviewStage,
                   hint: Text("Stage"),
-                  items: ['applied', 'interviewed', 'offered', 'joined', 'rejected'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(),
-                  onChanged: (v) { setState(() => interviewStage = v); _fetchReport(); },
+                  items: [
+                    'applied',
+                    'interviewed',
+                    'offered',
+                    'joined',
+                    'rejected'
+                  ]
+                      .map((e) => DropdownMenuItem(
+                          value: e, child: Text(capitalize(e))))
+                      .toList(),
+                  onChanged: (v) {
+                    setState(() => interviewStage = v);
+                    _fetchReport();
+                  },
                 ),
               ),
             ],
@@ -137,13 +203,32 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
           sizedBoxHeight(height: 12),
           InkWell(
             onTap: () async {
-              final picked = await showDateRangePicker(context: context, firstDate: DateTime(2020), lastDate: DateTime.now().add(const Duration(days: 365)), initialDateRange: DateTimeRange(start: startDate, end: endDate));
-              if (picked != null) { setState(() { startDate = picked.start; endDate = picked.end; }); _fetchReport(); }
+              final picked = await showDateRangePicker(
+                  context: context,
+                  firstDate: DateTime(2020),
+                  lastDate: DateTime.now().add(const Duration(days: 365)),
+                  initialDateRange:
+                      DateTimeRange(start: startDate, end: endDate));
+              if (picked != null) {
+                setState(() {
+                  startDate = picked.start;
+                  endDate = picked.end;
+                });
+                _fetchReport();
+              }
             },
             child: Container(
               padding: EdgeInsets.all(12.r),
-              decoration: BoxDecoration(border: Border.all(color: greyLight1), borderRadius: BorderRadius.circular(8.r)),
-              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [Icon(Icons.calendar_today, size: 16, color: primaryColor), sizedBoxWidth(width: 8), Text("${DateFormat('dd-MM-yy').format(startDate)} - ${DateFormat('dd-MM-yy').format(endDate)}")]),
+              decoration: BoxDecoration(
+                  border: Border.all(color: greyLight1),
+                  borderRadius: BorderRadius.circular(8.r)),
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Icon(Icons.calendar_today, size: 16, color: primaryColor),
+                sizedBoxWidth(width: 8),
+                Text(
+                    "${DateFormat('dd-MM-yy').format(startDate)} - ${DateFormat('dd-MM-yy').format(endDate)}")
+              ]),
             ),
           ),
         ],
@@ -154,19 +239,23 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
   Widget _buildCard(item) {
     return Container(
       padding: EdgeInsets.all(16.r),
-      decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(16.r)),
+      decoration: BoxDecoration(
+          color: white, borderRadius: BorderRadius.circular(16.r)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: CustomText(item.candidateName ?? "N/A", style: const TextStyle(fontWeight: FontWeight.bold))),
+              Expanded(
+                  child: CustomText(item.candidateName ?? "N/A",
+                      style: const TextStyle(fontWeight: FontWeight.bold))),
               _buildBadge(item.interviewStage),
             ],
           ),
           sizedBoxHeight(height: 4),
-          CustomText(item.jobTitle ?? "N/A", style: TextStyle(fontSize: 12.sp, color: primaryColor)),
+          CustomText(item.jobTitle ?? "N/A",
+              style: TextStyle(fontSize: 12.sp, color: primaryColor)),
           sizedBoxHeight(height: 8),
           _infoRow(Icons.email_outlined, item.candidateEmail ?? "N/A"),
           _infoRow(Icons.phone_outlined, item.candidatePhone ?? "N/A"),
@@ -179,15 +268,25 @@ class _RecruitmentReportScreenState extends State<RecruitmentReportScreen> {
   Widget _infoRow(IconData icon, String text) {
     return Padding(
       padding: EdgeInsets.only(bottom: 4.h),
-      child: Row(children: [Icon(icon, size: 14, color: grey), sizedBoxWidth(width: 8), Text(text, style: TextStyle(fontSize: 11.sp, color: greyDart2))]),
+      child: Row(children: [
+        Icon(icon, size: 14, color: grey),
+        sizedBoxWidth(width: 8),
+        Text(text, style: TextStyle(fontSize: 11.sp, color: greyDart2))
+      ]),
     );
   }
 
   Widget _buildBadge(String? text) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
-      decoration: BoxDecoration(color: primaryColor.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(4.r)),
-      child: CustomText(capitalize(text), style: TextStyle(fontSize: 10.sp, color: primaryColor, fontWeight: FontWeight.bold)),
+      decoration: BoxDecoration(
+          color: primaryColor.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(4.r)),
+      child: CustomText(capitalize(text),
+          style: TextStyle(
+              fontSize: 10.sp,
+              color: primaryColor,
+              fontWeight: FontWeight.bold)),
     );
   }
 }

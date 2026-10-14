@@ -58,6 +58,7 @@ class ResignationExitReportModel {
       );
 }
 
+
 class ResignationExitReportSummary {
   final int? totalRecords;
   final Map<String, dynamic>? statusCounts;
@@ -73,11 +74,28 @@ class ResignationExitReportSummary {
     this.totalFnfAmount,
   });
 
-  factory ResignationExitReportSummary.fromJson(Map<String, dynamic> json) => ResignationExitReportSummary(
-        totalRecords: json["total_records"],
-        statusCounts: json["status_counts"],
-        clearanceCounts: json["clearance_counts"],
-        fnfCounts: json["fnf_counts"],
-        totalFnfAmount: json["total_fnf_amount"],
-      );
+  factory ResignationExitReportSummary.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    Map<String, dynamic> parseCounts(dynamic value) {
+      if (value is Map) {
+        return Map<String, dynamic>.from(value);
+      }
+
+      // Handle [] or null safely.
+      return <String, dynamic>{};
+    }
+
+    return ResignationExitReportSummary(
+      totalRecords: int.tryParse(
+        json['total_records']?.toString() ?? '',
+      ),
+      statusCounts: parseCounts(json['status_counts']),
+      clearanceCounts: parseCounts(json['clearance_counts']),
+      fnfCounts: parseCounts(json['fnf_counts']),
+      totalFnfAmount: num.tryParse(
+        json['total_fnf_amount']?.toString() ?? '',
+      ),
+    );
+  }
 }

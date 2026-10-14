@@ -104,11 +104,28 @@ class RecruitmentReportSummary {
     this.joiningCounts,
   });
 
-  factory RecruitmentReportSummary.fromJson(Map<String, dynamic> json) => RecruitmentReportSummary(
-        totalCandidates: json["total_candidates"],
-        totalVacancies: json["total_vacancies"],
-        statusCounts: json["status_counts"],
-        offerCounts: json["offer_counts"],
-        joiningCounts: json["joining_counts"],
-      );
+  factory RecruitmentReportSummary.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    Map<String, dynamic> parseCounts(dynamic value) {
+      if (value is Map) {
+        return Map<String, dynamic>.from(value);
+      }
+
+      // API may return [] or null when there are no records.
+      return <String, dynamic>{};
+    }
+
+    return RecruitmentReportSummary(
+      totalCandidates: int.tryParse(
+        json['total_candidates']?.toString() ?? '',
+      ),
+      totalVacancies: int.tryParse(
+        json['total_vacancies']?.toString() ?? '',
+      ),
+      statusCounts: parseCounts(json['status_counts']),
+      offerCounts: parseCounts(json['offer_counts']),
+      joiningCounts: parseCounts(json['joining_counts']),
+    );
+  }
 }
