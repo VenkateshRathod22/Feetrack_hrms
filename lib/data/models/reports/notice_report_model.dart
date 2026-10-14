@@ -33,6 +33,7 @@ class NoticeReportModel {
   }
 }
 
+
 class NoticeReportSummary {
   final int? totalNotices;
   final Map<String, int>? typeCounts;
@@ -43,11 +44,22 @@ class NoticeReportSummary {
   });
 
   factory NoticeReportSummary.fromJson(Map<String, dynamic> json) {
+    final dynamic rawTypeCounts = json['type_counts'];
+
+    final Map<String, int> parsedTypeCounts = {};
+
+    if (rawTypeCounts is Map) {
+      rawTypeCounts.forEach((key, value) {
+        parsedTypeCounts[key.toString()] =
+            int.tryParse(value.toString()) ?? 0;
+      });
+    }
+
     return NoticeReportSummary(
-      totalNotices: json['total_notices'],
-      typeCounts: json['type_counts'] != null 
-          ? Map<String, int>.from(json['type_counts'])
-          : null,
+      totalNotices: int.tryParse(
+        json['total_notices']?.toString() ?? '',
+      ),
+      typeCounts: parsedTypeCounts,
     );
   }
 }

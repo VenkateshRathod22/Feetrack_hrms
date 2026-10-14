@@ -46,11 +46,25 @@ class LeadReportSummary {
   });
 
   factory LeadReportSummary.fromJson(Map<String, dynamic> json) {
+    final dynamic rawStatusCounts = json['status_counts'];
+
+    final Map<String, int> parsedStatusCounts = {};
+
+    // Handle status_counts when the API returns a JSON object.
+    if (rawStatusCounts is Map) {
+      rawStatusCounts.forEach((key, value) {
+        parsedStatusCounts[key.toString()] =
+            int.tryParse(value.toString()) ?? 0;
+      });
+    }
+
+    // If the API returns [], keep an empty map instead.
+    // This prevents the List-to-Map type error.
     return LeadReportSummary(
-      totalLeads: json['total_leads'],
-      statusCounts: json['status_counts'] != null 
-          ? Map<String, int>.from(json['status_counts'])
-          : null,
+      totalLeads: int.tryParse(
+        json['total_leads']?.toString() ?? '',
+      ),
+      statusCounts: parsedStatusCounts,
     );
   }
 }

@@ -59,27 +59,55 @@ class OrderReportModel {
 
 class OrderReportSummary {
   final int? totalOrders;
-  final num? totalFinalAmount;
+  final double? totalRevenue;
+  final double? collectedAmount;
+  final double? pendingBalance;
+  final double? totalFinalAmount;
   final Map<String, int>? approvalCounts;
   final Map<String, int>? paymentCounts;
 
   OrderReportSummary({
     this.totalOrders,
+    this.totalRevenue,
+    this.collectedAmount,
+    this.pendingBalance,
     this.totalFinalAmount,
     this.approvalCounts,
     this.paymentCounts,
   });
 
   factory OrderReportSummary.fromJson(Map<String, dynamic> json) {
+    int? parseInt(dynamic value) {
+      return int.tryParse(value?.toString() ?? '');
+    }
+
+    double? parseDouble(dynamic value) {
+      return double.tryParse(value?.toString() ?? '');
+    }
+
+    Map<String, int> parseCounts(dynamic value) {
+      final Map<String, int> result = {};
+
+      // Parse a JSON object such as {"approved": 5, "pending": 2}.
+      if (value is Map) {
+        value.forEach((key, count) {
+          result[key.toString()] =
+              int.tryParse(count.toString()) ?? 0;
+        });
+      }
+
+      // If the API sends [], keep an empty map.
+      return result;
+    }
+
     return OrderReportSummary(
-      totalOrders: json['total_orders'],
-      totalFinalAmount: json['total_final_amount'],
-      approvalCounts: json['approval_counts'] != null 
-          ? Map<String, int>.from(json['approval_counts'])
-          : null,
-      paymentCounts: json['payment_counts'] != null 
-          ? Map<String, int>.from(json['payment_counts'])
-          : null,
+      totalOrders: parseInt(json['total_orders']),
+      totalRevenue: parseDouble(json['total_revenue']),
+      collectedAmount: parseDouble(json['collected_amount']),
+      pendingBalance: parseDouble(json['pending_balance']),
+      totalFinalAmount: parseDouble(json['total_final_amount']),
+      approvalCounts: parseCounts(json['approval_counts']),
+      paymentCounts: parseCounts(json['payment_counts']),
     );
   }
 }

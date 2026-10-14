@@ -260,35 +260,117 @@ class ReportsController extends GetxController implements GetxService {
   }
 }
 
-  Future<void> getLeadReport({Map<String, dynamic>? search}) async {
-    isLoading = true;
-    update();
-    Response response = await reportsRepo.getLeadReport(search ?? {});
-    if (response.statusCode == 200 && response.body['status'] == "success") {
-      leadReportList = [];
-      response.body['data']['data'].forEach((v) {
-        leadReportList.add(LeadReportModel.fromJson(v));
-      });
-      leadReportSummary = LeadReportSummary.fromJson(response.body['summary']);
-    }
-    isLoading = false;
-    update();
-  }
+  
+Future<void> getLeadReport({Map<String, dynamic>? search}) async {
+  isLoading = true;
+  update();
 
-  Future<void> getOrderReport({Map<String, dynamic>? search}) async {
-    isLoading = true;
-    update();
-    Response response = await reportsRepo.getOrderReport(search ?? {});
-    if (response.statusCode == 200 && response.body['status'] == "success") {
-      orderReportList = [];
-      response.body['data']['data'].forEach((v) {
-        orderReportList.add(OrderReportModel.fromJson(v));
-      });
-      orderReportSummary = OrderReportSummary.fromJson(response.body['summary']);
+  try {
+    final Response response = await reportsRepo.getLeadReport(
+      search ?? {},
+    );
+
+    final dynamic body = response.body;
+
+    if (response.statusCode == 200 &&
+        body is Map &&
+        body['status'] == 'success') {
+      final dynamic paginationData = body['data'];
+      final dynamic rawLeadList =
+          paginationData is Map ? paginationData['data'] : null;
+
+      if (rawLeadList is List) {
+        leadReportList = rawLeadList
+            .whereType<Map>()
+            .map(
+              (item) => LeadReportModel.fromJson(
+                Map<String, dynamic>.from(item),
+              ),
+            )
+            .toList();
+      } else {
+        leadReportList = [];
+      }
+
+      final dynamic rawSummary = body['summary'];
+
+      if (rawSummary is Map) {
+        leadReportSummary = LeadReportSummary.fromJson(
+          Map<String, dynamic>.from(rawSummary),
+        );
+      } else {
+        leadReportSummary = null;
+      }
+    } else {
+      debugPrint(
+        'Lead report API error: '
+        'Status code: ${response.statusCode}, '
+        'Response: $body',
+      );
     }
+  } catch (e, stackTrace) {
+    debugPrint('Error fetching lead report: $e');
+    debugPrintStack(stackTrace: stackTrace);
+  } finally {
     isLoading = false;
     update();
   }
+}
+
+
+ Future<void> getOrderReport({
+  Map<String, dynamic>? search,
+}) async {
+  isLoading = true;
+  update();
+
+  try {
+    final Response response = await reportsRepo.getOrderReport(
+      search ?? {},
+    );
+
+    final dynamic body = response.body;
+
+    if (response.statusCode == 200 &&
+        body is Map &&
+        body['status'] == 'success') {
+      final dynamic paginationData = body['data'];
+      final dynamic rawOrderList =
+          paginationData is Map ? paginationData['data'] : null;
+
+      if (rawOrderList is List) {
+        orderReportList = rawOrderList
+            .whereType<Map>()
+            .map(
+              (item) => OrderReportModel.fromJson(
+                Map<String, dynamic>.from(item),
+              ),
+            )
+            .toList();
+      } else {
+        orderReportList = [];
+      }
+
+      final dynamic rawSummary = body['summary'];
+
+      if (rawSummary is Map) {
+        orderReportSummary = OrderReportSummary.fromJson(
+          Map<String, dynamic>.from(rawSummary),
+        );
+      } else {
+        orderReportSummary = null;
+      }
+    } else {
+      debugPrint('Order report API error: ${response.body}');
+    }
+  } catch (e, stackTrace) {
+    debugPrint('Error fetching order report: $e');
+    debugPrintStack(stackTrace: stackTrace);
+  } finally {
+    isLoading = false;
+    update();
+  }
+}
 
   Future<void> getPayrollReport({Map<String, dynamic>? search}) async {
     isLoading = true;
@@ -320,20 +402,60 @@ class ReportsController extends GetxController implements GetxService {
     update();
   }
 
-  Future<void> getNoticeReport({Map<String, dynamic>? search}) async {
-    isLoading = true;
-    update();
-    Response response = await reportsRepo.getNoticeReport(search ?? {});
-    if (response.statusCode == 200 && response.body['status'] == "success") {
-      noticeReportList = [];
-      response.body['data']['data'].forEach((v) {
-        noticeReportList.add(NoticeReportModel.fromJson(v));
-      });
-      noticeReportSummary = NoticeReportSummary.fromJson(response.body['summary']);
+  
+Future<void> getNoticeReport({
+  Map<String, dynamic>? search,
+}) async {
+  isLoading = true;
+  update();
+
+  try {
+    final Response response = await reportsRepo.getNoticeReport(
+      search ?? {},
+    );
+
+    final dynamic body = response.body;
+
+    if (response.statusCode == 200 &&
+        body is Map &&
+        body['status'] == 'success') {
+      final dynamic paginationData = body['data'];
+      final dynamic rawNoticeList =
+          paginationData is Map ? paginationData['data'] : null;
+
+      if (rawNoticeList is List) {
+        noticeReportList = rawNoticeList
+            .whereType<Map>()
+            .map(
+              (item) => NoticeReportModel.fromJson(
+                Map<String, dynamic>.from(item),
+              ),
+            )
+            .toList();
+      } else {
+        noticeReportList = [];
+      }
+
+      final dynamic rawSummary = body['summary'];
+
+      if (rawSummary is Map) {
+        noticeReportSummary = NoticeReportSummary.fromJson(
+          Map<String, dynamic>.from(rawSummary),
+        );
+      } else {
+        noticeReportSummary = null;
+      }
+    } else {
+      debugPrint('Notice report API error: ${response.body}');
     }
+  } catch (e, stackTrace) {
+    debugPrint('Error fetching notice report: $e');
+    debugPrintStack(stackTrace: stackTrace);
+  } finally {
     isLoading = false;
     update();
   }
+}
 
   Future<void> getProductCategoryReport({Map<String, dynamic>? search}) async {
     isLoading = true;
