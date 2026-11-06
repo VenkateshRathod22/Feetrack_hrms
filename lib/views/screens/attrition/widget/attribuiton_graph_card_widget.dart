@@ -18,7 +18,8 @@ class AtribuitonGraphCardWidget extends StatelessWidget {
       return Container(
         margin: EdgeInsets.symmetric(horizontal: 16.w),
         padding: EdgeInsets.all(16.r),
-        decoration: BoxDecoration(
+        decoration: Get.isDarkMode ? darkThemeContainerDecoration  :  BoxDecoration(
+
           color: white,
           borderRadius: BorderRadius.circular(16.r),
           boxShadow: [

@@ -44,7 +44,7 @@ class AtributionSummaryWidget extends StatelessWidget {
                 _buildSummaryCard(
                   context,
                   "Total Staff",
-                  analytics.totalStaff.toString(),
+                  (analytics.totalStaff ??  0).toString(),
                   Icons.people,
                   Colors.blue,
                 ),
@@ -52,7 +52,7 @@ class AtributionSummaryWidget extends StatelessWidget {
                 _buildSummaryCard(
                   context,
                   "Avg Headcount",
-                  analytics.avgHeadcount.toString(),
+                  (analytics.avgHeadcount ?? 0 ).toString(),
                   Icons.analytics,
                   Colors.green,
                 ),

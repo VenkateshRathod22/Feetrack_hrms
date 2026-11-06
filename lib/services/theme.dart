@@ -269,8 +269,9 @@ Color get dividerColor1 =>
 
 Color get containerBg => _isDark ? const Color(0xFF131B2E) : Colors.white;
 
-BoxDecoration get containerDecoration => _isDark
-    ? BoxDecoration(
+
+BoxDecoration get darkThemeContainerDecoration => 
+    BoxDecoration(
         color: containerBg,
         borderRadius: BorderRadius.circular(20.r),
         border: Border.all(
@@ -291,7 +292,10 @@ BoxDecoration get containerDecoration => _isDark
               spreadRadius: -3,
               color: black.withValues(alpha: 0.1),
             )
-          ])
+          ]);
+
+BoxDecoration get containerDecoration => _isDark
+    ? darkThemeContainerDecoration
     : BoxDecoration(
         color: containerBg,
         borderRadius: BorderRadius.circular(20.r),

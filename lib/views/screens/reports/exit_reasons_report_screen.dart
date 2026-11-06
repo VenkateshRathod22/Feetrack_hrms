@@ -74,17 +74,17 @@ class _ExitReasonsReportScreenState extends State<ExitReasonsReportScreen> {
                     items: [
                       ReportSummaryItemModel(
                         label: "Total Reasons",
-                        value: reportsController.exitReasonReportSummary!.totalReasons.toString(),
+                        value: (reportsController.exitReasonReportSummary!.totalReasons ?? 0).toString(),
                         icon: Icons.list_alt_rounded,
                       ),
                       ReportSummaryItemModel(
                         label: "Voluntary",
-                        value: reportsController.exitReasonReportSummary!.voluntaryCount.toString(),
+                        value: (reportsController.exitReasonReportSummary!.voluntaryCount ?? 0).toString(),
                         icon: Icons.person_remove_rounded,
                       ),
                       ReportSummaryItemModel(
                         label: "Involuntary",
-                        value: reportsController.exitReasonReportSummary!.involuntaryCount.toString(),
+                        value: (reportsController.exitReasonReportSummary!.involuntaryCount ?? 0).toString(),
                         icon: Icons.person_off_rounded,
                       ),
                     ],

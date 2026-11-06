@@ -15,7 +15,6 @@ import 'package:vlr/views/base/custom_dropdown.dart';
 import 'package:vlr/views/screens/document/add_document_screen.dart';
 import 'package:vlr/views/screens/document/add_document_detail_Screen.dart';
 import 'package:vlr/views/widget/text_box/app_text_box.dart';
-import 'package:collection/collection.dart';
 
 class DocumentScreen extends StatefulWidget {
   const DocumentScreen({super.key});

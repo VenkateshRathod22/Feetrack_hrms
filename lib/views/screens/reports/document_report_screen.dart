@@ -104,64 +104,142 @@ class _DocumentReportScreenState extends State<DocumentReportScreen> {
     );
   }
 
-  Widget _buildFilters() {
-    return Container(
-      padding: EdgeInsets.all(16.r),
-      margin: EdgeInsets.all(16.r),
-      decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(16.r)),
-      child: Column(children: [
-        Row(children: [
-          Expanded(
-              child: DropdownButtonFormField<String>(
-                  value: documentCategory,
-                  hint: Text("Category"),
-                  items: ['kyc', 'education', 'experience', 'joining'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(),
-                  onChanged: (v) {
-                    setState(() => documentCategory = v);
-                    _fetchReport();
-                  })),
-          sizedBoxWidth(width: 8),
-          Expanded(
-              child: DropdownButtonFormField<String>(
-                  value: status,
-                  hint: Text("Status"),
-                  items: ['verified', 'pending_verification', 'rejected']
-                      .map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e.replaceAll("_", " ")))))
-                      .toList(),
-                  onChanged: (v) {
-                    setState(() => status = v);
-                    _fetchReport();
-                  })),
-        ]),
+  
+Widget _buildFilters() {
+  return Container(
+    padding: EdgeInsets.all(16.r),
+    margin: EdgeInsets.all(16.r),
+    decoration: BoxDecoration(
+      color: white,
+      borderRadius: BorderRadius.circular(16.r),
+    ),
+    child: Column(
+      children: [
+      
+Row(
+  children: [
+    Expanded(
+      child: DropdownButtonFormField<String>(
+        initialValue: documentCategory,
+        isExpanded: true,
+        decoration: const InputDecoration(
+          hintText: "Category",
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 12,
+          ),
+        ),
+        items: ['kyc', 'education', 'experience', 'joining']
+            .map(
+              (e) => DropdownMenuItem<String>(
+                value: e,
+                child: Text(
+                  capitalize(e),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+              ),
+            )
+            .toList(),
+        onChanged: (v) {
+          setState(() {
+            documentCategory = v;
+          });
+          _fetchReport();
+        },
+      ),
+    ),
+    sizedBoxWidth(width: 8),
+    Expanded(
+      child: DropdownButtonFormField<String>(
+        initialValue: status,
+        isExpanded: true,
+        decoration: const InputDecoration(
+          hintText: "Status",
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 12,
+          ),
+        ),
+        items: [
+          'verified',
+          'pending_verification',
+          'rejected',
+        ]
+            .map(
+              (e) => DropdownMenuItem<String>(
+                value: e,
+                child: Text(
+                  capitalize(e.replaceAll("_", " ")),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+              ),
+            )
+            .toList(),
+        onChanged: (v) {
+          setState(() {
+            status = v;
+          });
+          _fetchReport();
+        },
+      ),
+    ),
+  ],
+)
+,
         sizedBoxHeight(height: 12),
         InkWell(
           onTap: () async {
             final picked = await showDateRangePicker(
-                context: context,
-                firstDate: DateTime(2020),
-                lastDate: DateTime.now().add(const Duration(days: 365)),
-                initialDateRange: DateTimeRange(start: startDate, end: endDate));
+              context: context,
+              firstDate: DateTime(2020),
+              lastDate: DateTime.now().add(
+                const Duration(days: 365),
+              ),
+              initialDateRange: DateTimeRange(
+                start: startDate,
+                end: endDate,
+              ),
+            );
+
             if (picked != null) {
               setState(() {
                 startDate = picked.start;
                 endDate = picked.end;
               });
+
               _fetchReport();
             }
           },
           child: Container(
             padding: EdgeInsets.all(12.r),
-            decoration: BoxDecoration(border: Border.all(color: greyLight1), borderRadius: BorderRadius.circular(8.r)),
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-               Icon(Icons.calendar_today, size: 16, color: primaryColor),
-              sizedBoxWidth(width: 8),
-              Text("${DateFormat('dd-MM-yy').format(startDate)} - ${DateFormat('dd-MM-yy').format(endDate)}")
-            ]),
+            decoration: BoxDecoration(
+              border: Border.all(color: greyLight1),
+              borderRadius: BorderRadius.circular(8.r),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.calendar_today,
+                  size: 16,
+                  color: primaryColor,
+                ),
+                sizedBoxWidth(width: 8),
+                Text(
+                  "${DateFormat('dd-MM-yy').format(startDate)} - "
+                  "${DateFormat('dd-MM-yy').format(endDate)}",
+                ),
+              ],
+            ),
           ),
         ),
-      ]),
-    );
-  }
+      ],
+    ),
+  );
+}
+
 
   Widget _buildCard(item) {
     return Container(

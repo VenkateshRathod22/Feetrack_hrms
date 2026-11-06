@@ -82,9 +82,24 @@ class GrievanceDisciplineReportSummary {
     this.typeCounts,
   });
 
-  factory GrievanceDisciplineReportSummary.fromJson(Map<String, dynamic> json) => GrievanceDisciplineReportSummary(
-        totalRecords: json["total_records"],
-        statusCounts: json["status_counts"],
-        typeCounts: json["type_counts"],
-      );
+  factory GrievanceDisciplineReportSummary.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    Map<String, dynamic> parseCounts(dynamic value) {
+      if (value is Map) {
+        return Map<String, dynamic>.from(value);
+      }
+
+      // Handle empty lists [] or null from the API.
+      return <String, dynamic>{};
+    }
+
+    return GrievanceDisciplineReportSummary(
+      totalRecords: int.tryParse(
+        json['total_records']?.toString() ?? '',
+      ),
+      statusCounts: parseCounts(json['status_counts']),
+      typeCounts: parseCounts(json['type_counts']),
+    );
+  }
 }

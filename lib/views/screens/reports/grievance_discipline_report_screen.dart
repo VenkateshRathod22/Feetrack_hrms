@@ -100,43 +100,105 @@ class _GrievanceDisciplineReportScreenState extends State<GrievanceDisciplineRep
     );
   }
 
-  Widget _buildFilters() {
-    return Container(
-      padding: EdgeInsets.all(16.r),
-      margin: EdgeInsets.all(16.r),
-      decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(16.r)),
-      child: Column(children: [
-        Row(children: [
-          Expanded(
+  
+Widget _buildFilters() {
+  return Container(
+    padding: EdgeInsets.all(16.r),
+    margin: EdgeInsets.all(16.r),
+    decoration: BoxDecoration(
+      color: white,
+      borderRadius: BorderRadius.circular(16.r),
+    ),
+    child: Column(
+      children: [
+        Row(
+          children: [
+            Expanded(
               child: DropdownButtonFormField<String>(
-                  value: recordType,
-                  hint: Text("Type"),
-                  items: ['grievance', 'disciplinary', 'warning', 'suspension'].map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e)))).toList(),
-                  onChanged: (v) {
-                    setState(() => recordType = v);
-                    _fetchReport();
-                  })),
-          sizedBoxWidth(width: 8),
-          Expanded(
+                initialValue: recordType,
+                isExpanded: true,
+                decoration: const InputDecoration(
+                  hintText: "Type",
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 12,
+                  ),
+                ),
+                items: [
+                  'grievance',
+                  'disciplinary',
+                  'warning',
+                  'suspension',
+                ].map((e) {
+                  return DropdownMenuItem<String>(
+                    value: e,
+                    child: Text(
+                      capitalize(e),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  );
+                }).toList(),
+                onChanged: (v) {
+                  setState(() {
+                    recordType = v;
+                  });
+                  _fetchReport();
+                },
+              ),
+            ),
+            sizedBoxWidth(width: 8),
+            Expanded(
               child: DropdownButtonFormField<String>(
-                  value: status,
-                  hint: Text("Status"),
-                  items: ['open', 'under_investigation', 'resolved', 'closed']
-                      .map((e) => DropdownMenuItem(value: e, child: Text(capitalize(e.replaceAll("_", " ")))))
-                      .toList(),
-                  onChanged: (v) {
-                    setState(() => status = v);
-                    _fetchReport();
-                  })),
-        ]),
+                initialValue: status,
+                isExpanded: true,
+                decoration: const InputDecoration(
+                  hintText: "Status",
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 12,
+                  ),
+                ),
+                items: [
+                  'open',
+                  'under_investigation',
+                  'resolved',
+                  'closed',
+                ].map((e) {
+                  return DropdownMenuItem<String>(
+                    value: e,
+                    child: Text(
+                      capitalize(e.replaceAll("_", " ")),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  );
+                }).toList(),
+                onChanged: (v) {
+                  setState(() {
+                    status = v;
+                  });
+                  _fetchReport();
+                },
+              ),
+            ),
+          ],
+        ),
         sizedBoxHeight(height: 12),
         InkWell(
           onTap: () async {
             final picked = await showDateRangePicker(
-                context: context,
-                firstDate: DateTime(2020),
-                lastDate: DateTime.now().add(const Duration(days: 365)),
-                initialDateRange: DateTimeRange(start: startDate, end: endDate));
+              context: context,
+              firstDate: DateTime(2020),
+              lastDate: DateTime.now().add(
+                const Duration(days: 365),
+              ),
+              initialDateRange: DateTimeRange(
+                start: startDate,
+                end: endDate,
+              ),
+            );
+
             if (picked != null) {
               setState(() {
                 startDate = picked.start;
@@ -147,17 +209,36 @@ class _GrievanceDisciplineReportScreenState extends State<GrievanceDisciplineRep
           },
           child: Container(
             padding: EdgeInsets.all(12.r),
-            decoration: BoxDecoration(border: Border.all(color: greyLight1), borderRadius: BorderRadius.circular(8.r)),
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-               Icon(Icons.calendar_today, size: 16, color: primaryColor),
-              sizedBoxWidth(width: 8),
-              Text("${DateFormat('dd-MM-yy').format(startDate)} - ${DateFormat('dd-MM-yy').format(endDate)}")
-            ]),
+            decoration: BoxDecoration(
+              border: Border.all(color: greyLight1),
+              borderRadius: BorderRadius.circular(8.r),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.calendar_today,
+                  size: 16,
+                  color: primaryColor,
+                ),
+                sizedBoxWidth(width: 8),
+                Flexible(
+                  child: Text(
+                    "${DateFormat('dd-MM-yy').format(startDate)} - "
+                    "${DateFormat('dd-MM-yy').format(endDate)}",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      ]),
-    );
-  }
+      ],
+    ),
+  );
+}
+
 
   Widget _buildCard(item) {
     return Container(

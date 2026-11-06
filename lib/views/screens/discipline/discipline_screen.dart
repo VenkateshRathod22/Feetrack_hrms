@@ -14,7 +14,6 @@ import 'package:vlr/services/theme.dart';
 import 'package:vlr/views/base/custom_dropdown.dart';
 import 'package:vlr/views/screens/discipline/add_grievance_disciplined_screen.dart';
 import 'package:vlr/views/widget/text_box/app_text_box.dart';
-import 'package:collection/collection.dart';
 
 class DisciplineScreen extends StatefulWidget {
   const DisciplineScreen({super.key});

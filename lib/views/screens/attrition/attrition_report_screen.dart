@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:vlr/controllers/reports_controller.dart';
 import 'package:vlr/controllers/attrition_controller.dart';
-import 'package:vlr/controllers/department_controller.dart';
 import 'package:vlr/data/models/reports/attrition_report_model.dart';
 import 'package:vlr/services/constants.dart';
 import 'package:vlr/services/custom_text.dart';
